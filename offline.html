@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark-mode">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bağlantı Koptu | Tevhid.tr</title>
+  <meta name="theme-color" content="#1a1c18">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0; padding: 0; height: 100vh;
+      background-color: #1a1c18; color: #e2e8e0;
+      font-family: 'Lora', serif;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
+    }
+    
+    .karanlik-oda {
+      max-width: 600px;
+      padding: 40px 20px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .sirli-nokta {
+      color: #cda45e;
+      font-size: 80px;
+      line-height: 0;
+      display: block;
+      margin-bottom: 40px;
+      animation: pulse 4s infinite alternate;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #a3bca0;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    .tekrar-dene-btn {
+      background: transparent;
+      border: 1px solid #cda45e;
+      color: #cda45e;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .tekrar-dene-btn:hover {
+      background: rgba(205, 164, 94, 0.1);
+      box-shadow: 0 0 20px rgba(205, 164, 94, 0.2);
+    }
+
+    /* Hata Anında Çalışacak Sarsıntı ve Renk Efekti */
+    .tekrar-dene-btn.hata {
+      animation: sarsinti 0.4s ease;
+      border-color: #d9534f;
+      color: #d9534f;
+      background: rgba(217, 83, 79, 0.05);
+      box-shadow: none;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { from { text-shadow: 0 0 10px rgba(205,164,94,0.1); } to { text-shadow: 0 0 30px rgba(205,164,94,0.6); } }
+    
+    @keyframes sarsinti {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-5px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="karanlik-oda">
+    <span class="sirli-nokta">.</span>
+    <h1>Dünyayla Bağlantınız Koptu</h1>
+    <p>İnternet erişiminiz şu an bulunmuyor.<br><br>Belki de bu bir hata değil, dijital gürültüden uzaklaşıp kendi içinize dönmeniz ve tefekkür etmeniz için Rabb'inizden gelen sessiz bir davettir...</p>
+    
+    <button class="tekrar-dene-btn" onclick="baglantiyiKontrolEt(this)">Tekrar Bağlanmayı Dene</button>
+  </div>
+
+  <script>
+    function baglantiyiKontrolEt(btn) {
+      const orjinalMetin = btn.innerHTML;
+      
+      // Geçici olarak butonu beklemeye alalım
+      btn.innerHTML = "Bağlanıyor...";
+      btn.style.pointerEvents = "none";
+
+      // 1. Tarayıcı seviyesinde internet var mı?
+      if (navigator.onLine) {
+        // 2. Tarayıcı yanılıyor olabilir (Modemde internet yok ama Wi-Fi bağlı olabilir). 
+        // Bunu anlamak için Service Worker'ı atlayarak (no-store) sunucuya ufak bir sinyal gönderiyoruz.
+        fetch('/?_t=' + new Date().getTime(), { method: 'HEAD', cache: 'no-store' })
+          .then(() => {
+            // Gerçekten internet var! Sayfayı asıl gitmek istediği yere yenile.
+            window.location.reload();
+          })
+          .catch(() => {
+            // Sunucuya ulaşılamadı (İnternet gerçekten yok)
+            hataGoster(btn, orjinalMetin);
+          });
+      } else {
+        // Tarayıcı zaten offline olduğunu biliyor
+        hataGoster(btn, orjinalMetin);
+      }
+    }
+
+    function hataGoster(btn, orjinalMetin) {
+      btn.innerHTML = "Hâlâ bağlantınız yok...";
+      btn.classList.add("hata");
+      
+      setTimeout(() => {
+        btn.innerHTML = orjinalMetin;
+        btn.classList.remove("hata");
+        btn.style.pointerEvents = "auto";
+      }, 2500);
+    }
+  </script>
+<div class="alt-sis"></div>
+</body>
+</html>

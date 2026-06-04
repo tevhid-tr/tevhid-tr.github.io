@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rezzâk Labirenti | Kâinat Bahçesi | Tevhid.tr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-top: #87CEEB; --bg-bottom: #E0F6FF;
+      --primary: #4CAF50; --dirt: #8B4513;
+      --wall: #654321; --path: #F5DEB3;
+      --accent: #FF9800; --text: #333;
+    }
+    body {
+      margin: 0; padding: 0; font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+      overflow: hidden; touch-action: none; color: var(--text);
+    }
+    
+    /* ÜST PANEL */
+    .header {
+      width: 100%; max-width: 600px; padding: 15px; box-sizing: border-box;
+      display: flex; justify-content: space-between; align-items: center; z-index: 10;
+    }
+    .skor-kutu {
+      background: rgba(255, 255, 255, 0.9); padding: 8px 15px; border-radius: 20px;
+      font-weight: 900; color: #0288D1; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* OYUN ALANI (CANVAS) */
+    #gameContainer {
+      position: relative; width: 95%; max-width: 600px; aspect-ratio: 1/1;
+      background: var(--path); border-radius: 15px; border: 5px solid var(--wall);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden;
+    }
+    canvas { width: 100%; height: 100%; display: block; cursor: crosshair; }
+
+    /* TEFEKKÜR KARTI (MODAL) */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center;
+      z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.5s;
+    }
+    .modal-overlay.goster { opacity: 1; pointer-events: all; }
+    .modal-kutu {
+      background: white; width: 85%; max-width: 450px; padding: 30px;
+      border-radius: 20px; text-align: center; border: 4px solid var(--accent);
+      transform: translateY(20px); transition: transform 0.5s ease;
+    }
+    .modal-overlay.goster .modal-kutu { transform: translateY(0); }
+    .tefekkur-icon { font-size: 4rem; margin-bottom: 15px; display: block; }
+    .btn-devam {
+      background: var(--primary); color: white; border: none; padding: 15px 30px;
+      font-size: 1.2rem; border-radius: 30px; cursor: pointer; font-weight: bold;
+      margin-top: 25px; width: 100%; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    }
+    .btn-devam:active { transform: scale(0.98); }
+
+    /* BAŞLANGIÇ/HATA MESAJLARI */
+    #statusOverlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); color: white; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; z-index: 50; border-radius: 10px;
+    }
+    .btn-start {
+      background: var(--accent); color: white; border: none; padding: 10px 20px;
+      border-radius: 20px; font-weight: bold; margin-top: 15px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2 style="margin:0; color:#2E8B57; font-size: 1.3rem;">🌱 Kâinat Bahçesi</h2>
+    <div class="skor-kutu">💧 <span id="ui-damla">0</span></div>
+  </div>
+
+  <div style="text-align:center; padding: 0 15px 15px 15px; max-width:600px;">
+    <h1 style="margin:0; color:var(--wall); font-size: 1.5rem;">Rezzâk Labirenti</h1>
+    <p style="margin:5px 0 0 0; font-size:0.9rem; color:#666;">Karıncayı duvara değdirmeden rızkına ulaştır!</p>
+  </div>
+
+  <div id="gameContainer">
+    <canvas id="gameCanvas"></canvas>
+    <div id="statusOverlay">
+      <span id="statusText" style="font-size:1.2rem; font-weight:bold;">Süreyi Başlat</span>
+      <button class="btn-start" onclick="oyunuBaslat()">Başla</button>
+    </div>
+  </div>
+
+  <div id="tefekkurModal" class="modal-overlay">
+    <div class="modal-kutu">
+      <span class="tefekkur-icon">🐜🍽️</span>
+      <h2 style="color: var(--dirt); margin-top:0;">Elhamdülillah!</h2>
+      <p style="color:var(--text); font-style: italic; line-height: 1.6; font-size: 1.05rem;">
+        "Yolu sen çizdin, karıncayı kurtardın... Ama unutma; kapkaranlık kayanın altındaki kara karıncanın rızkını veren de, ona yuvasının yolunu **ilham eden** de yalnızca Rabbimizdir."
+      </p>
+      <p style="color:#888; font-size:0.8rem; margin-top:15px;">(Neml Suresi, 18. Ayet'i Tefekkür Et)</p>
+      <button class="btn-devam" onclick="bahceyeDon()">+1 Su Damlası Kazan</button>
+    </div>
+  </div>
+
+  <script>
+    /* =======================================
+       1. OYUN KURGUSU VE AYARLARI
+       ======================================= */
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('gameContainer');
+    const statusOverlay = document.getElementById('statusOverlay');
+    const statusText = document.getElementById('statusText');
+    const tModal = document.getElementById('tefekkurModal');
+
+    // Canvas boyutunu container'a göre sabitle (Dinamik çözünürlük)
+    const SIZE = 600; 
+    canvas.width = SIZE;
+    canvas.height = SIZE;
+
+    let isPlaying = false;
+    let currentLevel = 0;
+    let isDrawing = false;
+    let damlaSayisi = 0; // Gerçek oyunda localStorage'dan gelecek
+
+    // LABİRENT DUVARLARI (Hardcoded MVP - Dinamik generator kod karmaşasını engellemek için)
+    // 0: Yol, 1: Duvar, 2: Başlangıç (Karınca), 3: Bitiş (Yemek)
+    const levels = [[
+      [1,1,1,1,1,1,1,1,1,1],
+      [1,2,0,0,1,0,0,0,0,1],
+      [1,1,1,0,1,0,1,1,0,1],
+      [1,0,0,0,0,0,1,0,0,1],
+      [1,0,1,1,1,1,1,0,1,1],
+      [1,0,1,0,0,0,0,0,0,1],
+      [1,0,1,0,1,1,1,1,0,1],
+      [1,0,0,0,1,0,0,0,0,1],
+      [1,0,1,0,0,0,1,1,3,1],
+      [1,1,1,1,1,1,1,1,1,1]
+    ]];
+
+    const GRID_COUNT = levels[0].length;
+    const CELL_SIZE = SIZE / GRID_COUNT;
+
+    let antPos = { x: 0, y: 0 };
+    let goalPos = { x: 0, y: 0 };
+
+    /* =======================================
+       2. LABİRENT ÇİZİMİ VE KONUMLAR
+       ======================================= */
+    function labirentiCiz() {
+      ctx.clearRect(0, 0, SIZE, SIZE);
+      const grid = levels[currentLevel];
+
+      for (let r = 0; r < GRID_COUNT; r++) {
+        for (let c = 0; c < GRID_COUNT; c++) {
+          const cell = grid[r][c];
+          const x = c * CELL_SIZE;
+          const y = r * CELL_SIZE;
+
+          if (cell === 1) {
+            ctx.fillStyle = "#654321"; // Duvar rengi (Koyu Kahve)
+            ctx.fillRect(x, y, CELL_SIZE, CELL_SIZE);
+            // Duvarlara doku ekle
+            ctx.strokeStyle = "rgba(0,0,0,0.2)";
+            ctx.strokeRect(x, y, CELL_SIZE, CELL_SIZE);
+          } else if (cell === 2) {
+            antPos = { x: x + CELL_SIZE/2, y: y + CELL_SIZE/2 };
+          } else if (cell === 3) {
+            goalPos = { x: x + CELL_SIZE/2, y: y + CELL_SIZE/2 };
+          }
+        }
+      }
+
+      // Emojileri çiz (Görsel keyif için)
+      ctx.font = `${CELL_SIZE * 0.7}px serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("🐜", antPos.x, antPos.y); // Karınca Başlangıç
+      ctx.fillText("🍽️", goalPos.x, goalPos.y); // Yemek Bitiş
+    }
+
+    /* =======================================
+       3. OYUN MANTIĞI VE ETKİLEŞİM
+       ======================================= */
+    function oyunuBaslat() {
+      isPlaying = true;
+      statusOverlay.style.display = 'none';
+      isDrawing = false;
+      labirentiCiz();
+    }
+
+    function hataYapildi() {
+      isPlaying = false;
+      isDrawing = false;
+      statusText.innerText = "Duvara Değdin! 😞";
+      statusOverlay.style.display = 'flex';
+      // Titreşim (Mobilde varsa)
+      if (navigator.vibrate) navigator.vibrate(200);
+    }
+
+    function oyunBasarili() {
+      isPlaying = false;
+      isDrawing = false;
+      // Tefekkür Kartını Göster
+      tModal.classList.add('goster');
+    }
+
+    function bahceyeDon() {
+      // Burası gerçek oyunda ana sayfaya (garden) yönlendirecek
+      alert("Prototip Sonu. Gerçek oyunda Su Damlası +1 artacak ve Bahçeye döneceksiniz.");
+      tModal.classList.remove('goster');
+      oyunVerisiniSifirlaAndDon(); // Test için
+    }
+
+    function oyunVerisiniSifirlaAndDon() {
+        location.reload();
+    }
+
+    /* =======================================
+       4. FARE / PARMAK TAKİBİ VE ÇİZİM
+       ======================================= */
+    let pathPoints = [];
+
+    // Canvas üzerindeki koordinatı al (Dinamik CSS boyutuna göre)
+    function getCoordinates(e) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      return {
+        x: (clientX - rect.left) * scaleX,
+        y: (clientY - rect.top) * scaleY
+      };
+    }
+
+    function startDrawing(e) {
+      if (!isPlaying) return;
+      const pos = getCoordinates(e);
+      
+      // Sadece karıncanın yakınından başlamaya izin ver
+      const dist = Math.hypot(pos.x - antPos.x, pos.y - antPos.y);
+      if (dist < CELL_SIZE * 0.8) {
+        isDrawing = true;
+        pathPoints = [antPos];
+      }
+    }
+
+    function drawPath(e) {
+      if (!isPlaying || !isDrawing) return;
+      e.preventDefault(); // Ekran kaymasını engelle
+      
+      const pos = getCoordinates(e);
+      
+      // 1. DUVAR ÇARPIŞMA KONTROLÜ
+      const grid = levels[currentLevel];
+      const r = Math.floor(pos.y / CELL_SIZE);
+      const c = Math.floor(pos.x / CELL_SIZE);
+
+      // Sınır dışı veya duvar kontrolü
+      if (r < 0 || r >= GRID_COUNT || c < 0 || c >= GRID_COUNT || grid[r][c] === 1) {
+        hataYapildi();
+        return;
+      }
+
+      pathPoints.push(pos);
+
+      // 2. YOLU CANVAS'A ÇİZ
+      labirentiCiz(); // Labirenti temiz çiz (emoji ve duvarlar)
+      ctx.beginPath();
+      ctx.strokeStyle = "rgba(76, 175, 80, 0.6)"; // Yeşil şeffaf yol
+      ctx.lineWidth = CELL_SIZE * 0.3;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.moveTo(pathPoints[0].x, pathPoints[0].y);
+      for (let i = 1; i < pathPoints.length; i++) {
+        ctx.lineTo(pathPoints[i].x, pathPoints[i].y);
+      }
+      ctx.stroke();
+
+      // 3. HEDEFE ULAŞTI MI KONTROLÜ
+      const goalDist = Math.hypot(pos.x - goalPos.x, pos.y - goalPos.y);
+      if (goalDist < CELL_SIZE * 0.5) {
+        oyunBasarili();
+      }
+    }
+
+    function stopDrawing() {
+      if (!isPlaying || !isDrawing) return;
+      isDrawing = false;
+      // Parmağı kaldırınca yolu temizle (Sabır eğitimi: Tek seferde çizmeliler)
+      if (isPlaying) {
+        labirentiCiz();
+      }
+    }
+
+    // EVENT LISTENERS (Fare ve Dokunmatik)
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', drawPath);
+    window.addEventListener('mouseup', stopDrawing);
+
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchmove', drawPath);
+    window.addEventListener('touchend', stopDrawing);
+
+    // Başlangıç çizimi
+    labirentiCiz();
+
+  </script>
+</body>
+</html>

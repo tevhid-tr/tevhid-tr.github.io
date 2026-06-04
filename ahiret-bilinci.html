@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>Büyük Buluşma: Ahiret Bilinci | Tevhid.tr</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#121212" />	
+  <meta name="description" content="Ölüm bir son değil, asıl Sahib'e dönüştür. Tevhid penceresinden ölümsüzlük illüzyonu, mizan ve vuslat." />
+  <link rel="canonical" href="https://tevhid.tr/ahiret-bilinci.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <meta property="og:title" content="Büyük Buluşma: Ahiret Bilinci | Tevhid.tr" />
+  <meta property="og:description" content="Ölüm bir son değil, asıl Sahib'e dönüştür. Ahiret bilinci ve mutlak adalet." />
+  <meta property="og:url" content="https://tevhid.tr/ahiret-bilinci.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tevhid.tr" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Büyük Buluşma: Ahiret Bilinci",
+      "description": "Ölüm bir son değil, asıl Sahib'e dönüştür. Tevhid penceresinden ölümsüzlük illüzyonu, mizan ve vuslat.",
+      "author": {
+        "@type": "Organization",
+        "name": "Tevhid.tr",
+        "url": "https://tevhid.tr/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "https://tevhid.tr/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Menzil (Duruş)"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Ahiret Bilinci"
+      }]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9.10">
+
+  <style>
+    /* VUSLAT SAHNESİ: ODAK DARALMASI (FOCUS EFFECT) */
+    .vuslat-sahnesi {
+      position: relative;
+      margin: 80px auto;
+      padding: 60px 40px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000; 
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      cursor: default;
+    }
+    
+    /* Tüm ekranı karartan gizli katman */
+    .vuslat-arkaplan {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #050505;
+      z-index: -1;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Hover veya Focus durumunda gerçekleşecek mucize */
+    .vuslat-sahnesi:hover, 
+    .vuslat-sahnesi:focus-within,
+    .vuslat-sahnesi:active {
+      background: #0a0a0a;
+      border-color: #333;
+      transform: scale(1.02);
+      box-shadow: 0 0 80px rgba(0,0,0,0.9);
+    }
+
+    .vuslat-sahnesi:hover .vuslat-arkaplan,
+    .vuslat-sahnesi:focus-within .vuslat-arkaplan,
+    .vuslat-sahnesi:active .vuslat-arkaplan {
+      opacity: 0.96;
+    }
+
+    .vuslat-sahnesi:hover h2, 
+    .vuslat-sahnesi:hover p, 
+    .vuslat-sahnesi:hover span,
+    .vuslat-sahnesi:focus-within h2,
+    .vuslat-sahnesi:focus-within p,
+    .vuslat-sahnesi:focus-within span {
+      color: #ffffff !important;
+      transition: color 1.5s ease;
+    }
+
+    .vuslat-sahnesi:hover .verse-card,
+    .vuslat-sahnesi:focus-within .verse-card {
+      background: transparent !important;
+      border-left-color: #d4af37 !important;
+      box-shadow: none !important;
+      color: #ffffff !important;
+    }
+
+    .vuslat-uyari {
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      opacity: 0.6;
+      font-style: italic;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* KATEGORİ BAŞLIKLARI (MENÜLER İÇİN) */
+    .menu-kategori-baslik {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      opacity: 0.8;
+      margin: 25px 0 10px 0;
+      display: block;
+      font-weight: 700;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM793T0H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHM793T0H9');
+  </script>
+</head>
+<body>
+  
+  <a href="#ana-icerik" class="icerige-atla">Ana İçeriğe Atla</a>
+
+  <div id="progress-bar"></div>
+  
+  <header class="main-header" role="banner">
+    <div class="container header-flex">
+      <div class="logo">
+        <span class="site-logo">
+          <a href="/" style="color: inherit; text-decoration: none;">tevhid</a><a href="/nokta.html" aria-label="Sır: Tevhidin derinliklerine açılan gizli sayfa" style="text-decoration: none; padding: 10px 4px; margin: -10px -4px; outline: none;"><span class="sirli-nokta">.</span></a><a href="/" style="color: inherit; text-decoration: none;">tr</a>
+        </span>
+      </div>
+      
+      <div class="header-tools" style="display: flex; align-items: center; gap: 15px;">
+        <button id="tefekkurBaslat" class="tefekkur-btn" aria-label="Tefekkür Modunu Aç" title="Odaklan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+        <button id="theme-toggle" aria-label="Temayı Değiştir">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Ana Menüyü Aç" aria-expanded="false" aria-controls="overlay-menu">
+          <svg id="menu-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="overlay-menu" class="overlay-menu" aria-label="Ana Navigasyon">
+    <div class="overlay-content">
+      <a href="/" style="font-size: 1.5rem; font-weight: 700; border: none; margin-bottom: 10px;">Ana Sayfa</a>
+      
+      <span class="menu-kategori-baslik">I. Kökler (İnanç)</span>
+      <a href="/tevhid-nedir.html">Tevhid Nedir?</a>
+      <a href="/allahin-birligi.html">Allah'ın Birliği</a>
+      <a href="/sirk-nedir.html">Şirk Nedir?</a>
+      <a href="/kavramlar-sozlugu.html">Kavramlar Sözlüğü</a>
+      <a href="/esmaul-husna.html">Esma-ül Hüsna</a>
+
+      <span class="menu-kategori-baslik">II. Gövde (Pratik)</span>
+      <a href="/gundelik-hayatta-tevhid.html">Gündelik Hayatta Tevhid</a>
+      <a href="/dua-ve-tevhid.html">Dua ve Tevhid</a>
+      <a href="/tezkiye.html">Kalbin Arınması</a>
+      <a href="/kuran-kissalari.html">Tevhid Kıssaları</a>
+
+      <span class="menu-kategori-baslik">III. Menzil (Duruş)</span>
+      <a href="/istikamet.html">İstikamet ve Sabır</a>
+      <a href="/ahlak-ve-tevhid.html">Ahlak ve Tevhid</a>
+      <a href="/ahiret-bilinci.html" style="color: var(--accent-color) !important;">Ahiret Bilinci</a>
+      <a href="/hakkimizda.html">Biz Kimiz?</a>
+      
+      <div class="menu-divider" style="width:40px; height:2px; background:var(--border-color); margin:30px auto; opacity:0.5; display:block;"></div>
+      <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr">İletişim</a>
+    </div>
+  </nav>
+
+  <main id="ana-icerik" class="container" role="main">
+    
+    <header class="intro" style="text-align:center; padding: 40px 0 20px 0;">
+      <nav class="breadcrumb" aria-label="Ekmek Kırıntısı (Breadcrumb)">
+        <a href="/">Ana Sayfa</a>
+        <span class="breadcrumb-ayrac">/</span>
+        <span aria-current="page">Menzil (Duruş)</span>
+      </nav>
+
+      <h1 id="ahiret-baslik" style="font-size: 2.4rem; color: var(--heading-color); margin-bottom: 15px;">Büyük Buluşma: Ahiret Bilinci</h1>
+      
+      <div class="yazi-metasi">
+        <span>⏳ 3 Dk Okuma Süresi</span>
+        <span>•</span>
+        <button class="share-btn" data-title="Büyük Buluşma: Ahiret Bilinci | Tevhid.tr" aria-label="Bu yazıyı paylaş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          Paylaş
+        </button>
+      </div>
+
+      <p class="lead" style="font-size: 1.1rem; opacity: 0.8; max-width: 650px; margin: 20px auto 0 auto;">Göğüs kafesinde sakladığın her niyetin, karanlıkta attığın her adımın Sahib'ine arz edileceği o mutlak gün.</p>
+      <div class="intro-divider" style="width:60px; height:2px; background:var(--border-color); margin:30px auto;"></div>
+    </header>
+
+    <article class="content-block">
+      
+      <section aria-labelledby="olumsuzluk-illuzyonu">
+        <h2 id="olumsuzluk-illuzyonu" style="font-size: 2rem; margin-top: 0; padding-top: 0;">Ölümsüzlük İllüzyonu</h2>
+        <p style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 25px;">Modern çağın insanı devasa gökdelenler diker, dijital dünyalarda yedeklenir, durmadan tüketir. Bütün bu koşturmacanın altında çok derin bir korku yatar: <strong>Ölümü unutma çabası.</strong> Sistemin sana dayattığı yanılgı, bu dünyada sonsuza dek kalacakmışsın gibi yaşamandır. Yüz kremleri, sağlık çılgınlıkları ve bitmeyen kariyer hırsları... Hepsi kaçınılmaz sondan gözünü kaçırmak içindir.</p>
+        
+        <p style="margin-bottom: 30px;">Oysa Tevhid, insanı bu illüzyondan uyandırır. Muvahhid bilir ki; yeryüzündeki tüm krallıklar, makamlar ve bedenler fânidir. Bâki (kalıcı) olan yalnızca Allah'tır.</p>
+
+        <blockquote class="verse-card">
+          "Her canlı ölümü tadacaktır. Ancak kıyamet günü yaptıklarınızın karşılığı size tastamam verilecektir. Kim cehennemden uzaklaştırılıp cennete sokulursa, gerçekten kurtuluşa ermiştir. Dünya hayatı, aldatıcı bir metadan başka bir şey değildir."
+          <cite>(3/Âl-i İmrân, 185)</cite>
+          <div class="ayet-araclari">
+            <button class="ayet-btn copy-btn" data-text="Her canlı ölümü tadacaktır. Dünya hayatı, aldatıcı bir metadan başka bir şey değildir. (3/Âl-i İmrân, 185) - https://tevhid.tr" aria-label="Al-i İmran Suresi 185. Ayeti Kopyala">📋 Kopyala</button>
+          </div>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="hesap-suuru">
+        <h2 id="hesap-suuru" style="margin-top: 40px;">Hesap (Mizan) Şuuru</h2>
+        <p style="margin-bottom: 20px;">Eğer ahiret (hesap günü) olmasaydı, yeryüzünde zalimin yaptığı yanına kâr kalır, iyilik yapanın ise emeği toprağa karışırdı. Oysa <dfn class="kavram-ipucu" tabindex="0" data-anlam="Mutlak Adalet Sahibi olan Allah. Hiç kimseye zerre kadar haksızlık etmeyen.">El-Adl</dfn> olan Allah, bu dünyayı başıboş bırakmamıştır. Yaptığın en gizli iyilik, fısıldadığın en sessiz dua ve haksızlığa uğradığında döktüğün o tek damla gözyaşı... Hiçbiri kaybolmaz, hepsi O'nun katında kayıt altındadır.</p>
+
+        <blockquote class="verse-card">
+          "Kim zerre miktarı hayır yapmışsa onu görür. Kim de zerre miktarı şer işlemişse onu görür."
+          <cite>(99/Zilzâl, 7-8)</cite>
+        </blockquote>
+        
+        <p style="margin-top: 20px;">Ahiret bilinci bir korku aracı değil, insanın vicdanını diri tutan, ona yeryüzünde asil bir duruş kazandıran muazzam bir denge (mizan) terazisidir.</p>
+      </section>
+
+      <section class="vuslat-sahnesi" tabindex="0" role="region" aria-labelledby="vuslat-teslimiyet">
+        <div class="vuslat-arkaplan" aria-hidden="true"></div>
+        <span class="vuslat-uyari" aria-hidden="true">Derinleşmek için buraya dokun veya fareyle üzerine gel...</span>
+        
+        <h2 id="vuslat-teslimiyet" style="margin-top: 0; border: none; font-size: 2.2rem; margin-bottom: 20px; transition: color 1s ease;">Vuslat: Nihai Teslimiyet</h2>
+        <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 30px; transition: color 1s ease;">
+          Dünya gürültüsü sustuğunda, perdeler kalktığında ve nefes tükendiğinde geriye ne kalır? Tüm sahte ilahların, o güvendiğin makamların ve kalabalıkların seni terk edeceği o gün...<br><br>Ölüm, inanan bir kalp için yok oluş değil, sevdiğine (El-Vedûd) kavuşmaktır. Uzun ve yorucu bir sürgünün ardından, asıl vatana dönmektir. O büyük buluşma anında, dünyadayken kalbini O'na bağlayanlara şu ilahi nida seslenecektir:
+        </p>
+
+        <blockquote class="verse-card" style="margin-bottom: 0; text-align: center; padding: 40px 20px;">
+          “Ey mutmain olan (şirkten arınıp huzura eren) nefs!<br><br>
+          Sen O'ndan razı, O da senden razı olarak Rabbine dön!<br>
+          Seçkin kullarımın arasına katıl!<br>
+          Ve cennetime gir!”
+          <cite style="display: block; margin-top: 20px; font-size: 1rem; font-style: normal; color: inherit;">(89/Fecr, 27-30)</cite>
+        </blockquote>
+      </section>
+
+    </article>
+
+    <nav class="journey-v2" style="margin-top: 60px;" aria-label="İkincil Navigasyon">
+      <h2 style="margin-top: 0; font-size: 1.8rem; border: none;">Yolculuğa Devam Et...</h2>
+      
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Kökler (İnanç)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/tevhid-nedir.html" class="j-card" aria-label="Tevhid nedir makalesini oku">Tevhid Nedir?</a>
+        <a href="/allahin-birligi.html" class="j-card" aria-label="Allah'ın birliği konusunu incele">Allah’ın Birliği</a>
+        <a href="/sirk-nedir.html" class="j-card" aria-label="Şirk ve tehlikeleri hakkında bilgi al">Şirk Nedir?</a>
+        <a href="/kavramlar-sozlugu.html" class="j-card" aria-label="Kur'ani kavramlar sözlüğünü görüntüle">Kavramlar Sözlüğü</a>
+      </div>
+
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Gövde (Pratik)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/tezkiye.html" class="j-card" aria-label="Kalbin arınması ve tezkiye konusunu oku">Kalbin Arınması</a>
+        <a href="/gundelik-hayatta-tevhid.html" class="j-card" aria-label="Gündelik hayatta tevhid pratiğini öğren">Gündelik Hayatta</a>
+        <a href="/dua-ve-tevhid.html" class="j-card" aria-label="Dua ve tevhid ilişkisini keşfet">Dua ve Tevhid</a>
+      </div>
+
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Menzil (Duruş)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/istikamet.html" class="j-card" aria-label="İstikamet ve sabır üzerine yazıları oku">İstikamet</a>
+        <a href="/ahlak-ve-tevhid.html" class="j-card" aria-label="İslam ahlakı ve tevhid bağlantısını incele">Ahlak ve Tevhid</a>
+      </div>
+      
+    </nav>
+  </main>
+
+  <aside class="ozgur-ayet-alani" aria-label="Kapanış Ayeti">
+    <blockquote class="footer-verse" style="border: none; margin: 0; padding: 0;">
+      “Allah bana yeter, O’ndan başka ilah yoktur, ben yalnız O’na güvenirim; O, büyük arşın Rabb’idir.”<br>
+      <cite style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-style: normal;">(9/Tevbe, 129)</cite>
+    </blockquote>
+  </aside>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around; width: 100%; gap: 30px; text-align: left; max-width: 900px;">
+        
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">I. Kökler</h4>
+          <a href="/tevhid-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Nedir?</a>
+          <a href="/allahin-birligi.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Allah'ın Birliği</a>
+          <a href="/sirk-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Şirk Nedir?</a>
+          <a href="/kavramlar-sozlugu.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kavramlar Sözlüğü</a>
+          <a href="/esmaul-husna.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Esma-ül Hüsna</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">II. Gövde</h4>
+          <a href="/tezkiye.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kalbin Arınması</a>
+          <a href="/gundelik-hayatta-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Gündelik Hayat</a>
+          <a href="/dua-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Dua ve Tevhid</a>
+          <a href="/kuran-kissalari.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Kıssaları</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">III. Menzil</h4>
+          <a href="/istikamet.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">İstikamet</a>
+          <a href="/ahlak-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahlak ve Tevhid</a>
+          <a href="/ahiret-bilinci.html" style="display: block; margin-bottom: 8px; text-decoration: none; font-weight: 600; color: var(--accent-color);">Ahiret Bilinci</a>
+          <a href="/hakkimizda.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Biz Kimiz?</a>
+          <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr" style="display: block; margin-top: 15px; opacity: 0.8;">İletişim</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <button id="tefekkurKapat" class="tefekkur-kapat-btn" aria-label="Tefekkür Modunu Kapat">
+    ✕ Odaktan Çık
+  </button>
+
+  <script src="script.js?v=9.10"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>	
+<div class="alt-sis"></div>	
+</body>
+</html>

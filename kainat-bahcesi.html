@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kâinat Bahçesi v3 | Tevhid.tr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-top: #87CEEB; --bg-bottom: #E0F6FF;
+      --primary: #4CAF50; --primary-dark: #388E3C;
+      --accent: #FFC107; --text: #333; --dirt: #8B4513;
+      --wall: #654321; --path: #F5DEB3;
+      --panel-bg: #f8fdff;
+    }
+    body {
+      margin: 0; padding: 0; font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+      color: var(--text); overflow-x: hidden; touch-action: manipulation;
+    }
+    
+    /* === ANA SAHNE (GARDEN) === */
+    .header { width: 100%; max-width: 600px; padding: 15px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; }
+    .skor-paneli { display: flex; gap: 10px; }
+    .skor-kutu { background: rgba(255, 255, 255, 0.9); padding: 8px 15px; border-radius: 30px; font-weight: 900; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 5px; }
+    .skor-kutu.su { color: #0288D1; }
+    .skor-kutu.yildiz { color: #F57F17; }
+    
+    .sahne { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; max-width: 600px; position: relative; min-height: 250px; }
+    .bahce-zemin { width: 220px; height: 110px; background: var(--dirt); border-radius: 50%; border: 8px solid #654321; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.2); margin-top: 40px; }
+    .bitki { font-size: 5.5rem; position: absolute; bottom: 45px; left: 50%; transform: translateX(-50%); transition: all 1s ease; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); z-index: 5; }
+    .durum-mesaji { background: rgba(255,255,255,0.95); padding: 12px 20px; border-radius: 20px; margin-top: 30px; text-align: center; font-weight: bold; width: 85%; font-size:0.95rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); line-height: 1.5; z-index: 10; }
+    
+    /* BAHÇE SÜSLERİ (DEKORASYONLAR) */
+    .dekor { position: absolute; font-size: 3rem; opacity: 0; transform: scale(0); transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2)); z-index: 2;}
+    .dekor.aktif { opacity: 1; transform: scale(1); }
+    #dekor-gunes { top: 10px; right: 20px; font-size: 4rem; animation: don 20s linear infinite; }
+    #dekor-kus { bottom: 60px; right: 10px; font-size: 2.5rem; transform: scaleX(-1); }
+    #dekor-kedi { bottom: 0px; left: -10px; font-size: 3.5rem; z-index: 10; }
+    @keyframes don { 100% { transform: rotate(360deg); } }
+
+    /* === BUTONLAR VE ATÖLYE KISMI === */
+    .kontrol-paneli { width: 100%; max-width: 600px; padding: 15px; box-sizing: border-box; display: flex; gap: 10px; justify-content: center; }
+    .btn { background: var(--primary); color: white; border: none; padding: 12px 20px; font-size: 1rem; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); flex: 1; transition: transform 0.2s; display: flex; justify-content: center; align-items: center; gap: 5px;}
+    .btn:active { transform: scale(0.95); }
+    .btn.gorev-btn { background: var(--accent); color: #856404; box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4); }
+
+    /* TEFEKKÜR ATÖLYESİ (ALT BÖLÜM) */
+    .atolye-paneli { width: 100%; max-width: 600px; background: var(--panel-bg); border-radius: 30px 30px 0 0; padding: 25px 20px; box-sizing: border-box; box-shadow: 0 -10px 20px rgba(0,0,0,0.05); margin-top: auto; }
+    .atolye-baslik { margin: 0 0 15px 0; color: #333; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+    .kutu-kaydirici { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+    .kutu-kaydirici::-webkit-scrollbar { display: none; }
+    .oyun-kart, .market-kart { background: white; min-width: 140px; padding: 15px; border-radius: 15px; border: 2px solid #eee; text-align: center; flex-shrink: 0; box-shadow: 0 5px 10px rgba(0,0,0,0.02); }
+    .oyun-kart h3, .market-kart h3 { margin: 10px 0 5px 0; font-size: 0.95rem; color: #444; }
+    .oyun-kart p { font-size: 0.8rem; color: #888; margin: 0 0 10px 0; }
+    .kart-btn { background: #E3F2FD; color: #0288D1; border: none; padding: 6px 12px; border-radius: 15px; font-weight: bold; width: 100%; cursor: pointer; transition: all 0.2s; font-size: 0.85rem;}
+    .market-kart .kart-btn { background: #FFF3E0; color: #F57F17; }
+    .kart-btn:hover { filter: brightness(0.95); }
+    .kart-btn:disabled { background: #f0f0f0; color: #aaa; cursor: not-allowed; }
+
+    /* === MODALLAR === */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .modal-overlay.goster { opacity: 1; pointer-events: all; }
+    .modal-kutu { background: white; width: 90%; max-width: 450px; padding: 25px; border-radius: 20px; text-align: center; position: relative; max-height: 90vh; overflow-y: auto; }
+    .kapat-btn { position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 1.5rem; color: #888; cursor: pointer; }
+    
+    .gorev-liste { text-align: left; padding: 0; list-style: none; margin: 20px 0; }
+    .gorev-item { background: #f9f9f9; border: 2px solid #eee; padding: 12px; border-radius: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .gorev-item.tamamlandi { background: #e8f5e9; border-color: var(--primary); opacity: 0.6; }
+    .gorev-yap-btn { background: var(--primary); color: white; border: none; padding: 6px 12px; border-radius: 20px; font-weight: bold; cursor: pointer; white-space: nowrap; margin-left:10px; font-size: 0.8rem;}
+
+    /* MİKROFON */
+    .dinliyor-ikon { font-size: 4rem; animation: pulse 1s infinite alternate; display: block; margin: 10px 0; }
+    @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.1); opacity: 1; } }
+    .anlik-yazi { color: #ff9800; font-style: italic; font-weight: 600; min-height: 25px; display: block; margin: 15px 0; }
+
+    /* LABİRENT OYUNU */
+    #gameContainer { position: relative; width: 100%; aspect-ratio: 1/1; background: var(--path); border-radius: 15px; border: 5px solid var(--wall); overflow: hidden; margin-top: 15px; touch-action: none;}
+    canvas { width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: none; }
+    #statusOverlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 50; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2 style="margin:0; color:#2E8B57; font-size:1.4rem;">Kâinat Bahçem</h2>
+    <div class="skor-paneli">
+      <div class="skor-kutu su" title="Sünnet işleyerek kazanılır">💧 <span id="ui-damla">0</span></div>
+      <div class="skor-kutu yildiz" title="Oyun oynayarak kazanılır">🌟 <span id="ui-yildiz">0</span></div>
+    </div>
+  </div>
+
+  <div class="sahne">
+    <div id="dekor-gunes" class="dekor">☀️</div>
+    <div class="bahce-zemin">
+      <div id="dekor-kus" class="dekor">🐦</div>
+      <div id="dekor-kedi" class="dekor">🐈</div>
+      <div id="ui-bitki" class="bitki"></div>
+    </div>
+    <div id="ui-mesaj" class="durum-mesaji">Bahçen bomboş. Sünnetleri işleyerek su kazan ve ilk tohumunu ek!</div>
+  </div>
+
+  <div class="kontrol-paneli">
+    <button class="btn gorev-btn" onclick="gorevModalAc()">📜 Sünnetler</button>
+    <button class="btn" onclick="sulamaOnKontrol()">💧 Sula</button>
+  </div>
+  
+  <div class="atolye-paneli">
+    <h3 class="atolye-baslik">💡 Tefekkür Atölyesi <span style="font-size:0.8rem; color:#888; font-weight:normal;">(Oyna & Süsle)</span></h3>
+    <div class="kutu-kaydirici">
+      <div class="oyun-kart">
+        <span style="font-size: 2rem;">🐜</span>
+        <h3>Rezzâk Labirenti</h3>
+        <p>Karıncaya yol göster</p>
+        <button class="kart-btn" onclick="atolyeOyunuBaslat()">Oyna (+1 🌟)</button>
+      </div>
+      <div class="oyun-kart" style="opacity:0.6;">
+        <span style="font-size: 2rem;">🎨</span>
+        <h3>Musavvir'in Renkleri</h3>
+        <p>Çok Yakında...</p>
+        <button class="kart-btn" disabled>Kilitli</button>
+      </div>
+      
+      <div class="market-kart" id="market-kus">
+        <span style="font-size: 2rem;">🐦</span>
+        <h3>Kuş Yuvası</h3>
+        <button class="kart-btn" onclick="satinAl('kus', 5)" id="btn-al-kus">5 🌟 ile Al</button>
+      </div>
+      <div class="market-kart" id="market-kedi">
+        <span style="font-size: 2rem;">🐈</span>
+        <h3>Sokak Kedisi</h3>
+        <button class="kart-btn" onclick="satinAl('kedi', 10)" id="btn-al-kedi">10 🌟 ile Al</button>
+      </div>
+      <div class="market-kart" id="market-gunes">
+        <span style="font-size: 2rem;">☀️</span>
+        <h3>Sıcak Güneş</h3>
+        <button class="kart-btn" onclick="satinAl('gunes', 15)" id="btn-al-gunes">15 🌟 ile Al</button>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:10px;"><button style="background:none; border:none; color:#ccc; font-size:0.7rem; cursor:pointer;" onclick="hafizaSifirla()">[Test] Tüm Hafızayı Sıfırla</button></div>
+  </div>
+
+  <div id="gorevModal" class="modal-overlay">
+    <div class="modal-kutu">
+      <button class="kapat-btn" onclick="modalKapat('gorevModal')">×</button>
+      <h2 style="color: var(--accent); margin-top:0;">Günlük Sünnetler</h2>
+      <ul id="ui-gorev-liste" class="gorev-liste"></ul>
+    </div>
+  </div>
+
+  <div id="mikrofonModal" class="modal-overlay">
+    <div class="modal-kutu">
+      <button class="kapat-btn" onclick="modalKapat('mikrofonModal')">×</button>
+      <h2 style="color: var(--primary);">Allah'ın Adıyla</h2>
+      <p>Ağacı sulamak için yüksek sesle <b>"Bismillah"</b> demelisin...</p>
+      <span style="font-size: 4rem; display:block; animation: pulse 1s infinite alternate;">🎤</span>
+      <span id="ui-anlik" style="color: #ff9800; font-style: italic; font-weight: 600; display: block; margin: 15px 0;">...</span>
+      <button class="btn" style="width: 100%; background:#888;" onclick="bismillahBasarili()">İçimden Söyledim (Mikrofonsuz)</button>
+    </div>
+  </div>
+
+  <div id="oyunModal" class="modal-overlay">
+    <div class="modal-kutu" style="background:#e8f5e9; border: 4px solid var(--primary);">
+      <button class="kapat-btn" onclick="modalKapat('oyunModal'); isPlaying=false;">×</button>
+      <h2 style="margin:0; color:var(--wall); font-size: 1.4rem;">Rezzâk Labirenti</h2>
+      <p id="oyunAmacText" style="margin:5px 0 0 0; font-size:0.9rem; color:#666;">Karıncayı rızkına ulaştır!</p>
+      <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="statusOverlay">
+          <span id="statusText" style="font-size:1.1rem; font-weight:bold;">Yolu tek seferde çiz!</span>
+          <button class="btn" style="background:var(--accent); margin-top:15px;" onclick="oyunMotoruBaslat()">Başla</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tefekkurModal" class="modal-overlay">
+    <div class="modal-kutu">
+      <span style="font-size: 4rem; display:block;">🐜</span>
+      <h2 style="color: var(--dirt); margin-top:0;">Elhamdülillah!</h2>
+      <p style="color:var(--text); font-style: italic; line-height: 1.6; font-size: 1rem;">
+        "Yolu sen çizdin, karıncayı kurtardın... Ama unutma; o karıncanın rızkını veren de, ona yuvasının yolunu <b>ilham eden</b> de yalnızca Rabbimizdir."
+      </p>
+      <button id="btn-tefekkur-onay" class="btn" style="width:100%; margin-top:20px;" onclick="oyunZaferIslemi()">İdrak Ettim</button>
+    </div>
+  </div>
+
+  <script>
+    /* =======================================
+       1. HAFIZA VE VERİ YAPISI
+       ======================================= */
+    const EVRENSEL_SUNNETLER = [
+      { id: 1, metin: "Yemeğime/içtiğim suya Bismillah diyerek başladım." },
+      { id: 2, metin: "Yemeğimi bitirince Elhamdülillah diyerek şükrettim." },
+      { id: 3, metin: "Suyu ayakta değil, oturarak içtim." },
+      { id: 4, metin: "Dişlerimi temizledim (Misvak/Fırça)." },
+      { id: 5, metin: "Bir arkadaşıma gülümseyerek selam verdim." },
+      { id: 6, metin: "Kıyafetimi giyerken sağ tarafımdan başladım." },
+      { id: 7, metin: "Yerdeki rahatsız edici bir çöpü/taşı kenara kaldırdım." },
+      { id: 8, metin: "Bugün canımı sıkan bir şeye karşı sabrettim." },
+      { id: 9, metin: "Elimdeki bir yiyeceği başkasıyla paylaştım." },
+      { id: 10, metin: "Anne veya babama (ya da bir büyüğüme) yardım ettim." }
+    ];
+
+    const AŞAMALAR = ["", "🌱", "🌿", "🪴", "🌳", "🍎"]; 
+    const BEKLEME_SURESI_MS = 60 * 1000; // Test için 1 dk. Canlıda 24 saat (24 * 60 * 60 * 1000)
+
+    let oyunVerisi = JSON.parse(localStorage.getItem('kainatBahcesi_v3'));
+    
+    function rastgeleGorevSec() {
+      let shuffled = EVRENSEL_SUNNETLER.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 3).map(g => ({ ...g, tamamlandi: false }));
+    }
+
+    if (!oyunVerisi) {
+      oyunVerisi = {
+        damlalar: 0, yildizlar: 0, bitkiAsamasi: 0, sonSulamaZamani: null,
+        gorevGunu: new Date().toDateString(),
+        gorevler: rastgeleGorevSec(),
+        susler: { kus: false, kedi: false, gunes: false }
+      };
+      kaydet();
+    } else if (oyunVerisi.gorevGunu !== new Date().toDateString()) {
+      oyunVerisi.gorevGunu = new Date().toDateString();
+      oyunVerisi.gorevler = rastgeleGorevSec();
+      kaydet();
+    }
+
+    function kaydet() { localStorage.setItem('kainatBahcesi_v3', JSON.stringify(oyunVerisi)); arayuzuGuncelle(); }
+    function hafizaSifirla() { localStorage.removeItem('kainatBahcesi_v3'); location.reload(); }
+    function modalKapat(id) { document.getElementById(id).classList.remove('goster'); }
+
+    /* =======================================
+       2. ARAYÜZ VE MARKET YÖNETİMİ
+       ======================================= */
+    function arayuzuGuncelle() {
+      document.getElementById('ui-damla').innerText = oyunVerisi.damlalar;
+      document.getElementById('ui-yildiz').innerText = oyunVerisi.yildizlar;
+      document.getElementById('ui-bitki').innerText = AŞAMALAR[oyunVerisi.bitkiAsamasi];
+      
+      const uiMesaj = document.getElementById('ui-mesaj');
+      if (oyunVerisi.bitkiAsamasi === 0) uiMesaj.innerText = "Sünnetleri işleyerek su kazan ve Bismillah diyerek ilk tohumunu ek!";
+      else if (oyunVerisi.bitkiAsamasi === AŞAMALAR.length - 1) uiMesaj.innerText = "MaşaAllah! Ağacın meyve verdi.";
+      else if (oyunVerisi.sonSulamaZamani && (Date.now() - oyunVerisi.sonSulamaZamani < BEKLEME_SURESI_MS)) uiMesaj.innerHTML = "Suyunu verdin! Büyümesi için <b>sabretmelisin</b>.";
+      else uiMesaj.innerHTML = "Bitkin büyümeye hazır! <b>Sula</b> butonuna basarak ona can ver.";
+
+      // Süsleri Aktifleştir & Market Butonlarını Güncelle
+      const susler = ['kus', 'kedi', 'gunes'];
+      susler.forEach(esya => {
+        const dekorDiv = document.getElementById(`dekor-${esya}`);
+        const btnAl = document.getElementById(`btn-al-${esya}`);
+        if (oyunVerisi.susler[esya]) {
+          dekorDiv.classList.add('aktif');
+          if(btnAl) { btnAl.innerText = "Satın Alındı"; btnAl.disabled = true; btnAl.style.background = "#e8f5e9"; btnAl.style.color = "#4CAF50"; }
+        }
+      });
+    }
+
+    function satinAl(esya, fiyat) {
+      if (oyunVerisi.susler[esya]) return;
+      if (oyunVerisi.yildizlar >= fiyat) {
+        oyunVerisi.yildizlar -= fiyat;
+        oyunVerisi.susler[esya] = true;
+        kaydet();
+        const d = document.getElementById(`dekor-${esya}`);
+        d.style.transform = "scale(1.5)"; setTimeout(() => d.style.transform = "scale(1)", 500);
+      } else {
+        alert(`Bunun için ${fiyat - oyunVerisi.yildizlar} Yıldız'a (🌟) daha ihtiyacın var. Atölyeden oyun oynayarak kazanabilirsin!`);
+      }
+    }
+
+    /* =======================================
+       3. SÜNNET GÖREVLERİ
+       ======================================= */
+    function gorevModalAc() {
+      const ul = document.getElementById('ui-gorev-liste'); ul.innerHTML = "";
+      oyunVerisi.gorevler.forEach(g => {
+        const li = document.createElement('li'); li.className = `gorev-item ${g.tamamlandi ? 'tamamlandi' : ''}`;
+        li.innerHTML = `<span style="font-size:0.9rem; line-height:1.3;">${g.metin}</span>
+                        <button class="gorev-yap-btn" ${g.tamamlandi ? 'disabled' : `onclick="gorevTamamla(${g.id})"`}>${g.tamamlandi ? '✓' : '+1 💧'}</button>`;
+        ul.appendChild(li);
+      });
+      document.getElementById('gorevModal').classList.add('goster');
+    }
+    function gorevTamamla(id) { const g = oyunVerisi.gorevler.find(x => x.id === id); if (g && !g.tamamlandi) { g.tamamlandi = true; oyunVerisi.damlalar += 1; kaydet(); gorevModalAc(); } }
+
+    /* =======================================
+       4. OYUN MODLARI (SULAMA VS ATÖLYE)
+       ======================================= */
+    let gecerliOyunModu = ''; 
+    let recognition;
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    function sulamaOnKontrol() {
+      if (oyunVerisi.bitkiAsamasi === AŞAMALAR.length - 1) { alert("Ağacın tamamen büyüdü!"); return; }
+      if (oyunVerisi.damlalar <= 0) { alert("Hiç su damlan yok! Önce görev yap."); return; }
+      if (oyunVerisi.bitkiAsamasi > 0 && (Date.now() - oyunVerisi.sonSulamaZamani < BEKLEME_SURESI_MS)) { alert("Sabretmelisin! Henüz vakti gelmedi."); return; }
+      
+      gecerliOyunModu = 'sulama';
+      document.getElementById('mikrofonModal').classList.add('goster');
+      baslatMikrofon();
+    }
+
+    function baslatMikrofon() {
+      const anlikYazi = document.getElementById('ui-anlik');
+      anlikYazi.innerText = "...";
+      if (SpeechRecognition) {
+        if (!recognition) {
+          recognition = new SpeechRecognition();
+          recognition.lang = 'tr-TR'; recognition.continuous = true; recognition.interimResults = true;
+          recognition.onresult = (e) => {
+            let txt = "";
+            for (let i = e.resultIndex; i < e.results.length; i++) txt += e.results[i][0].transcript.toLowerCase();
+            anlikYazi.innerText = `"${txt}"`;
+            if (txt.includes('bismillah') || txt.includes('bismilla')) {
+              recognition.stop(); bismillahBasarili();
+            }
+          };
+          recognition.onerror = () => anlikYazi.innerText = "Mikrofon izni yok. Mikrofonsuz tuşuna bas.";
+        }
+        try { recognition.start(); } catch (e) {}
+      } else { anlikYazi.innerText = "Tarayıcı desteklemiyor. Butonu kullan."; }
+    }
+
+    function bismillahBasarili() {
+      if (recognition) { try { recognition.stop(); } catch(e){} }
+      modalKapat('mikrofonModal');
+      document.getElementById('oyunAmacText').innerText = "Suyu dökmeden önce karıncayı rızkına ulaştır!";
+      
+      document.getElementById('statusOverlay').style.display = 'flex';
+      document.getElementById('statusText').innerText = "Yolu tek seferde çiz!";
+      isPlaying = false; isDrawing = false;
+      
+      rastgeleLabirentSec();
+      labirentiCiz(); 
+      document.getElementById('oyunModal').classList.add('goster');
+    }
+
+    function atolyeOyunuBaslat() {
+      gecerliOyunModu = 'atolye';
+      document.getElementById('oyunAmacText').innerText = "Sınırsız oyna, Tefekkür Yıldızı (🌟) kazan!";
+      
+      document.getElementById('statusOverlay').style.display = 'flex';
+      document.getElementById('statusText').innerText = "Yolu tek seferde çiz!";
+      isPlaying = false; isDrawing = false;
+      
+      rastgeleLabirentSec();
+      labirentiCiz(); 
+      document.getElementById('oyunModal').classList.add('goster');
+    }
+
+    function oyunZaferIslemi() {
+      modalKapat('tefekkurModal');
+      if (gecerliOyunModu === 'sulama') {
+        oyunVerisi.damlalar -= 1; oyunVerisi.bitkiAsamasi += 1; oyunVerisi.sonSulamaZamani = Date.now();
+        const uib = document.getElementById('ui-bitki'); uib.style.transform = "scale(1.5) translateX(-30%)"; setTimeout(() => uib.style.transform = "translateX(-50%)", 600);
+      } else if (gecerliOyunModu === 'atolye') {
+        oyunVerisi.yildizlar += 1;
+        alert("Harika! +1 Tefekkür Yıldızı 🌟 kazandın.");
+      }
+      kaydet();
+    }
+
+    /* =======================================
+       5. LABİRENT MOTORU VE HAVUZU
+       ======================================= */
+    const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
+    const SIZE = 400; canvas.width = SIZE; canvas.height = SIZE;
+    let isPlaying = false, isDrawing = false;
+    
+    // 5 Farklı Labirent Haritası (0: Yol, 1: Duvar, 2: Karınca, 3: Yemek)
+    const LABIRENT_HAVUZU = [
+      [ [1,1,1,1,1,1,1,1], [1,2,0,0,1,0,0,1], [1,1,1,0,1,1,0,1], [1,0,0,0,0,0,0,1], [1,0,1,1,1,1,0,1], [1,0,1,0,0,0,0,1], [1,0,0,0,1,1,3,1], [1,1,1,1,1,1,1,1] ],
+      [ [1,1,1,1,1,1,1,1], [1,2,0,0,0,0,3,1], [1,1,1,1,1,1,0,1], [1,0,0,0,0,0,0,1], [1,0,1,1,1,1,1,1], [1,0,0,0,0,0,0,1], [1,1,1,1,1,1,1,1], [1,1,1,1,1,1,1,1] ],
+      [ [1,1,1,1,1,1,1,1], [1,2,0,1,3,0,0,1], [1,1,0,1,0,1,1,1], [1,0,0,0,0,1,0,1], [1,0,1,1,0,1,0,1], [1,0,0,1,0,0,0,1], [1,1,0,1,1,1,1,1], [1,1,1,1,1,1,1,1] ],
+      [ [1,1,1,1,1,1,1,1], [1,2,0,0,0,0,0,1], [1,0,1,1,1,1,0,1], [1,0,1,3,0,1,0,1], [1,0,1,1,0,1,0,1], [1,0,0,0,0,1,0,1], [1,1,1,1,1,1,1,1], [1,1,1,1,1,1,1,1] ],
+      [ [1,1,1,1,1,1,1,1], [1,0,0,0,1,2,1,1], [1,0,1,0,1,0,0,1], [1,0,1,0,1,1,0,1], [1,0,1,0,0,0,0,1], [1,0,1,1,1,1,1,1], [1,3,0,0,0,0,0,1], [1,1,1,1,1,1,1,1] ]
+    ];
+    
+    let gridData = [];
+    const GRID_COUNT = 8, CELL_SIZE = SIZE / GRID_COUNT;
+    let antPos = {x:0,y:0}, goalPos = {x:0,y:0}, pathPoints = [];
+
+    function rastgeleLabirentSec() {
+      const rastgeleIndex = Math.floor(Math.random() * LABIRENT_HAVUZU.length);
+      gridData = LABIRENT_HAVUZU[rastgeleIndex];
+    }
+
+    function labirentiCiz() {
+      ctx.clearRect(0,0,SIZE,SIZE);
+      for (let r=0; r<GRID_COUNT; r++) {
+        for (let c=0; c<GRID_COUNT; c++) {
+          const x=c*CELL_SIZE, y=r*CELL_SIZE;
+          if (gridData[r][c]===1) { ctx.fillStyle="#654321"; ctx.fillRect(x,y,CELL_SIZE,CELL_SIZE); ctx.strokeStyle="rgba(0,0,0,0.2)"; ctx.strokeRect(x,y,CELL_SIZE,CELL_SIZE); }
+          else if (gridData[r][c]===2) antPos={x:x+CELL_SIZE/2, y:y+CELL_SIZE/2}; else if (gridData[r][c]===3) goalPos={x:x+CELL_SIZE/2, y:y+CELL_SIZE/2};
+        }
+      }
+      ctx.font = `${CELL_SIZE*0.6}px serif`; ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.fillText("🐜", antPos.x, antPos.y); ctx.fillText("🍽️", goalPos.x, goalPos.y);
+    }
+    
+    function oyunMotoruBaslat() { isPlaying=true; isDrawing=false; document.getElementById('statusOverlay').style.display='none'; labirentiCiz(); }
+    function getMousePos(e) { const r=canvas.getBoundingClientRect(); const cx=e.touches?e.touches[0].clientX:e.clientX; const cy=e.touches?e.touches[0].clientY:e.clientY; return {x:(cx-r.left)*(canvas.width/r.width), y:(cy-r.top)*(canvas.height/r.height)}; }
+    function startDraw(e) { if(!isPlaying)return; const p=getMousePos(e); if(Math.hypot(p.x-antPos.x,p.y-antPos.y)<CELL_SIZE){isDrawing=true; pathPoints=[antPos];} }
+    
+    function drawPlay(e) {
+      if(!isPlaying||!isDrawing)return; e.preventDefault(); const p=getMousePos(e); const r=Math.floor(p.y/CELL_SIZE), c=Math.floor(p.x/CELL_SIZE);
+      if(r<0||r>=GRID_COUNT||c<0||c>=GRID_COUNT||gridData[r][c]===1) { isPlaying=false; isDrawing=false; document.getElementById('statusText').innerText="Duvara Değdin!"; document.getElementById('statusOverlay').style.display='flex'; return; }
+      pathPoints.push(p); labirentiCiz(); ctx.beginPath(); ctx.strokeStyle="rgba(76,175,80,0.6)"; ctx.lineWidth=CELL_SIZE*0.3; ctx.lineJoin="round"; ctx.lineCap="round"; ctx.moveTo(pathPoints[0].x,pathPoints[0].y);
+      for(let i=1;i<pathPoints.length;i++) ctx.lineTo(pathPoints[i].x,pathPoints[i].y); ctx.stroke();
+      if(Math.hypot(p.x-goalPos.x,p.y-goalPos.y)<CELL_SIZE*0.6) {
+        isPlaying=false; isDrawing=false; modalKapat('oyunModal');
+        document.getElementById('btn-tefekkur-onay').innerText = gecerliOyunModu === 'sulama' ? "İdrak Ettim, Suyu Ver!" : "İdrak Ettim, Yıldızı Al!";
+        document.getElementById('tefekkurModal').classList.add('goster');
+      }
+    }
+    function stopDraw() { if(isPlaying&&isDrawing){isDrawing=false; labirentiCiz();} }
+    canvas.addEventListener('mousedown',startDraw); canvas.addEventListener('mousemove',drawPlay); window.addEventListener('mouseup',stopDraw);
+    canvas.addEventListener('touchstart',startDraw); canvas.addEventListener('touchmove',drawPlay); window.addEventListener('touchend',stopDraw);
+
+    arayuzuGuncelle();
+  </script>
+<div class="alt-sis"></div>	
+</body>
+</html>

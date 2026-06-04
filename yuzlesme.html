@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>İçsel Bir Yolculuk: Kendinle Yüzleş | Tevhid.tr</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#121212" />	
+  <meta name="description" content="Modern hayatın koşuşturmacasında durup kendine sormaya cesaretin var mı? Kendi fıtratınla ve çağdaş putlarınla yüzleşeceğin interaktif bir tefekkür yolculuğu." />
+  <link rel="canonical" href="https://tevhid.tr/yuzlesme.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />  
+
+  <meta property="og:image" content="https://tevhid.tr/og-image.png" />
+  <meta name="twitter:image" content="https://tevhid.tr/og-image.png" />
+  <meta property="og:title" content="İçsel Bir Yolculuk | Tevhid.tr" />
+  <meta property="og:description" content="Kendi fıtratınla ve çağdaş putlarınla yüzleşeceğin interaktif bir tefekkür yolculuğu." />
+  <meta property="og:url" content="https://tevhid.tr/yuzlesme.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tevhid.tr" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="İçsel Bir Yolculuk | Tevhid.tr" />
+  <meta name="twitter:description" content="Kendi fıtratınla ve çağdaş putlarınla yüzleşeceğin interaktif bir tefekkür yolculuğu." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "applicationCategory": "GameApplication",
+    "genre": "Interactive Fiction",
+    "name": "İçsel Bir Yolculuk: Kendinle Yüzleş",
+    "url": "https://tevhid.tr/yuzlesme.html",
+    "description": "Modern hayatın koşuşturmacasında durup kendine sormaya cesaretin var mı? Kendi fıtratınla ve çağdaş putlarınla yüzleşeceğin, metin tabanlı ve seçim odaklı interaktif bir tefekkür deneyimi.",
+    "operatingSystem": "Web Browser",
+    "author": {
+      "@type": "Organization",
+      "name": "Tevhid.tr"
+    }
+  }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9.10">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM793T0H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHM793T0H9');
+  </script>
+
+  <style>
+    /* KATEGORİ BAŞLIKLARI (MENÜLER İÇİN) */
+    .menu-kategori-baslik {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      opacity: 0.8;
+      margin: 25px 0 10px 0;
+      display: block;
+      font-weight: 700;
+    }
+
+    /* Yolculuk Konteyneri */
+    .yolculuk-konteyner {
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 0 20px;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #sahneKutusu { opacity: 0; transition: opacity 0.8s ease-in-out; }
+
+    .sahne-metni {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      line-height: 1.9;
+      color: var(--text-color);
+      margin-bottom: 30px;
+      outline: none; 
+    }
+
+    .yonlendirme-metni {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.6;
+      margin-bottom: 10px !important;
+      font-style: italic;
+    }
+
+    .secenekler-alani { display: flex; flex-direction: column; gap: 12px; }
+
+    .secenek-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 16px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    .secenek-btn:hover {
+      border-color: var(--accent-color);
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+    
+    .secenek-btn:focus-visible { transform: translateX(5px); }
+
+    /* SİTEYLE UYUMLU AYET KARTI (VERSE-CARD) */
+    .verse-card {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      padding: 25px;
+      margin: 30px 0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px var(--shadow);
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text-color);
+    }
+
+    /* GEO Düzenlemesi - span yerine cite kullanacağız JS içinde */
+    .verse-card cite {
+      display: block;
+      margin-top: 15px;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--heading-color);
+      opacity: 0.8;
+    }
+
+    /* YOLCULUK SONU VE BAŞA DÖN BUTONLARI - SİTE STANDARDI */
+    .bitis-btn {
+      margin-top: 20px !important;
+      border: 1px solid var(--accent-color) !important; 
+      box-shadow: 0 4px 15px var(--shadow) !important;
+      font-weight: 600 !important;
+    }
+
+    .bitis-btn:hover, .bitis-btn:focus-visible {
+      background: var(--accent-color) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--shadow) !important;
+    }
+
+    /* MOBİL UYUM */
+    @media (max-width: 768px) {
+      .yolculuk-konteyner { margin: 20px auto !important; padding: 0 15px !important; min-height: 80vh !important; }
+      .sahne-metni { font-size: 1.15rem !important; line-height: 1.7 !important; margin-bottom: 20px !important; }
+      .secenek-btn { padding: 14px 18px !important; font-size: 0.95rem !important; }
+    }
+  </style>
+</head>
+<body>
+  
+  <a href="#ana-icerik" class="icerige-atla">Yolculuğa Atla</a>
+  <div id="progress-bar"></div>
+  
+  <header class="main-header" role="banner">
+    <div class="container header-flex">
+      <div class="logo">
+        <span class="site-logo">
+          <a href="/" style="color: inherit; text-decoration: none;">tevhid</a><a href="/nokta.html" aria-label="Sır: Tevhidin derinliklerine açılan gizli sayfa" style="text-decoration: none; padding: 10px 4px; margin: -10px -4px; outline: none;"><span class="sirli-nokta">.</span></a><a href="/" style="color: inherit; text-decoration: none;">tr</a>
+        </span>
+      </div>
+      <div class="header-tools" style="display: flex; align-items: center; gap: 15px;">
+        <button id="tefekkurBaslat" class="tefekkur-btn" aria-label="Tefekkür Modunu Aç" title="Odaklan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+        <button id="theme-toggle" aria-label="Temayı Değiştir">
+          <span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Ana Menüyü Aç" aria-expanded="false" aria-controls="overlay-menu">
+          <svg id="menu-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="overlay-menu" class="overlay-menu" aria-label="Ana Navigasyon">
+    <div class="overlay-content">
+      <a href="/" style="font-size: 1.5rem; font-weight: 700; border: none; margin-bottom: 10px;">Ana Sayfa</a>
+      
+      <span class="menu-kategori-baslik">I. Kökler (İnanç)</span>
+      <a href="/tevhid-nedir.html">Tevhid Nedir?</a>
+      <a href="/allahin-birligi.html">Allah'ın Birliği</a>
+      <a href="/sirk-nedir.html">Şirk Nedir?</a>
+      <a href="/kavramlar-sozlugu.html">Kavramlar Sözlüğü</a>
+      <a href="/esmaul-husna.html">Esma-ül Hüsna</a>
+
+      <span class="menu-kategori-baslik">II. Gövde (Pratik)</span>
+      <a href="/gundelik-hayatta-tevhid.html">Gündelik Hayatta Tevhid</a>
+      <a href="/dua-ve-tevhid.html">Dua ve Tevhid</a>
+      <a href="/tezkiye.html">Kalbin Arınması</a>
+      <a href="/kuran-kissalari.html">Tevhid Kıssaları</a>
+
+      <span class="menu-kategori-baslik">III. Menzil (Duruş)</span>
+      <a href="/istikamet.html">İstikamet ve Sabır</a>
+      <a href="/ahlak-ve-tevhid.html">Ahlak ve Tevhid</a>
+      <a href="/ahiret-bilinci.html">Ahiret Bilinci</a>
+      <a href="/hakkimizda.html">Biz Kimiz?</a>
+      
+      <div class="menu-divider" style="width:40px; height:2px; background:var(--border-color); margin:30px auto; opacity:0.5; display:block;"></div>
+      <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr">İletişim</a>
+    </div>
+  </nav>
+
+  <main id="ana-icerik" class="yolculuk-konteyner" role="main" aria-label="İçsel Yolculuk Alanı">
+    <section id="sahneKutusu" aria-live="polite" aria-atomic="true">
+      <h1 class="visually-hidden" style="display:none;">Kendinle Yüzleşme Simülasyonu</h1>
+      <div id="sahneMetni" class="sahne-metni" tabindex="-1"></div>
+      <div id="yonlendirmeMetni" class="yonlendirme-metni"></div>
+      <nav id="seceneklerAlani" class="secenekler-alani" aria-label="Karar Seçenekleri"></nav>
+      
+      <div style="text-align: center; margin-top: 40px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
+        <button class="share-btn" data-title="İçsel Bir Yolculuk: Kendinle Yüzleş | Tevhid.tr" aria-label="Bu tefekkür yolculuğunu paylaş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          Yolculuğu Paylaş
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <aside class="ozgur-ayet-alani" aria-label="Kapanış Ayeti">
+    <blockquote class="footer-verse" style="border: none; margin: 0; padding: 0;">
+      “Allah bana yeter, O’ndan başka ilah yoktur, ben yalnız O’na güvenirim; O, büyük arşın Rabb’idir.”<br>
+      <cite style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-style: normal;">(9/Tevbe, 129)</cite>
+    </blockquote>
+  </aside>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around; width: 100%; gap: 30px; text-align: left; max-width: 900px;">
+        
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">I. Kökler</h4>
+          <a href="/tevhid-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Nedir?</a>
+          <a href="/allahin-birligi.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Allah'ın Birliği</a>
+          <a href="/sirk-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Şirk Nedir?</a>
+          <a href="/kavramlar-sozlugu.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kavramlar Sözlüğü</a>
+          <a href="/esmaul-husna.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Esma-ül Hüsna</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">II. Gövde</h4>
+          <a href="/tezkiye.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kalbin Arınması</a>
+          <a href="/gundelik-hayatta-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Gündelik Hayat</a>
+          <a href="/dua-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Dua ve Tevhid</a>
+          <a href="/kuran-kissalari.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Kıssaları</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">III. Menzil</h4>
+          <a href="/istikamet.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">İstikamet</a>
+          <a href="/ahlak-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahlak ve Tevhid</a>
+          <a href="/ahiret-bilinci.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahiret Bilinci</a>
+          <a href="/hakkimizda.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Biz Kimiz?</a>
+          <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr" style="display: block; margin-top: 15px; opacity: 0.8;">İletişim</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <button id="tefekkurKapat" class="tefekkur-kapat-btn" aria-label="Tefekkür Modunu Kapat">✕ Odaktan Çık</button>
+
+  <script src="script.js?v=9.10"></script>
+
+  <script>
+    const hikaye = {
+      baslangic: {
+        metin: "Uzun ve yorucu bir günün ardından nihayet odana çekildin. Kapıyı kapattığında, dış dünyanın o sağır edici gürültüsü bir anlığına kesildi. Dışarıdan bakıldığında her şey yolunda gibi; bir hayat mücadelesi veriyorsun, insanlara gülümsüyorsun, bir şeylerin peşinden koşuyorsun...<br><br>Ama tam şu an, bu sessizliğin ortasında, göğüs kafesinde adını koyamadığın o ağır his yine seni yokluyor. Bir şeyler eksik. Ne kadar elde edersen et, ne kadar tüketirsen tüket bir türlü dolmayan, dipsiz bir kuyu gibi... İçinde koca bir evren var ama sen o evrende yapayalnız hissediyorsun.",
+        yonlendirme: "Bu hisle baş başa kaldığında genelde ne yaparsın? Kendine karşı dürüst ol ve sana en tanıdık gelen refleksi seç...",
+        secenekler: [
+          { metin: "Telefonu elime alıp dijital dünyanın akışına dalarım; başkalarının hayatlarını izlemek bu boşluğu unutturur.", hedef: "dal_a" },
+          { metin: "Yarınki işleri, ödemeleri ve geleceğimi planlamaya başlarım. Hayatı kontrol altında tutmak bana güvende olduğumu hissettirir.", hedef: "dal_b" },
+          { metin: "Birilerine mesaj atar veya sosyal medyada bir şeyler paylaşırım. İnsanların ilgisi ve onayı yalnızlığımı dağıtır.", hedef: "dal_c" }
+        ]
+      },
+      dal_a: {
+        metin: "Parmakların parlayan ekranda kayarken dakikalar, belki de saatler geçiyor. Renkli görüntüler, başkalarının kusursuz gibi sunulan hayatları... O an için zihnini uyuşturdun ve o boğucu sessizliği unuttun.<br><br>Ama yorulan gözlerini dinlendirmek için telefonu elinden bıraktığında ekran kararıyor. O kapkaranlık camın üzerinde aniden kendi yansımanla göz göze geliyorsun. O ağır his seni bekliyor. Anlıyorsun ki, sonsuz bir akışın içinde kaybolmak seni asıl menziline ulaştırmıyor, sadece yoldan alıkoyuyor.",
+        yonlendirme: "Bu yorgunluk ve idrak anında, içindeki sese nasıl cevap verirsin?",
+        secenekler: [
+          { metin: "Yüzleşmeye hazır değilim. Uykuya dalana dek ekranı tekrar açar ve kendimi uyuşturmaya devam ederim.", hedef: "cikis_a1" },
+          { metin: "Ekranı tamamen kapatır, 'Neden kendi içimden ve hakikatten kaçıyorum?' sorusuyla yüzleşmeyi seçerim.", hedef: "cikis_a2" }
+        ]
+      },
+      cikis_a1: {
+        metin: "Ekranın yapay ışığında yorulan gözlerin kapandığında, ruhundaki o ağırlıkla birlikte uykuya daldın. Boşluğu doldurmadın, sadece üzerini örttün. Kendi anlık rahatlama arzunu hakikate tercih ettin." +
+               "<blockquote class='verse-card'>\"Kendi istek ve tutkularını (hevasını) ilah edineni gördün mü?...\"<cite>(25/Furkân, 43)</cite></blockquote>" +
+               "<blockquote class='verse-card'>\"Kim de benim zikrimden yüz çevirirse, şüphesiz onun sıkıntılı (dar) bir hayatı olacaktır.\"<cite>(20/Tâhâ, 124)</cite></blockquote>",
+        yonlendirme: "",
+        secenekler: [ { metin: "Hakikatle yüzleşmek için henüz geç değil. Başa dön ve tekrar düşün.", hedef: "baslangic" } ]
+      },
+      cikis_a2: {
+        metin: "Ekranı kapattın ve yansımanla barıştın. İçindeki o devasa boşluğun, bu dünyadaki hiçbir sahte ışıkla dolmayacağını idrak ettin. Çünkü o boşluk, ancak onu yaratanın nuruyla dolmak için var." + 
+               "<blockquote class='verse-card'>\"Onlar, inananlar ve kalpleri Allah’ı anmakla mutmain olanlardır. Bilin ki, kalpler ancak Allah’ı anmakla huzur bulur.\"<cite>(13/Ra'd, 28)</cite></blockquote>",
+        yonlendirme: "Kalbin asıl sahibini bulduğuna göre, inşaya başlayabilirsin.",
+        secenekler: [ { metin: "Tevhid Nedir? (Makaleyi Oku)", hedef: "link_tevhid" } ]
+      },
+      dal_b: {
+        metin: "Zihnini susturmak için hemen yarının planlarına, bitirilmesi gereken işlere ve kariyer basamaklarına daldın. Hayatı ne kadar iyi organize edersen o kaygının kaybolacağına inandırdın kendini...<br><br>Ama hesaplar büyüdükçe omuzlarındaki yük de katlanarak ağırlaştı. Çünkü derinlerde bir yerde biliyorsun ki; yarın sabah ne olacağını tamamen kontrol edemezsin. Geleceği kendi gücünle garanti altına alma çaban, seni bitmek bilmeyen bir evham döngüsüne hapsetti.",
+        yonlendirme: "Zihnindeki bu bitmek bilmeyen hesaplaşmanın ortasında ne yaparsın?",
+        secenekler: [
+          { metin: "Daha fazla çalışmalı ve plan yapmalıyım. Kendimi garantiye alacak gücü elde edersem huzura ererim.", hedef: "cikis_b1" },
+          { metin: "İplerin tamamen benim elimde olmadığını kabul edip, her şeyin mutlak sahibine teslim olmaya ihtiyacım var.", hedef: "cikis_b2" }
+        ]
+      },
+      cikis_b1: {
+        metin: "Kendi zihninde kurduğun planların veya güvendiğin makamların seni koruyacağına inandın. Rızkı ve geleceği veren asıl kudreti unutup, sadece 'sebeplere' ilah gibi sarılmak, insanı sadece daha da yorar." +
+               "<blockquote class='verse-card'>\"Allah’tan başka dayanaklar edinenlerin durumu, kendine bir ev edinen örümceğin durumu gibidir. Evlerin en dayanıksızı ise şüphesiz örümcek evidir...\"<cite>(29/Ankebût, 41)</cite></blockquote>",
+        yonlendirme: "",
+        secenekler: [ { metin: "Hakikatle yüzleşmek için henüz geç değil. Başa dön ve tekrar düşün.", hedef: "baslangic" } ]
+      },
+      cikis_b2: {
+        metin: "İşte şimdi omuzlarındaki o ezici ağırlık kalktı. Elinden geleni yaptıktan sonra, sonucu mülkün asıl sahibine bıraktığın an, içindeki o dipsiz kuyu sükûnetle doldu." +
+               "<blockquote class='verse-card'>\"Kim Allah’a tevekkül ederse, O, ona yeter...\"<cite>(65/Talâk, 3)</cite></blockquote>" +
+               "<blockquote class='verse-card'>\"Allah bana yeter, O’ndan başka ilah yoktur...\"<cite>(9/Tevbe, 129)</cite></blockquote>",
+        yonlendirme: "Tevekkülün sükûnetine ulaştığına göre, inşaya başlayabilirsin.",
+        secenekler: [ { metin: "Gündelik Hayatta Tevhid (Makaleyi Oku)", hedef: "link_gundelik" } ]
+      },
+      dal_c: {
+        metin: "O ağır yalnızlık hissi basınca hemen birilerine mesaj attın veya sosyal medyada bir şeyler paylaştın. Gülüşmeler ve gelen beğeniler bir anlığına o sessizliği bozdu. Herkes seni onayladı...<br><br>Ama kalabalık dağılıp kapıyı kapattığında, o sahte doluluk hissi buharlaştı. Anladın ki; yüzlerce insanın seni alkışlaması asıl merkeze ulaşmıyor. İnsanların rızasını kazanmak için taktığın maskeler, seni kendi fıtratına yabancılaştırdı.",
+        yonlendirme: "Kalabalıkların gürültüsü dindiğinde hangi adımı atarsın?",
+        secenekler: [
+          { metin: "Yine de insanların ne düşündüğü çok önemli. Dışlanmamak için onların rızasını aramaya mecburum.", hedef: "cikis_c1" },
+          { metin: "Artık 'elalem' putunu bırakıp, sadece beni yaratanın rızasını aramaya ve asıl değerimi bulmaya ihtiyacım var.", hedef: "cikis_c2" }
+        ]
+      },
+      cikis_c1: {
+        metin: "Seni dışlamasınlar diye inandığın doğrulardan taviz verdin. Farkında olmadan 'insanların onayını' kalbinin en büyük otoritesi yaptın. Kendilerine bile faydası dokunmayan aciz insanların onayında şeref aramak, ruhunu kalabalıklara köle yapmaktır." +
+               "<blockquote class='verse-card'>\"Onlar... izzet ve şerefi onların yanında mı arıyorlar? Bilsinler ki bütün izzet ve şeref bütünüyle Allah’a aittir.\"<cite>(4/Nisâ, 139)</cite></blockquote>",
+        yonlendirme: "",
+        secenekler: [ { metin: "Hakikatle yüzleşmek için henüz geç değil. Başa dön ve tekrar düşün.", hedef: "baslangic" } ]
+      },
+      cikis_c2: {
+        metin: "İşte şimdi o en ağır pranga kırıldı. Herkesi memnun etme yorgunluğunu bırakıp sadece O'nu razı etmeyi dert edindiğinde, aslında tüm kalplerin sahibine sığınmış oldun. Çünkü Tevhid, insanı insanlara kul olmaktan kurtarır." +
+               "<blockquote class='verse-card'>\"...Allah kuluna yetmez mi? Seni O’ndan başkalarıyla korkutuyorlar...\"<cite>(39/Zümer, 36)</cite></blockquote>",
+        yonlendirme: "Gerçek izzet ve şerefi bulduğuna göre, inşaya başlayabilirsin.",
+        secenekler: [ { metin: "Şirk Nedir? (Makaleyi Oku)", hedef: "link_sirk" } ]
+      }
+    };
+
+    const sahneKutusu = document.getElementById('sahneKutusu');
+    const sahneMetni = document.getElementById('sahneMetni');
+    const yonlendirmeMetni = document.getElementById('yonlendirmeMetni');
+    const seceneklerAlani = document.getElementById('seceneklerAlani');
+
+    function sahneYukle(sahneId) {
+      if (sahneId === "link_tevhid") { window.location.href = "/tevhid-nedir.html"; return; }
+      if (sahneId === "link_gundelik") { window.location.href = "/gundelik-hayatta-tevhid.html"; return; }
+      if (sahneId === "link_sirk") { window.location.href = "/sirk-nedir.html"; return; }
+
+      const aktifSahne = hikaye[sahneId];
+      sahneKutusu.style.opacity = 0; 
+
+      setTimeout(() => {
+        sahneMetni.innerHTML = aktifSahne.metin;
+        yonlendirmeMetni.innerHTML = aktifSahne.yonlendirme || "";
+        seceneklerAlani.innerHTML = ''; 
+
+        aktifSahne.secenekler.forEach(secenek => {
+          const btn = document.createElement('button');
+          
+          if(secenek.hedef.startsWith("link_")) {
+            // İLERİ (MAKALE) KAPISI
+            btn.className = 'secenek-btn bitis-btn';
+            btn.innerHTML = `${secenek.metin} <span style="font-family: Arial, sans-serif; font-size: 1.2rem; padding-left: 8px;">&rarr;</span>`;
+            
+          } else if(secenek.hedef === "baslangic") {
+            // BAŞA DÖNÜŞ KAPISI (GERİ OK)
+            btn.className = 'secenek-btn bitis-btn';
+            btn.innerHTML = `<span style="font-family: Arial, sans-serif; font-size: 1.2rem; padding-right: 8px;">&larr;</span> ${secenek.metin}`;
+            
+          } else {
+            // NORMAL YOLCULUK SEÇENEKLERİ
+            btn.className = 'secenek-btn';
+            btn.innerHTML = secenek.metin;
+          }
+          
+          btn.onclick = () => sahneYukle(secenek.hedef);
+          seceneklerAlani.appendChild(btn);
+        });
+
+        sahneKutusu.style.opacity = 1; 
+        sahneMetni.focus();
+      }, 800); 
+    }
+
+    window.onload = () => { setTimeout(() => sahneYukle('baslangic'), 200); };
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>	
+<div class="alt-sis"></div>	
+</body>
+</html>

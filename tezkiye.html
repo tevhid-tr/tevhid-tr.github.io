@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>Kalbin Arınması (Tezkiye) | Tevhid.tr</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#121212" />	
+  <meta name="description" content="Nefs terbiyesi, içerideki putları yıkmak, riya, kibir ve hasedden arınıp kalbi Allah'a teslim etmek üzerine bir tefekkür." />
+  <link rel="canonical" href="https://tevhid.tr/tezkiye.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />  
+
+  <meta property="og:image" content="https://tevhid.tr/og-image.png" />
+  <meta name="twitter:image" content="https://tevhid.tr/og-image.png" />
+  <meta property="og:title" content="Kalbin Arınması (Tezkiye) | Tevhid.tr" />
+  <meta property="og:description" content="Nefs terbiyesi, içerideki putları yıkmak ve kalbi Allah'a teslim etmek üzerine bir tefekkür." />
+  <meta property="og:url" content="https://tevhid.tr/tezkiye.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tevhid.tr" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Kalbin Arınması (Tezkiye)",
+      "description": "Nefs terbiyesi, içerideki putları yıkmak, riya, kibir ve hasedden arınıp kalbi Allah'a teslim etmek üzerine bir tefekkür.",
+      "author": {
+        "@type": "Organization",
+        "name": "Tevhid.tr",
+        "url": "https://tevhid.tr/"
+      },
+      "url": "https://tevhid.tr/tezkiye.html"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "https://tevhid.tr/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kalbin Arınması",
+		"item": "https://tevhid.tr/tezkiye.html"
+      }]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9.10">
+
+  <style>
+    /* KATEGORİ BAŞLIKLARI (MENÜLER İÇİN) */
+    .menu-kategori-baslik {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      opacity: 0.8;
+      margin: 25px 0 10px 0;
+      display: block;
+      font-weight: 700;
+    }
+    
+    /* Ek GEO optimizasyonları için küçük düzeltmeler */
+    .verse-card cite, .hadith-card cite, .footer-verse cite {
+      font-style: normal;
+      display: block;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM793T0H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHM793T0H9');
+  </script>
+</head>
+<body>
+  
+  <a href="#ana-icerik" class="icerige-atla">Ana İçeriğe Atla</a>
+
+  <div id="progress-bar"></div>
+  <header class="main-header" role="banner">
+    <div class="container header-flex">
+      <div class="logo">
+        <span class="site-logo">
+          <a href="/" style="color: inherit; text-decoration: none;">tevhid</a><a href="/nokta.html" aria-label="Sır: Tevhidin derinliklerine açılan gizli sayfa" style="text-decoration: none; padding: 10px 4px; margin: -10px -4px; outline: none;"><span class="sirli-nokta">.</span></a><a href="/" style="color: inherit; text-decoration: none;">tr</a>
+        </span>
+      </div>
+      
+      <div class="header-tools" style="display: flex; align-items: center; gap: 15px;">
+        <button id="tefekkurBaslat" class="tefekkur-btn" aria-label="Tefekkür Modunu Aç" title="Odaklan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+        <button id="theme-toggle" aria-label="Temayı Değiştir">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Ana Menüyü Aç" aria-expanded="false" aria-controls="overlay-menu">
+          <svg id="menu-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="overlay-menu" class="overlay-menu" aria-label="Ana Navigasyon">
+    <div class="overlay-content">
+      <a href="/" style="font-size: 1.5rem; font-weight: 700; border: none; margin-bottom: 10px;">Ana Sayfa</a>
+      
+      <span class="menu-kategori-baslik">I. Kökler (İnanç)</span>
+      <a href="/tevhid-nedir.html">Tevhid Nedir?</a>
+      <a href="/allahin-birligi.html">Allah'ın Birliği</a>
+      <a href="/sirk-nedir.html">Şirk Nedir?</a>
+      <a href="/kavramlar-sozlugu.html">Kavramlar Sözlüğü</a>
+      <a href="/esmaul-husna.html">Esma-ül Hüsna</a>
+
+      <span class="menu-kategori-baslik">II. Gövde (Pratik)</span>
+      <a href="/gundelik-hayatta-tevhid.html">Gündelik Hayatta Tevhid</a>
+      <a href="/dua-ve-tevhid.html">Dua ve Tevhid</a>
+      <a href="/tezkiye.html" style="color: var(--accent-color) !important;">Kalbin Arınması</a>
+      <a href="/kuran-kissalari.html">Tevhid Kıssaları</a>
+
+      <span class="menu-kategori-baslik">III. Menzil (Duruş)</span>
+      <a href="/istikamet.html">İstikamet ve Sabır</a>
+      <a href="/ahlak-ve-tevhid.html">Ahlak ve Tevhid</a>
+      <a href="/ahiret-bilinci.html">Ahiret Bilinci</a>
+      <a href="/hakkimizda.html">Biz Kimiz?</a>
+      
+      <div class="menu-divider" style="width:40px; height:2px; background:var(--border-color); margin:30px auto; opacity:0.5; display:block;"></div>
+      <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr">İletişim</a>
+    </div>
+  </nav>
+
+  <main id="ana-icerik" class="container" role="main">
+    
+    <header class="intro" style="text-align:center; padding: 40px 0 20px 0;">
+      <nav class="breadcrumb" aria-label="Ekmek Kırıntısı (Breadcrumb)">
+        <a href="/">Ana Sayfa</a>
+        <span class="breadcrumb-ayrac">/</span>
+        <span aria-current="page">Tezkiye</span>
+      </nav>
+
+      <h1 id="tezkiye-baslik" style="font-size: 2.4rem; color: var(--heading-color); margin-bottom: 15px;">Kalbin Arınması (Tezkiye)</h1>
+      
+      <div class="yazi-metasi">
+        <span>⏳ 4 Dk Okuma Süresi</span>
+        <span>•</span>
+        <button class="share-btn" data-title="Kalbin Arınması (Tezkiye) | Tevhid.tr" aria-label="Bu yazıyı paylaş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          Paylaş
+        </button>
+      </div>
+
+      <p class="lead" style="font-size: 1.1rem; opacity: 0.8; max-width: 650px; margin: 20px auto 0 auto;">En çetin savaş, insanın kendi içine verdiği savaştır.</p>
+      
+      <div class="intro-divider" style="width:60px; height:2px; background:var(--border-color); margin:30px auto;"></div>
+      
+      <div class="intro-davet" style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+        <p>Tevhid sadece gökyüzüne bakıp "Allah birdir" demek değildir. Asıl Tevhid, insanın kendi göğüs kafesinin içine bakıp oradaki gizli ilahları tahtından indirmesidir.</p>
+      </div>
+    </header>
+
+    <div class="content-block">
+      
+      <section aria-labelledby="teshis-ic-putlar">
+        <h2 id="teshis-ic-putlar" style="margin-top: 25px; margin-bottom: 20px;">1. Teşhis: İçerideki Putlar</h2>
+        <p style="margin-bottom: 30px; line-height: 1.8;">Nefs bizim düşmanımız değil, hakikate giden yolda bineğimizdir. Sorun bineğin var olması değil, dizginlerin kimin elinde olduğudur. Modern çağ bize sürekli <dfn class="kavram-ipucu" tabindex="0" data-anlam="İnsanın sadece kendi menfaatini, isteklerini ve sınır tanımaz tutkularını merkeze alması.">hevamızı</dfn> (arzularımızı) ilahlaştırmamızı fısıldar. Oysa kalbimizi işgal eden, bizi Rabbimizden uzaklaştıran o gizli putları yıkmak için önce onları tanımalıyız.</p>
+
+        <h3 id="oz-deger-yanilgilari" style="font-family: 'Lora', serif; color: var(--accent-color); font-size: 1.4rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px;">I. Öz-Değer Yanılgıları</h3>
+        
+        <div class="kavramlar-grid" style="display: flex; flex-direction: column; gap: 20px;">
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="kibir-baslik">
+            <h4 id="kibir-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Kibir <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(Kendini Müstağni Görmek)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> İnsanın Allah'a olan muhtaçlığını unutup, gücünü veya servetini kendinden bilmesidir.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> Çoğu zaman "kendi ayaklarımın üzerinde duruyorum" diyerek o gizli kibre düşer ve acziyetimizi unuturuz.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "Yeryüzünde böbürlenerek yürüme. Çünkü sen ne yeri yarabilirsin, ne de boyca dağlara ulaşabilirsin." <cite style="display:inline; font-style:normal;">(17/İsrâ, 37)</cite>
+            </div>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="ucub-baslik">
+            <h4 id="ucub-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Ucub <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(Kendi Amelini Beğenmek)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> Yaptığımız ibadetlerle veya iyiliklerle gururlanıp bunları kendimizden bilmek, kendimizi diğer insanlardan üstün görmektir.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> Hakikati aramaya çalışan insanın "Ben doğru yoldayım, onlar yoldan çıktı" diyerek gizli bir kibre düşmesi, şifayı Allah'tan değil kendi amelinden beklemesidir.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "De ki: Amelleri bakımından en çok ziyana uğrayanları size haber vereyim mi? Onlar, dünya hayatındaki çabaları boşa giden, ancak kendilerinin güzel işler yaptıklarını sanan kimselerdir." <cite style="display:inline; font-style:normal;">(18/Kehf, 103-104)</cite>
+            </div>
+          </article>
+        </div>
+
+        <h3 id="kalbin-zehirleri" style="font-family: 'Lora', serif; color: var(--accent-color); font-size: 1.4rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; margin-top: 50px; margin-bottom: 20px;">II. Kalbin Zehirleri</h3>
+        
+        <div class="kavramlar-grid" style="display: flex; flex-direction: column; gap: 20px;">
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="riya-baslik">
+            <h4 id="riya-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Riya <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(İnsanları İlah Edinmek)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> İbadeti, iyiliği veya hayatı "elalem ne der" korkusuyla yahut "beni alkışlasınlar" arzusuyla yaşamaktır.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> Onaylanma krizi yaşamak, kınanmaktan korkarak inandığımız doğrulardan taviz vermektir.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "Yazıklar olsun o namaz kılanlara ki, onlar namazlarından gafildirler. Onlar gösteriş yaparlar." <cite style="display:inline; font-style:normal;">(107/Mâûn, 4-6)</cite>
+            </div>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="hased-baslik">
+            <h4 id="hased-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Hased <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(Taksimata Gizli İsyan)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> Başkasına verilen nimeti hazmedememek, o nimetin ondan alınıp bize verilmesini arzulamaktır.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> İçten içe Allah'ın <dfn class="kavram-ipucu" tabindex="0" data-anlam="Mutlak adaleti sağlayan, hiçbir şeye ve hiç kimseye zerre kadar haksızlık etmeyen (Allah).">el-Adl</dfn> ve <dfn class="kavram-ipucu" tabindex="0" data-anlam="Yarattığı tüm varlıkların rızkını, neye ihtiyaçları varsa en ince detayına kadar veren (Allah).">er-Rezzak</dfn> isimlerine karşı "O nimet benim hakkımdı" diyerek rızkı verenin taksimine isyan etmektir.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "Yoksa onlar, Allah'ın kendi lütfundan insanlara verdiklerini mi kıskanıyorlar? Şüphesiz biz, İbrahim ailesine de kitap ve hikmet vermiştik. Hem de onlara büyük bir mülk ve saltanat verdik." <cite style="display:inline; font-style:normal;">(4/Nisâ, 54)</cite>
+            </div>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="bugz-baslik">
+            <h4 id="bugz-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Buğz <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(Heva İçin Kin Tutmak)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> Kendi çıkarlarımız zedelendiği, egomuz sarsıldığı için insanlara düşmanlık beslemektir.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> "Sadece Allah için sevmek ve buğzetmek" ölçüsünü yitirip, kendi nefretimizin karanlığında boğulmamızdır.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "Onlardan sonra gelenler şöyle derler: Rabbimiz! Bizi ve bizden önce imanla geçmiş olan kardeşlerimizi bağışla. Kalplerimizde iman edenlere karşı hiçbir kin bırakma! Rabbimiz! Şüphesiz sen çok şefkatli, çok merhametlisin." <cite style="display:inline; font-style:normal;">(59/Haşr, 10)</cite>
+            </div>
+          </article>
+        </div>
+
+        <h3 id="dunya-ve-gaflet" style="font-family: 'Lora', serif; color: var(--accent-color); font-size: 1.4rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; margin-top: 50px; margin-bottom: 20px;">III. Dünya ve Gaflet</h3>
+        
+        <div class="kavramlar-grid" style="display: flex; flex-direction: column; gap: 20px;">
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="hubbu-dunya-baslik">
+            <h4 id="hubbu-dunya-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Hubb-u Dünya <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(Bitmek Bilmeyen Hırs)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> Geçici olan dünya hayatını, malı ve makamı kalbin tam merkezine oturtup onu nihai bir gaye edinmektir.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> "Daha fazla kazanmalıyım" diyerek dünyayı bir araç olmaktan çıkarıp ilahlaştırmaktır. Oysa ölümlü olan hiçbir şey, kalpteki o sonsuzluk boşluğunu dolduramaz.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "Fakat siz dünya hayatını tercih ediyorsunuz. Oysa ahiret daha hayırlı ve daha kalıcıdır." <cite style="display:inline; font-style:normal;">(87/A'lâ, 16-17)</cite>
+            </div>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="gaflet-baslik">
+            <h4 id="gaflet-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">Gaflet <span style="font-size: 0.95rem; color: var(--text-color); font-style: italic; font-weight: normal;">(Hakikati Unutmak)</span></h4>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Tanım:</strong> Hayatın günlük akışına öylesine kapılmaktır ki; Allah'ı, ölümü ve yaratılış gayesini tamamen unutarak yaşamaktır.
+            </div>
+            <div style="margin-bottom: 12px; line-height: 1.6;">
+              <strong style="color: var(--accent-color);">Bugüne Yansıması:</strong> Faturalar, iş hayatı ve ekranların uyuşturucu etkisiyle bir "robot" gibi yaşamamız, kalbimizin asıl sahibini hatırlamaya vaktimizin olmamasıdır.
+            </div>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Uyarı:</strong> "İnsanların hesaba çekilecekleri gün yaklaştı. Hâl böyleyken onlar, gaflet içinde yüz çevirmektedirler." <cite style="display:inline; font-style:normal;">(21/Enbiyâ, 1)</cite>
+            </div>
+          </article>
+        </div>
+
+      </section>
+
+      <section aria-labelledby="tedavi-arinma-istasyonlari">
+        <h2 id="tedavi-arinma-istasyonlari" style="margin-top: 60px; margin-bottom: 20px;">2. Tedavi: Arınma İstasyonları</h2>
+        <p style="margin-bottom: 30px; line-height: 1.8;">İçimizdeki bu putları fark etmek, iyileşmenin yarısıdır. Ancak arınma tek seferlik bir eylem değil, ömür boyu süren bir yolculuktur. Bu yolculukta kalbi ayakta tutacak, fırtınaları dindirecek dört ana istasyon vardır:</p>
+
+        <div class="kavramlar-grid" style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid #5b735f; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="istasyon1-baslik">
+            <h4 id="istasyon1-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">1. İstasyon: İtiraf ve Tövbe</h4>
+            <p style="margin-bottom: 12px; line-height: 1.6;">Hasta olduğunu kabul etmeyen bir nefsi hiçbir tabip iyileştiremez. <dfn class="kavram-ipucu" tabindex="0" data-anlam="Nefsi terbiye etmek, kalbi günahlardan ve manevi hastalıklardan temizlemek.">Tezkiye</dfn>, insanın Rabbine dönüp "Ben kendime zulmettim, kalbimi sahte ilahlarla doldurdum" diyerek kusurunu itiraf etmesiyle başlar. Tövbe bir yıkım değil, yeniden inşadır.</p>
+            
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6; margin-bottom: 20px;">
+              <strong>İlahi Reçete:</strong> "De ki: Ey kendi aleyhlerine haddi aşan kullarım! Allah’ın rahmetinden ümit kesmeyin. Şüphesiz Allah, bütün günahları bağışlar. Çünkü O, çok bağışlayandır, çok merhamet edendir." <cite style="display:inline; font-style:normal;">(39/Zümer, 53)</cite>
+            </div>
+
+            <p style="margin-bottom: 12px; line-height: 1.6;">Tövbenin en güzel, en tevhid kokan hâli ise Efendimizin (s.a.v) bize öğrettiği, kulun acziyetini ve Allah'ın mutlak Rabliğini anlatan o eşsiz <strong>Seyyidül İstiğfar (İstiğfarların Efendisi)</strong> duasıdır:</p>
+            
+            <blockquote class="hadith-card" style="margin: 15px 0 0 0; padding: 25px; font-size: 1.05rem; border-left-color: #d4af37; background-color: rgba(212, 175, 55, 0.05); box-shadow: none; border-radius: 6px;">
+              "Allah'ım! Sen benim Rabbimsin! Senden başka ilâh yoktur. Beni Sen yarattın. Ben Senin kulunum. Gücüm yettiğince Sana verdiğim söz üzereyim. Yaptığım kötülüklerin şerrinden Sana sığınırım. Bana verdiğin nimetleri itiraf ediyorum, günahımı da itiraf ediyorum. Beni bağışla, zira günahları ancak Sen bağışlarsın."
+              <cite>(Buhârî, Daavât, 2)</cite>
+              <div class="ayet-araclari">
+                <button class="ayet-btn copy-btn" data-text="Allah'ım! Sen benim Rabbimsin! Senden başka ilâh yoktur. Beni Sen yarattın. Ben Senin kulunum. Gücüm yettiğince Sana verdiğim söz üzereyim. Yaptığım kötülüklerin şerrinden Sana sığınırım. Bana verdiğin nimetleri itiraf ediyorum, günahımı da itiraf ediyorum. Beni bağışla, zira günahları ancak Sen bağışlarsın. (Buhârî, Daavât, 2) - https://tevhid.tr" aria-label="Seyyidül İstiğfar Duasını Kopyala">📋 Kopyala</button>
+              </div>
+            </blockquote>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid #5b735f; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="istasyon2-baslik">
+            <h4 id="istasyon2-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">2. İstasyon: İhlas (Sadece O'na Yönelmek)</h4>
+            <p style="margin-bottom: 12px; line-height: 1.6;">Riyadan ve kibrin zehrinden kurtulmanın yegâne panzehiri İhlas'tır. İhlas, yaptığımız her işin üzerine "Bunu sadece Allah bilsin, O'nun rızası bana yeter" mührünü vurabilmektir. Amel az bile olsa, içinde ihlas varsa kalbi temizler.</p>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Reçete:</strong> "Hâlbuki onlara, ancak dini Allah’a has kılarak (ihlasla), hakka yönelen kimseler olarak O’na kulluk etmeleri, namazı kılmaları ve zekâtı vermeleri emredilmişti. İşte bu, dosdoğru dindir." <cite style="display:inline; font-style:normal;">(98/Beyyine, 5)</cite>
+            </div>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid #5b735f; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="istasyon3-baslik">
+            <h4 id="istasyon3-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">3. İstasyon: Sabır ve Şükür</h4>
+            <p style="margin-bottom: 12px; line-height: 1.6;">Hasedin ve dünya hırsının devası, kalbi bu iki kanatla dengelemektir. Nimet geldiğinde şükrederek kibrin önünü kesmek; musibet geldiğinde ise isyan etmeyip sabrederek tevekkül etmektir. Bu iki kanat olmadan nefs menzile uçamaz.</p>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Reçete:</strong> "Öyleyse beni anın ki ben de sizi anayım. Bana şükredin, sakın nankörlük etmeyin. Ey iman edenler! Sabır ve namazla Allah’tan yardım dileyin. Şüphesiz Allah, sabredenlerle beraberdir." <cite style="display:inline; font-style:normal;">(2/Bakara, 152-153)</cite>
+            </div>
+          </article>
+
+          <article class="kavram-card fade-in" style="background: var(--card-bg); border-left: 4px solid #5b735f; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow);" aria-labelledby="istasyon4-baslik">
+            <h4 id="istasyon4-baslik" style="margin-top: 0; color: var(--heading-color); font-size: 1.2rem; margin-bottom: 15px;">4. İstasyon: Zikir (Sürekli Hatırlama)</h4>
+            <p style="margin-bottom: 12px; line-height: 1.6;">Gaflet uykusundan uyanmanın yolu zikirdir. Zikir sadece dille tesbih çekmek değil; hayatın her anında, çalışırken, yürürken Allah'ın gözetiminde olduğumuzu kalpte canlı tutmaktır.</p>
+            <div style="font-style: italic; font-family: 'Inter', sans-serif; font-size: 0.95rem; background: rgba(0,0,0,0.03); padding: 15px; border-radius: 5px; line-height: 1.6;">
+              <strong>İlahi Reçete:</strong> "Onlar, iman edenler ve kalpleri Allah’ı anmakla (zikirle) huzura kavuşanlardır. Bilin ki, kalpler ancak Allah’ı anmakla huzur bulur." <cite style="display:inline; font-style:normal;">(13/Ra'd, 28)</cite>
+            </div>
+          </article>
+        </div>
+
+      </section>
+
+      <section aria-labelledby="menzil-teslimiyet">
+        <h2 id="menzil-teslimiyet" style="margin-top: 60px; margin-bottom: 20px;">3. Menzil: Teslimiyet ve Gerçek Fail</h2>
+        <p style="margin-bottom: 20px; line-height: 1.8;">Bunca hastalığı teşhis ettikten ve arınma duraklarına uğradıktan sonra varacağımız en yüce makam, <strong>kendi acziyetimizi itiraf etmektir.</strong> Modern öğretiler "Sen başardın, sen kendi kendini iyileştirdin" diyerek nefsi firavunlaştırmaya çalışırken, Tevhid bizi hakikate çağırır: İnsan kendi kendini temizleyemez.</p>
+        
+        <p style="margin-bottom: 20px; line-height: 1.8;">Biz sadece gayret edip o kapıya varırız; ancak içeriye nuru indirecek, kalbi arındıracak olan yegâne güç, Fail-i Mutlak olan Allah'tır. İçerideki sahte ilahlar yıkıldığında, yerini o muazzam sükûnet, yani <em>Nefs-i Mutmainne (Huzura Ermiş Nefs)</em> alır. Artık kalp fırtınalardan kurtulmuş, "Allah bana yeter" demiştir.</p>
+
+        <p style="margin-bottom: 20px; line-height: 1.8;">İşte bu yüzden, kâinatın en güzel öğreticisi (s.a.v.), bunca yüce ahlakına rağmen nefsinin dizginlerini kendi elinde tutmamış, şifayı kendi iradesinde aramamış ve o muazzam teslimiyetle Rabbine şöyle yakarmıştır:</p>
+
+        <blockquote class="hadith-card" style="border-left-color: #d4af37; background-color: rgba(212, 175, 55, 0.05); margin-top: 30px;">
+          "Allah'ım! Nefsime takvasını ver ve onu arındır. Onu en iyi arındıracak olan Sensin. Sen onun velisi ve mevlasısın."
+          <cite>(Müslim, Zikir, 73)</cite>
+          <div class="ayet-araclari">
+            <button class="ayet-btn copy-btn" data-text="Allah'ım! Nefsime takvasını ver ve onu arındır. Onu en iyi arındıracak olan Sensin. Sen onun velisi ve mevlasısın. (Müslim, Zikir, 73) - https://tevhid.tr" aria-label="Hadisi Kopyala">📋 Kopyala</button>
+          </div>
+        </blockquote>
+      </section>
+
+    </div>
+
+    <aside class="yuzlesme-davet-alani" style="margin: 60px auto 20px auto; text-align: center; background: var(--card-bg); border: 1px solid var(--accent-color); border-radius: 12px; padding: 45px 25px; box-shadow: 0 10px 30px var(--shadow); position: relative; overflow: hidden;" role="complementary" aria-labelledby="yuzlesme-baslik">
+      <div aria-hidden="true" style="position: absolute; top: -10px; right: -15px; font-size: 120px; opacity: 0.03; font-family: 'Lora', serif; pointer-events: none; transform: rotate(15deg);">?</div>
+      
+      <h2 id="yuzlesme-baslik" style="margin-top: 0; font-size: 1.85rem; color: var(--heading-color); border: none; font-family: 'Lora', serif;">İçindeki Boşluğun Sebebini Hiç Düşündün mü?</h2>
+      <p style="max-width: 620px; margin: 20px auto 30px auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-color);">
+        Modern hayatın gürültüsü ve bitmek bilmeyen koşturmaca içinde bir an durup kendine sormaya cesaretin var mı? Kendi fıtratınla ve seni asıl menzilinden alıkoyan gizli bağlarınla yüzleşeceğin interaktif bir tefekkür yolculuğuna davetlisin.
+      </p>
+      
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <a href="/yuzlesme.html" class="davet-btn" aria-label="İçsel bir yolculuk olan Kendinle Yüzleşme sayfasına git">Kendinle Yüzleş</a>
+        <small style="font-size: 0.85rem; font-style: italic; color: var(--text-color);">Sessiz bir ortamda, kendinle baş başayken denemen tavsiye edilir.</small>
+      </div>
+    </aside>  
+    
+    <nav class="journey-v2" style="margin-top: 60px;" aria-label="İkincil Navigasyon">
+      <h2 style="margin-top: 0; font-size: 1.8rem; border: none;">Yolculuğa Devam Et...</h2>
+      
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Kökler (İnanç)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/tevhid-nedir.html" class="j-card" aria-label="Tevhid nedir makalesini oku">Tevhid Nedir?</a>
+        <a href="/allahin-birligi.html" class="j-card" aria-label="Allah'ın birliği konusunu incele">Allah’ın Birliği</a>
+        <a href="/sirk-nedir.html" class="j-card" aria-label="Şirk ve tehlikeleri hakkında bilgi al">Şirk Nedir?</a>
+        <a href="/kavramlar-sozlugu.html" class="j-card" aria-label="Kur'ani kavramlar sözlüğünü görüntüle">Kavramlar Sözlüğü</a>
+        <a href="/esmaul-husna.html" class="j-card" aria-label="Esma-ül Hüsna: Allah'ın güzel isimlerini öğren">Esma-ül Hüsna</a>
+      </div>
+
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Gövde (Pratik)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/gundelik-hayatta-tevhid.html" class="j-card" aria-label="Gündelik hayatta tevhid pratiğini öğren">Gündelik Hayatta</a>
+        <a href="/dua-ve-tevhid.html" class="j-card" aria-label="Dua ibadeti ve tevhid ilişkisini keşfet">Dua ve Tevhid</a>
+        <a href="/kuran-kissalari.html" class="j-card" aria-label="Kur'an-ı Kerim'den tevhid odaklı kıssaları oku">Tevhid Kıssaları</a>
+      </div>
+
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Menzil (Duruş)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/istikamet.html" class="j-card" aria-label="Dinde istikamet üzere olma konusunu incele">İstikamet</a>
+        <a href="/ahlak-ve-tevhid.html" class="j-card" aria-label="İslam ahlakı ve tevhid bağlantısı hakkında bilgi al">Ahlak ve Tevhid</a>
+        <a href="/ahiret-bilinci.html" class="j-card" aria-label="Ahiret inancı ve ahiret bilinci üzerine yazıları oku">Ahiret Bilinci</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <aside class="ozgur-ayet-alani" aria-label="Kapanış Ayeti">
+    <blockquote class="footer-verse" style="border: none; margin: 0; padding: 0;">
+      “Allah bana yeter, O’ndan başka ilah yoktur, ben yalnız O’na güvenirim; O, büyük arşın Rabb’idir.”<br>
+      <cite style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-style: normal;">(9/Tevbe, 129)</cite>
+    </blockquote>
+  </aside>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around; width: 100%; gap: 30px; text-align: left; max-width: 900px;">
+        
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">I. Kökler</h4>
+          <a href="/tevhid-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Nedir?</a>
+          <a href="/allahin-birligi.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Allah'ın Birliği</a>
+          <a href="/sirk-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Şirk Nedir?</a>
+          <a href="/kavramlar-sozlugu.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kavramlar Sözlüğü</a>
+          <a href="/esmaul-husna.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Esma-ül Hüsna</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">II. Gövde</h4>
+          <a href="/tezkiye.html" style="display: block; margin-bottom: 8px; text-decoration: none; font-weight: 600; color: var(--accent-color);">Kalbin Arınması</a>
+          <a href="/gundelik-hayatta-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Gündelik Hayat</a>
+          <a href="/dua-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Dua ve Tevhid</a>
+          <a href="/kuran-kissalari.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Kıssaları</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">III. Menzil</h4>
+          <a href="/istikamet.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">İstikamet</a>
+          <a href="/ahlak-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahlak ve Tevhid</a>
+          <a href="/ahiret-bilinci.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahiret Bilinci</a>
+          <a href="/hakkimizda.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Biz Kimiz?</a>
+          <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr" style="display: block; margin-top: 15px; opacity: 0.8;">İletişim</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <button id="tefekkurKapat" class="tefekkur-kapat-btn" aria-label="Tefekkür Modunu Kapat">
+    ✕ Odaktan Çık
+  </button>
+
+  <script src="script.js?v=9.10"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>	
+<div class="alt-sis"></div>	
+</body>
+</html>

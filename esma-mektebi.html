@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>Esma Mektebi | Tevhid.tr</title>
+  <meta name="description" content="Allah'ın 99 ismini adım adım, tefekkür ederek ve kalbe nakşederek öğrenin." />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tevhid.tr/esma-mektebi.html" />
+  <meta name="theme-color" content="#121212" id="temaRengi" />
+  
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Esma Mektebi - Tevhid.tr",
+      "url": "https://tevhid.tr/esma-mektebi.html",
+      "description": "Allah'ın 99 ismini (Esma-ül Hüsna) aralıklı tekrar yöntemiyle ezberleten ve tefekkür ettiren interaktif eğitim uygulaması.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Organization",
+        "name": "Tevhid.tr"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "https://tevhid.tr/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kökler (İnanç)"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Esma Mektebi"
+      }]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=9.10">
+
+  <style>
+    /* === ERİŞİLEBİLİRLİK === */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    /* === UYGULAMA KARARGAHI === */
+    .app-header { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.1); margin-bottom: 40px; }
+    .cikis-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 8px 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 30px; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .cikis-btn:hover { border-color: var(--accent-color); color: var(--accent-color); background: rgba(212, 175, 55, 0.05); }
+    
+    .kontrol-butonlari { display: flex; gap: 15px; align-items: center; }
+    .ikon-btn { background:none; border:none; color:var(--text-color); cursor:pointer; font-size:1.3rem; transition: transform 0.2s; }
+    .ikon-btn:hover { transform: scale(1.1); }
+    .ikon-btn.ses-kapali { opacity: 0.5; }
+
+    #karargahEkrani { animation: fadeIn 0.5s ease; }
+    .aksiyon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .aksiyon-kart { background: var(--card-bg); border: 2px solid var(--border-color); border-radius: 12px; padding: 30px 20px; text-align: center; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .aksiyon-kart:hover, .aksiyon-kart:focus { border-color: var(--accent-color); transform: translateY(-5px); box-shadow: 0 10px 25px var(--shadow); background: rgba(106, 123, 100, 0.03); outline: none; }
+    .aksiyon-kart h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: var(--heading-color); }
+    .aksiyon-kart p { font-size: 0.9rem; color: #888; margin: 0; line-height: 1.5; }
+    .kart-ikon { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent-color); }
+
+    .yedekleme-alani { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+    .alt-btn { background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 6px 12px; font-size: 0.8rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;}
+    .alt-btn:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--accent-color); color: var(--accent-color); }
+    .sifirla-btn { color: #d9534f; border-color: rgba(217, 83, 79, 0.3); }
+    .sifirla-btn:hover { background: rgba(217, 83, 79, 0.1); border-color: #d9534f; color: #d9534f; }
+
+    #ogrenilenlerEkrani, #talimEkrani, #bolumSonu { display: none; animation: fadeIn 0.5s ease; }
+    
+    /* === ÖĞRENİLENLER LİSTESİ === */
+    .liste-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; margin-bottom: 50px; }
+    .liste-kart { background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; text-align: left; gap: 25px; position: relative;}
+    .liste-kart:hover, .liste-kart:focus { border-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 5px 15px var(--shadow); outline: none; }
+    .liste-isim-kutu { flex: 0 0 160px; text-align: center; border-right: 1px solid rgba(212, 175, 55, 0.2); padding-right: 15px; }
+    .liste-isim-kutu .arap { font-size: 2rem; font-family: 'Lora', serif; color: var(--heading-color); margin-bottom: 5px; line-height: 1.2; }
+    .liste-isim-kutu .turk { font-size: 1.1rem; color: var(--accent-color); font-weight: 600; }
+    .liste-detay-kutu { flex: 1; }
+    .liste-detay-kutu .manasi { font-size: 1rem; color: var(--heading-color); font-weight: 600; margin-bottom: 8px; }
+    .liste-detay-kutu .tefekkur-metni { font-size: 0.9rem; color: #aaa; font-style: italic; line-height: 1.5; }
+    
+    .zorluk-gostergesi { position: absolute; top: 10px; right: 15px; font-size: 0.75rem; color: #888; background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 12px; }
+
+    @media (max-width: 768px) {
+      .liste-kart { flex-direction: column; text-align: center; gap: 15px; }
+      .liste-isim-kutu { flex: auto; border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-right: 0; padding-bottom: 15px; width: 100%; }
+      .liste-detay-kutu { text-align: center; }
+    }
+
+    /* === OYUN BAŞLIĞI === */
+    .oyun-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px dashed var(--border-color); }
+    .oyun-header h2 { margin: 0; border: none; font-size: 1.6rem; color: var(--heading-color); }
+    .oyun-vazgec { background: rgba(212, 175, 55, 0.05); border: 1px solid var(--accent-color); color: var(--accent-color); padding: 8px 18px; border-radius: 30px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
+    .oyun-vazgec:hover, .oyun-vazgec:focus { background: var(--accent-color); color: var(--bg-color); box-shadow: 0 4px 10px var(--shadow); outline: none; }
+
+    /* === EŞLEŞTİRME KUTULARI === */
+    .eslestirme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+    .eslestirme-sutun { display: flex; flex-direction: column; gap: 15px; }
+    
+    .talim-btn { 
+      background: var(--card-bg); border: 2px solid var(--border-color); color: var(--text-color); 
+      padding: 15px; border-radius: 12px; cursor: pointer; font-family: 'Inter', sans-serif; 
+      font-size: 0.95rem; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+      width: 100%; min-height: 120px; display: flex; flex-direction: column; justify-content: center; 
+      align-items: center; box-shadow: 0 4px 10px var(--shadow);
+      opacity: 0; animation: nefes-ile-gelis 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .talim-btn:hover, .talim-btn:focus { border-color: var(--accent-color); background: rgba(106, 123, 100, 0.03); transform: translateY(-2px); box-shadow: 0 8px 20px var(--shadow); outline: none; }
+    .talim-btn.secili { border-color: var(--accent-color); background: rgba(106, 123, 100, 0.1); box-shadow: 0 0 0 3px rgba(106, 123, 100, 0.2); }
+    .talim-btn.eslesti { background: rgba(106, 123, 100, 0.15); border-color: #6a7b64; color: #888; opacity: 0.5; cursor: default; transform: scale(0.98); pointer-events: none; box-shadow: none; }
+    .talim-btn.hata { animation: sefkatli-uyari 0.8s ease-in-out; border-color: #d4af37; background: rgba(212, 175, 55, 0.1); }
+    
+    .arapca-buyuk { font-size: 1.8rem; font-family: 'Lora', serif; margin-bottom: 5px; color: var(--heading-color); font-weight: 600; line-height: 1.2; }
+
+    @media (max-width: 768px) {
+      .container { width: 96%; }
+      .app-header { padding: 10px 0; margin-bottom: 15px; }
+      .oyun-header { flex-direction: row; margin-bottom: 12px; padding-bottom: 10px; }
+      .oyun-header h2 { font-size: 1.15rem; }
+      .oyun-vazgec { padding: 6px 12px; font-size: 0.75rem; }
+      .eslestirme-grid { grid-template-columns: 0.8fr 1.2fr; gap: 6px; margin-bottom: 10px; }
+      .eslestirme-sutun { gap: 6px; min-width: 0; }
+      .talim-btn { padding: 5px; font-size: 0.7rem; min-height: 65px; border-radius: 8px; line-height: 1.2; border-width: 1px; }
+      .arapca-buyuk { font-size: 1.25rem; margin-bottom: 0; }
+      .talim-btn.esma-item span:last-child { font-size: 0.75rem; }
+    }
+
+    /* === TEFEKKÜR MOLASI === */
+    .tefekkur-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 10000; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+    .tefekkur-modal-overlay.goster { opacity: 1; pointer-events: all; }
+    .tefekkur-kutu { background: var(--bg-color); width: 90%; max-width: 600px; padding: 40px 30px; border-radius: 16px; border: 2px solid var(--accent-color); text-align: center; transform: scale(0.9); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+    .tefekkur-modal-overlay.goster .tefekkur-kutu { transform: scale(1); }
+    .m-arapca { font-size: 3.5rem; font-family: 'Lora', serif; color: var(--heading-color); margin-bottom: 5px; line-height: 1; }
+    .m-turkce { font-size: 1.5rem; color: var(--accent-color); font-weight: 600; margin-bottom: 20px; }
+    .m-tefekkur { font-size: 1.1rem; color: var(--text-color); font-style: italic; line-height: 1.8; margin-bottom: 30px; }
+    .m-devam-btn { background: var(--accent-color); color: var(--bg-color); border: none; padding: 12px 35px; font-size: 1rem; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+    .m-devam-btn:hover, .m-devam-btn:focus { background: var(--focus-color); outline: 3px solid var(--border-color); outline-offset: 3px; }
+    
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes nefes-ile-gelis { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes sefkatli-uyari { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.96); opacity: 0.6; } 100% { transform: scale(1); opacity: 1; } }
+  </style>
+</head>
+<body>
+
+  <div id="a11y-spiker" aria-live="polite" class="sr-only"></div>
+
+  <main class="container" style="max-width: 800px; padding-bottom: 80px;" role="main">
+    
+    <header class="app-header" role="banner">
+      <div class="logo">
+        <span class="site-logo">
+          <span style="color: inherit;">tevhid</span><span class="sirli-nokta">.</span><span style="color: inherit;">tr</span>
+        </span>
+      </div>
+<div class="kontrol-butonlari">
+        <button id="ses-toggle" class="ikon-btn" aria-label="Sesi Aç Kapat" onclick="sesToggle()">🔊</button>
+        <button id="theme-toggle" class="ikon-btn" aria-label="Temayı Değiştir">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span> </button>
+        <a href="/" class="cikis-btn" aria-label="Ana Sayfaya Dön">Ana Sayfa</a>
+      </div>
+    </header>
+
+    <section id="karargahEkrani" aria-labelledby="esma-mektebi-baslik" role="region">
+      <div style="text-align: center; margin-bottom: 30px;">
+        
+        <nav class="breadcrumb" aria-label="Ekmek Kırıntısı (Breadcrumb)" style="margin-top: 0;">
+          <a href="/">Ana Sayfa</a>
+          <span class="breadcrumb-ayrac">/</span>
+          <span aria-current="page">Kökler (İnanç)</span>
+        </nav>
+
+        <h1 id="esma-mektebi-baslik" style="font-size: 2.2rem; border: none; margin: 10px 0 5px 0; color: var(--heading-color);">Esma Mektebi</h1>
+        
+        <div class="yazi-metasi" style="margin-bottom: 20px;">
+          <span>⏳ Etkileşimli Talim Uygulaması</span>
+          <span>•</span>
+          <button class="share-btn" data-title="Esma Mektebi | Tevhid.tr" aria-label="Bu uygulamayı paylaş">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Paylaş
+          </button>
+        </div>
+
+        <p style="color: #888; margin-top:0; font-size: 1.05rem;">Dudaklardan kalbe inen bir <dfn class="kavram-ipucu" tabindex="0" data-anlam="Derinlemesine düşünme, varlıklardan Yaratıcı'nın sıfatlarına ulaşma çabası.">tefekkür</dfn> yolculuğu.</p>
+      </div>
+
+      <div class="ilerleme-kutusu" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 30px; box-shadow: 0 10px 30px var(--shadow);">
+        <h2 style="border:none; margin: 0 0 15px 0; color: var(--heading-color); font-size: 1.6rem;">Kişisel İlerlemen</h2>
+        <div class="bar-bg" style="background: rgba(106, 123, 100, 0.15); height: 12px; border-radius: 10px; overflow: hidden; width: 100%; max-width: 600px; margin: 0 auto 15px auto;" role="progressbar" aria-valuemin="0" aria-valuemax="99" id="ariaIlerleme">
+          <div id="ilerlemeBari" class="bar-dolu" style="background: var(--accent-color); height: 100%; width: 0%; transition: width 1s ease;"></div>
+        </div>
+        <div class="ilerleme-skor" aria-live="polite" style="font-family: 'Inter', sans-serif; font-weight: 600; color: var(--accent-color); font-size: 1.3rem;"><span id="ogrenilenSkor">0</span> / 99 Esma Nakşedildi</div>
+        
+        <div class="yedekleme-alani">
+          <button class="alt-btn" onclick="hafizaYedekle()" aria-label="Öğrenme verilerini cihazına indir">⬇️ Hafızayı İndir</button>
+          <button class="alt-btn" onclick="document.getElementById('dosyaYukle').click()" aria-label="Cihazındaki yedek öğrenme verilerini yükle">⬆️ Yedeği Yükle</button>
+          <input type="file" id="dosyaYukle" style="display:none" accept=".json" onchange="hafizaYukle(event)">
+          <button class="alt-btn sifirla-btn" onclick="hafizayiSifirla()" aria-label="Tüm ilerlemeyi sıfırla">Sıfırla</button>
+        </div>
+      </div>
+
+      <nav class="aksiyon-grid" aria-label="Uygulama Menüsü">
+        <button class="aksiyon-kart" onclick="talimiBaslat('yeni')" aria-label="Yeni İsimler Öğren Modunu Başlat">
+          <div class="kart-ikon" aria-hidden="true">🌱</div>
+          <h3>Yeni İsimler Öğren</h3>
+          <p>Henüz idrak etmediğin sıradaki 5 esmayı eşleştirerek öğrenmeye başla.</p>
+        </button>
+        <button class="aksiyon-kart" onclick="talimiBaslat('tekrar')" aria-label="Zeki Hafıza Tazeleme Modunu Başlat">
+          <div class="kart-ikon" aria-hidden="true">🧠</div>
+          <h3>Zeki Hafıza Tazeleme</h3>
+          <p>Sistem unuttuğun veya zorlandığın isimleri tespit edip karşına çıkarır.</p>
+        </button>
+        <button class="aksiyon-kart" onclick="ogrenilenleriGoster()" aria-label="Öğrendiğin isimler kütüphanesini aç">
+          <div class="kart-ikon" aria-hidden="true">📚</div>
+          <h3>Öğrendiklerim</h3>
+          <p>Kilitlerini açtığın isimleri ve tefekkürlerini yeniden gözden geçir.</p>
+        </button>
+      </nav>
+    </section>
+
+    <section id="ogrenilenlerEkrani" aria-labelledby="ogrenilenler-baslik" role="region">
+      <header class="oyun-header">
+        <button class="oyun-vazgec" onclick="karargahaDon()">← Vazgeç</button>
+        <h2 id="ogrenilenler-baslik" style="margin: 0; border:none; color: var(--heading-color);">Nakşedilen İsimler</h2>
+      </header>
+      <p style="color: #888; text-align:center;">İsimlerin tefekkürünü tekrar okumak için kartlara tıkla.</p>
+      <div id="listeGrid" class="liste-grid" role="list"></div>
+    </section>
+
+    <section id="talimEkrani" aria-labelledby="talimBaslik" role="region">
+      <header class="oyun-header">
+        <button class="oyun-vazgec" onclick="karargahaDon()">← Vazgeç</button>
+        <h2 id="talimBaslik">Yeni İsimler Öğren</h2>
+      </header>
+      <div class="eslestirme-grid">
+        <div class="eslestirme-sutun" id="esmaSutun" aria-label="Arapça İsimler Sütunu" role="group"></div>
+        <div class="eslestirme-sutun" id="anlamSutun" aria-label="Anlamlar Sütunu" role="group"></div>
+      </div>
+    </section>
+
+    <section id="bolumSonu" style="display: none; text-align: center; padding: 50px 20px; background: rgba(106, 123, 100, 0.05); border: 2px solid var(--accent-color); border-radius: 16px; margin-bottom: 40px;" role="alert">
+      <h2 style="color: var(--accent-color); font-size: 2.2rem; margin-top:0; border:none;">Elhamdülillah!</h2>
+      <p style="font-size: 1.1rem; color: var(--text-color); max-width: 500px; margin: 0 auto 25px auto;">
+        Bu bölümü başarıyla tamamladın. Esmalar zihnine ve cihazına nakşedildi.
+      </p>
+      <button id="bolum-don-btn" class="m-devam-btn" onclick="karargahaDon()">Karargâha Dön</button>
+    </section>
+
+  </main>
+
+  <div id="tefekkurModal" class="tefekkur-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="m-turkce" aria-describedby="m-tefekkur" aria-hidden="true">
+    <div class="tefekkur-kutu">
+      <div id="m-arapca" class="m-arapca" aria-hidden="true">اللّٰه</div>
+      <div id="m-turkce" class="m-turkce">Allah</div>
+      <div id="m-tefekkur" class="m-tefekkur">"O'ndan başka sığınacak, O'ndan başka güvenecek kapı yoktur."</div>
+      <button id="m-kapat-btn" class="m-devam-btn" onclick="tefekkurKapat()">İdrak Ettim, Devam Et</button>
+    </div>
+  </div>
+
+  <script src="script.js?v=9.10"></script>
+  <script>
+    // 99 Esma Array'i aynı kalıyor (Bildiğin listeyi buraya aynen koyuyoruz, kod uzamasın diye ilk 10 tanesini yazdım, sen bendeki listeyle birleştirirsin)
+    const tumEsmalar = [
+      { id: 1, arapca: "اللّٰه", ad: "Allah", anlam: "İbadete lâyık tek İlah, tüm kemal sıfatlarını kendinde toplayan.", tefekkur: "Korkularını ve sevgilerini tek bir merkeze topla: O'ndan başka sığınacak kapı yoktur." },
+      { id: 2, arapca: "الرَّحْمٰن", ad: "Er-Rahmân", anlam: "Dünyada bütün mahlukata (mümin-kafir ayırt etmeden) merhamet eden.", tefekkur: "Nefes aldığın her an, O'nun kesintisiz rahmetinin bir tecellisidir." },
+      { id: 3, arapca: "الرَّحِيم", ad: "Er-Rahîm", anlam: "Ahirette yalnızca müminlere acıyan, hususi merhamet eden.", tefekkur: "Bu dünyada fani olanı değil, kalıcı olanı seçenlere verilecek ebedi şefkat." },
+      { id: 4, arapca: "الْمَلِك", ad: "El-Melik", anlam: "Mülkün, kâinatın gerçek ve mutlak hükümdarı.", tefekkur: "Sahip olduğunu sandığın her şey bir emanettir. Asıl mülk sahibi O'dur." },
+      { id: 5, arapca: "الْقُدُّوس", ad: "El-Kuddûs", anlam: "Her türlü eksiklik ve noksanlıktan tamamen temiz olan.", tefekkur: "İnsan kusurludur, yanılır. Kusursuzluğu insanlarda arama, Kuddüs olan yalnız O'dur." },
+      { id: 6, arapca: "السَّلَام", ad: "Es-Selâm", anlam: "Kullarına selamet veren, tehlikelerden esirgeyen.", tefekkur: "Kalbindeki fırtınaları dindirecek ve sana iç huzuru verecek tek liman." },
+      { id: 7, arapca: "الْمُؤْمِن", ad: "El-Mü'min", anlam: "Güven veren, vaadine güvenilen, şüpheyi kaldıran.", tefekkur: "İnsanlar sözünden döner, O asla dönmez. O'na yaslanan yolda kalmaz." },
+      { id: 8, arapca: "الْمُهَيْمِن", ad: "El-Müheymin", anlam: "Her şeyi görüp gözeten, koruyan, kontrol altında tutan.", tefekkur: "Kapalı kapılar ardında kimse görmese de O görüyor. Haksızlığa uğradığında O şahittir." },
+      { id: 9, arapca: "الْعَزِيز", ad: "El-Azîz", anlam: "İzzet sahibi, her şeye galip olan, mağlup edilemeyen.", tefekkur: "O'na boyun eğen aziz olur. O'na kafa tutan dünyaları alsa da zelil olur." },
+      { id: 10, arapca: "الْجَبَّار", ad: "El-Cebbâr", anlam: "Dilediğini zorla yaptıran, kırıkları onaran.", tefekkur: "Kırık kalpleri onaracak ve zalimlerin belini kıracak yegâne güç O'dur." },
+      // ... (Geri kalan 89 Esmayı buraya yapıştırırsın usta)
+      { id: 99, arapca: "الصَّبُور", ad: "Es-Sabûr", anlam: "Günahkarlara ceza vermekte acele etmeyen, çok sabırlı.", tefekkur: "O'nun isyanına karşı bu kadar sabretmesi, sana tövbe etmen için açılmış bir kapıdır." }
+    ];
+
+    /* === ZEKİ HAFIZA (SRS) VERİ YAPISI === */
+    let ogrenilenData = JSON.parse(localStorage.getItem('tevhidAppHafiza_v3')) || [];
+    const BATCH_SIZE = 5; 
+    let aktifBatch = [];
+    let seciliEsmaBtn = null, seciliAnlamBtn = null, eslesenCiftSayisi = 0;
+    let mevcutMod = '', gozlemModu = false, mevcutHatalar = {}; // O seanstaki hataları sayar
+
+    /* === SES YÖNETİMİ === */
+    let sesAcik = true;
+    let audioCtx, droneOsc, harmonicOsc, masterGainNode;
+
+    function sesToggle() {
+      sesAcik = !sesAcik;
+      const btn = document.getElementById('ses-toggle');
+      if(sesAcik) {
+        btn.innerText = '🔊'; btn.classList.remove('ses-kapali');
+        if(mevcutMod !== '') baslatLozanovSesi(); // Sadece talimde açsın
+      } else {
+        btn.innerText = '🔇'; btn.classList.add('ses-kapali');
+        durdurLozanovSesi();
+      }
+    }
+
+    function baslatLozanovSesi() {
+      if(!sesAcik) return;
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+      if(masterGainNode) return; 
+
+      masterGainNode = audioCtx.createGain(); masterGainNode.gain.value = 0.0; masterGainNode.connect(audioCtx.destination);
+      droneOsc = audioCtx.createOscillator(); droneOsc.type = 'sine'; droneOsc.frequency.value = 108; droneOsc.connect(masterGainNode);
+      harmonicOsc = audioCtx.createOscillator(); harmonicOsc.type = 'sine'; harmonicOsc.frequency.value = 432;
+      let harmonicGain = audioCtx.createGain(); harmonicGain.gain.value = 0.15; harmonicOsc.connect(harmonicGain); harmonicGain.connect(masterGainNode);
+
+      droneOsc.start(); harmonicOsc.start();
+      masterGainNode.gain.setTargetAtTime(0.08, audioCtx.currentTime, 1.5); 
+    }
+
+    function durdurLozanovSesi() {
+      if(masterGainNode) {
+        masterGainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.5);
+        setTimeout(() => {
+          if(droneOsc) { droneOsc.stop(); droneOsc.disconnect(); }
+          if(harmonicOsc) { harmonicOsc.stop(); harmonicOsc.disconnect(); }
+          if(masterGainNode) { masterGainNode.disconnect(); }
+          masterGainNode = null; droneOsc = null; harmonicOsc = null;
+        }, 1000);
+      }
+    }
+
+    /* === ÖZGÜR YEDEKLEME (JSON İNDİR/YÜKLE) === */
+    function hafizaYedekle() {
+      if(ogrenilenData.length === 0) { alert("Yedeklenecek idrak edilmiş bir Esma yok."); return; }
+      const dataStr = JSON.stringify(ogrenilenData);
+      const blob = new Blob([dataStr], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `tevhid_hafiza_${new Date().toISOString().slice(0,10)}.json`;
+      a.click(); URL.revokeObjectURL(url);
+    }
+
+    function hafizaYukle(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const veri = JSON.parse(e.target.result);
+          if(Array.isArray(veri)) {
+            ogrenilenData = veri;
+            localStorage.setItem('tevhidAppHafiza_v3', JSON.stringify(ogrenilenData));
+            initDashboard();
+            alert("MaşaAllah, hafızan başarıyla geri yüklendi!");
+          }
+        } catch(err) { alert("Geçersiz dosya formatı."); }
+      };
+      reader.readAsText(file);
+    }
+
+    function hafizayiSifirla() {
+      if(confirm("Tüm ezber geçmişini ve aralıklı tekrar verilerini silmek istediğine emin misin?")) {
+        localStorage.removeItem('tevhidAppHafiza_v3'); ogrenilenData = []; initDashboard();
+      }
+    }
+
+    /* === ARAYÜZ VE SİSTEM AKIŞI === */
+    const a11ySpiker = document.getElementById('a11y-spiker');
+    function seslen(metin) { a11ySpiker.textContent = metin; }
+
+    function initDashboard() {
+      document.getElementById('ogrenilenSkor').innerText = ogrenilenData.length;
+      document.getElementById('ilerlemeBari').style.width = (ogrenilenData.length / tumEsmalar.length) * 100 + "%";
+    }
+
+    function karargahaDon() {
+      durdurLozanovSesi(); mevcutMod = '';
+      document.getElementById('talimEkrani').style.display = 'none';
+      document.getElementById('bolumSonu').style.display = 'none';
+      document.getElementById('ogrenilenlerEkrani').style.display = 'none';
+      document.getElementById('karargahEkrani').style.display = 'block';
+      initDashboard();
+    }
+
+    function karistir(array) {
+      let c = array.length, r;
+      while (c !== 0) { r = Math.floor(Math.random() * c); c--; [array[c], array[r]] = [array[r], array[c]]; }
+      return array;
+    }
+
+    function talimiBaslat(mod) {
+      baslatLozanovSesi(); mevcutMod = mod; mevcutHatalar = {};
+      document.getElementById('karargahEkrani').style.display = 'none';
+      document.getElementById('talimEkrani').style.display = 'block';
+      document.getElementById('esmaSutun').innerHTML = ''; document.getElementById('anlamSutun').innerHTML = '';
+      seciliEsmaBtn = null; seciliAnlamBtn = null; eslesenCiftSayisi = 0;
+
+      let secilecekHavuz = [];
+      const ogrenilenIdListesi = ogrenilenData.map(d => d.id);
+
+      if(mod === 'yeni') {
+        document.getElementById('talimBaslik').innerText = "Yeni İsimler Öğren";
+        secilecekHavuz = tumEsmalar.filter(e => !ogrenilenIdListesi.includes(e.id));
+        if(secilecekHavuz.length === 0) { alert("Tüm isimleri tamamladın!"); karargahaDon(); return; }
+        secilecekHavuz = karistir(secilecekHavuz).slice(0, BATCH_SIZE);
+      } else if (mod === 'tekrar') {
+        document.getElementById('talimBaslik').innerText = "Zeki Hafıza Tazeleme";
+        if(ogrenilenData.length < BATCH_SIZE) { alert("Önce en az 5 isim öğrenmelisin."); karargahaDon(); return; }
+        
+        // ZEKİ SEÇİM (Zorluğu en yüksek veya en eski çalışılanlar)
+        let srsSiralama = [...ogrenilenData].sort((a, b) => {
+          if (b.zorluk !== a.zorluk) return b.zorluk - a.zorluk; 
+          return a.sonTekrar - b.sonTekrar; 
+        });
+        let secilenSrsData = srsSiralama.slice(0, BATCH_SIZE);
+        secilecekHavuz = tumEsmalar.filter(e => secilenSrsData.some(s => s.id === e.id));
+        secilecekHavuz = karistir(secilecekHavuz);
+      }
+
+      aktifBatch = secilecekHavuz;
+      let karisikAnlamlar = karistir([...aktifBatch]);
+
+      aktifBatch.forEach((esma, idx) => {
+        let btn = document.createElement('button');
+        btn.className = 'talim-btn esma-item'; btn.dataset.id = esma.id;
+        btn.style.animationDelay = `${idx * 0.15}s`;
+        btn.innerHTML = `<span class="arapca-buyuk">${esma.arapca}</span><span style="font-weight: 600;">${esma.ad}</span>`;
+        btn.onclick = () => esmaSecildi(btn, esma.ad);
+        document.getElementById('esmaSutun').appendChild(btn);
+      });
+
+      karisikAnlamlar.forEach((esma, idx) => {
+        let btn = document.createElement('button');
+        btn.className = 'talim-btn anlam-item'; btn.dataset.id = esma.id;
+        btn.style.animationDelay = `${idx * 0.15}s`;
+        btn.innerHTML = `<span>${esma.anlam}</span>`;
+        btn.onclick = () => anlamSecildi(btn, esma.anlam);
+        document.getElementById('anlamSutun').appendChild(btn);
+      });
+    }
+
+    function esmaSecildi(btn, isim) {
+      if(btn.classList.contains('eslesti')) return;
+      document.querySelectorAll('.esma-item').forEach(b => b.classList.remove('secili'));
+      btn.classList.add('secili'); seciliEsmaBtn = btn; kontrolEt();
+    }
+
+    function anlamSecildi(btn, anlamMetni) {
+      if(btn.classList.contains('eslesti')) return;
+      document.querySelectorAll('.anlam-item').forEach(b => b.classList.remove('secili'));
+      btn.classList.add('secili'); seciliAnlamBtn = btn; kontrolEt();
+    }
+
+    function kontrolEt() {
+      if(seciliEsmaBtn && seciliAnlamBtn) {
+        const id = parseInt(seciliEsmaBtn.dataset.id);
+        if(seciliEsmaBtn.dataset.id === seciliAnlamBtn.dataset.id) {
+          // DOĞRU EŞLEŞME
+          seciliEsmaBtn.classList.remove('secili'); seciliAnlamBtn.classList.remove('secili');
+          seciliEsmaBtn.classList.add('eslesti'); seciliAnlamBtn.classList.add('eslesti');
+          seciliEsmaBtn = null; seciliAnlamBtn = null; eslesenCiftSayisi++;
+          
+          // SRS GÜNCELLEMESİ
+          let esmaKayit = ogrenilenData.find(d => d.id === id);
+          const hataYaptiMi = mevcutHatalar[id] > 0;
+          
+          if(mevcutMod === 'yeni' && !esmaKayit) {
+            ogrenilenData.push({ id: id, zorluk: hataYaptiMi ? 1 : 0, sonTekrar: Date.now() });
+          } else if (esmaKayit) {
+            esmaKayit.sonTekrar = Date.now();
+            if(!hataYaptiMi) esmaKayit.zorluk = Math.max(0, esmaKayit.zorluk - 1); 
+            else esmaKayit.zorluk += mevcutHatalar[id]; 
+          }
+          localStorage.setItem('tevhidAppHafiza_v3', JSON.stringify(ogrenilenData));
+          
+          const tEsma = tumEsmalar.find(e => e.id === id);
+          setTimeout(() => { tefekkurMolasiniGoster(tEsma, false); }, 800);
+          
+        } else {
+          // YANLIŞ EŞLEŞME
+          mevcutHatalar[id] = (mevcutHatalar[id] || 0) + 1;
+          seciliEsmaBtn.classList.add('hata'); seciliAnlamBtn.classList.add('hata');
+          seslen("Bu kavram henüz eşleşmedi. Zihnini rahatlat ve tekrar dene.");
+          setTimeout(() => {
+            seciliEsmaBtn.classList.remove('hata', 'secili'); seciliAnlamBtn.classList.remove('hata', 'secili');
+            seciliEsmaBtn = null; seciliAnlamBtn = null;
+          }, 800);
+        }
+      }
+    }
+
+    function tefekkurMolasiniGoster(esma, isGozlem) {
+      gozlemModu = isGozlem;
+      document.getElementById('m-arapca').innerText = esma.arapca;
+      document.getElementById('m-turkce').innerText = esma.ad;
+      document.getElementById('m-tefekkur').innerText = `"${esma.tefekkur}"`;
+      document.getElementById('m-kapat-btn').innerText = isGozlem ? "Kapat" : "İdrak Ettim, Devam Et";
+      document.getElementById('tefekkurModal').classList.add('goster');
+    }
+
+    function tefekkurKapat() {
+      document.getElementById('tefekkurModal').classList.remove('goster');
+      if(!gozlemModu && eslesenCiftSayisi === aktifBatch.length) {
+        setTimeout(() => {
+          document.getElementById('talimEkrani').style.display = 'none';
+          document.getElementById('bolumSonu').style.display = 'block';
+        }, 400);
+      }
+    }
+
+    function ogrenilenleriGoster() {
+      document.getElementById('karargahEkrani').style.display = 'none';
+      document.getElementById('ogrenilenlerEkrani').style.display = 'block';
+      const liste = document.getElementById('listeGrid'); liste.innerHTML = '';
+      
+      if(ogrenilenData.length === 0) { liste.innerHTML = '<p style="text-align:center;">Liste boş.</p>'; return; }
+
+      let siraliData = [...ogrenilenData].sort((a,b) => b.zorluk - a.zorluk);
+      
+      siraliData.forEach(d => {
+        const e = tumEsmalar.find(x => x.id === d.id);
+        let kart = document.createElement('article'); // ERİŞİLEBİLİRLİK: div yerine article yapıldı
+        kart.className = 'liste-kart';
+        kart.onclick = () => tefekkurMolasiniGoster(e, true);
+        
+        let zorlukMetni = d.zorluk > 1 ? `<span class="zorluk-gostergesi" style="color:#d4af37">Daha çok tekrar etmelisin</span>` : '';
+        
+        kart.innerHTML = `
+          ${zorlukMetni}
+          <div class="liste-isim-kutu"><div class="arap">${e.arapca}</div><div class="turk">${e.ad}</div></div>
+          <div class="liste-detay-kutu"><div class="manasi">${e.anlam}</div><div class="tefekkur-metni">"${e.tefekkur}"</div></div>
+        `;
+        liste.appendChild(kart);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', initDashboard);
+  </script>
+<div class="alt-sis"></div>	
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>Esma-ül Hüsna ve Tevhid | Tevhid.tr</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#121212" />	
+  <meta name="description" content="Allah'ın güzel isimlerini (Esma-ül Hüsna) bilmek, tevhid inancını kalbimize ve hayatımıza nasıl yerleştirir?" />
+  <link rel="canonical" href="https://tevhid.tr/esmaul-husna.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <meta property="og:image" content="https://tevhid.tr/og-image.png" />
+  <meta name="twitter:image" content="https://tevhid.tr/og-image.png" />  
+  <meta property="og:title" content="Esma-ül Hüsna ve Tevhid | Tevhid.tr" />
+  <meta property="og:description" content="Allah'ı isimleri ve sıfatlarıyla tanımak (Er-Rezzak, Eş-Şâfî, El-Hakem) ve tevhidin kalbe yerleşmesi." />
+  <meta property="og:url" content="https://tevhid.tr/esmaul-husna.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tevhid.tr" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Esma-ül Hüsna ve Tevhid | Tevhid.tr" />
+  <meta name="twitter:description" content="Allah'ın güzel isimleri ve hayata tecellisi." />
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Esma-ül Hüsna ve Tevhid",
+      "description": "Allah'ı isimleri ve sıfatlarıyla tanımak (Er-Rezzak, Eş-Şâfî, El-Hakem) ve tevhidin kalbe yerleşmesi.",
+      "author": {
+        "@type": "Organization",
+        "name": "Tevhid.tr",
+        "url": "https://tevhid.tr/"
+      },
+      "url": "https://tevhid.tr/esmaul-husna.html"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "https://tevhid.tr/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kökler (İnanç)"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Esma-ül Hüsna"
+      }]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9.10">
+
+  <style>
+    /* KATEGORİ BAŞLIKLARI (MENÜLER İÇİN) */
+    .menu-kategori-baslik {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      opacity: 0.8;
+      margin: 25px 0 10px 0;
+      display: block;
+      font-weight: 700;
+    }
+    
+    /* Ek GEO optimizasyonları için küçük düzeltmeler */
+    .verse-card cite, .footer-verse cite {
+      font-style: normal;
+      display: block;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM793T0H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHM793T0H9');
+  </script>
+</head>
+<body>
+  
+  <a href="#ana-icerik" class="icerige-atla">Ana İçeriğe Atla</a>
+
+  <div id="progress-bar"></div>
+  
+  <header class="main-header" role="banner">
+    <div class="container header-flex">
+      <div class="logo">
+        <span class="site-logo">
+          <a href="/" style="color: inherit; text-decoration: none;">tevhid</a><a href="/nokta.html" aria-label="Sır: Tevhidin derinliklerine açılan gizli sayfa" style="text-decoration: none; padding: 10px 4px; margin: -10px -4px; outline: none;"><span class="sirli-nokta">.</span></a><a href="/" style="color: inherit; text-decoration: none;">tr</a>
+        </span>
+      </div>
+      
+      <div class="header-tools" style="display: flex; align-items: center; gap: 15px;">
+        <button id="tefekkurBaslat" class="tefekkur-btn" aria-label="Tefekkür Modunu Aç" title="Odaklan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+
+        <button id="theme-toggle" aria-label="Temayı Değiştir">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Ana Menüyü Aç" aria-expanded="false" aria-controls="overlay-menu">
+          <svg id="menu-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <nav id="overlay-menu" class="overlay-menu" aria-label="Ana Navigasyon">
+    <div class="overlay-content">
+      <a href="/" style="font-size: 1.5rem; font-weight: 700; border: none; margin-bottom: 10px;">Ana Sayfa</a>
+      
+      <span class="menu-kategori-baslik">I. Kökler (İnanç)</span>
+      <a href="/tevhid-nedir.html">Tevhid Nedir?</a>
+      <a href="/allahin-birligi.html">Allah'ın Birliği</a>
+      <a href="/sirk-nedir.html">Şirk Nedir?</a>
+      <a href="/kavramlar-sozlugu.html">Kavramlar Sözlüğü</a>
+      <a href="/esmaul-husna.html" style="color: var(--accent-color) !important;">Esma-ül Hüsna</a>
+
+      <span class="menu-kategori-baslik">II. Gövde (Pratik)</span>
+      <a href="/gundelik-hayatta-tevhid.html">Gündelik Hayatta Tevhid</a>
+      <a href="/dua-ve-tevhid.html">Dua ve Tevhid</a>
+      <a href="/tezkiye.html">Kalbin Arınması</a>
+      <a href="/kuran-kissalari.html">Tevhid Kıssaları</a>
+
+      <span class="menu-kategori-baslik">III. Menzil (Duruş)</span>
+      <a href="/istikamet.html">İstikamet ve Sabır</a>
+      <a href="/ahlak-ve-tevhid.html">Ahlak ve Tevhid</a>
+      <a href="/ahiret-bilinci.html">Ahiret Bilinci</a>
+      <a href="/hakkimizda.html">Biz Kimiz?</a>
+      
+      <div class="menu-divider" style="width:40px; height:2px; background:var(--border-color); margin:30px auto; opacity:0.5; display:block;"></div>
+      <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr">İletişim</a>
+    </div>
+  </nav>
+
+  <main id="ana-icerik" class="container" role="main">
+    
+    <header class="intro" style="text-align:center; padding: 40px 0 20px 0;">
+      <nav class="breadcrumb" aria-label="Ekmek Kırıntısı (Breadcrumb)">
+        <a href="/">Ana Sayfa</a>
+        <span class="breadcrumb-ayrac">/</span>
+        <span aria-current="page">Kökler (İnanç)</span>
+      </nav>
+
+      <h1 id="esma-baslik" style="font-size: 2.4rem; color: var(--heading-color); margin-bottom: 15px;">Esma-ül Hüsna ve Tevhid</h1>
+      
+      <div class="yazi-metasi">
+        <span>⏳ 3 Dk Okuma Süresi</span>
+        <span>•</span>
+        <button class="share-btn" data-title="Esma-ül Hüsna ve Tevhid | Tevhid.tr" aria-label="Bu yazıyı paylaş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          Paylaş
+        </button>
+      </div>
+
+      <p class="lead" style="font-size: 1.1rem; opacity: 0.8; max-width: 650px; margin: 20px auto 0 auto;">İnsan ancak tanıdığına güvenir ve sever. Allah'ı güzel isimleriyle tanımak, tevhidi yaşamaktır.</p>
+      <div class="intro-divider" style="width:60px; height:2px; background:var(--border-color); margin:30px auto;"></div>
+    </header>
+
+    <article class="content-block">
+      
+      <section aria-labelledby="isimlerin-tecellisi">
+        <h2 id="isimlerin-tecellisi">İsimlerin Tecellisi</h2>
+        <p>Tevhid sadece "Allah vardır ve birdir" demek değildir. Tevhid; Allah'ı Kur'an'da ve sahih sünnette kendini tanıttığı isim ve sıfatlarıyla bilmek, bu isimlerin manasını hayata taşımaktır. Bir <dfn class="kavram-ipucu" tabindex="0" data-anlam="Tevhid inancını hayatının merkezine koyan, Allah'ı birleyen kişi.">muvahhid</dfn>, başına gelen her olayda Allah'ın hangi isminin tecelli ettiğini okuyabilen insandır.</p>
+      </section>
+
+      <section aria-labelledby="er-rezzak">
+        <h2 id="er-rezzak" style="margin-top: 25px;">Er-Rezzak (Mutlak Rızık Veren)</h2>
+        <p>Rızkın yalnızca Allah'tan geldiğine iman etmek, insanı patronuna, müşterisine veya rütbe sahiplerine kul olmaktan kurtarır. İnsan rızkı için çabalar, sebeplere sarılır ama bilir ki rızkı veren patronu değil, Er-Rezzak olan Allah'tır. Bu inanç, insanın rızık korkusuyla harama girmesini veya taviz vermesini engeller.</p>
+        
+        <blockquote class="verse-card">
+          “Şüphesiz ki rızık veren, mutlak güç ve kuvvet sahibi olan Allah’tır.”
+          <cite>(51/Zâriyât, 58)</cite>
+          <div class="ayet-araclari">
+            <button class="ayet-btn copy-btn" data-text="Şüphesiz ki rızık veren, mutlak güç ve kuvvet sahibi olan Allah’tır. (51/Zâriyât, 58) - https://tevhid.tr" aria-label="Zariyat Suresi 58. Ayeti Kopyala">📋 Kopyala</button>
+          </div>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="es-safi">
+        <h2 id="es-safi" style="margin-top: 25px;">Eş-Şâfî (Şifa Veren)</h2>
+        <p>Hastalık anında doktora gitmek, ilaç kullanmak Allah'ın evrendeki sünnetine (kanunlarına) uymaktır. Ancak tevhid ehli bilir ki, doktor ve ilaç sadece birer vesiledir. Asıl şifayı veren Eş-Şâfî olan Allah'tır. İyileştiğinde ilaca veya doktora değil, Rabbine şükreder.</p>
+        
+        <blockquote class="verse-card">
+          “Hastalandığım zaman bana şifa veren O’dur.”
+          <cite>(26/Şuarâ, 80)</cite>
+          <div class="ayet-araclari">
+            <button class="ayet-btn copy-btn" data-text="Hastalandığım zaman bana şifa veren O’dur. (26/Şuarâ, 80) - https://tevhid.tr" aria-label="Şuara Suresi 80. Ayeti Kopyala">📋 Kopyala</button>
+          </div>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="el-melik">
+        <h2 id="el-melik" style="margin-top: 25px;">El-Melik ve El-Hakem (Hükümran ve Hüküm Koyan)</h2>
+        <p>Mülkün gerçek sahibi ve mutlak hükümdar O'dur. Tevhid, sadece gökyüzünün değil, yeryüzünün ve hayatımızın kurallarını da Allah'ın belirlemesini kabul etmektir. Helal ve haram sınırlarını çizme yetkisi yalnızca El-Hakem olan Allah'a aittir.</p>
+      </section>
+
+      <section aria-labelledby="el-vekil">
+        <h2 id="el-vekil" style="margin-top: 25px;">El-Vekîl (Güvenilen, Dayanılan)</h2>
+        <p>Modern çağın insanı sürekli bir "kurtarıcı", bir "torpil" veya dayanacak güçlü bir "kapı" arayışındadır. Oysa Tevhid ehli bilir ki, en sağlam kulp ve en güçlü vekil ancak Allah'tır. El-Vekîl ismine iman etmek; elinden gelen tüm çabayı (sebepleri) yerine getirdikten sonra sonucu yalnızca Allah'a havale etmek ve "O ne güzel vekildir" diyerek kalbini dünyanın tüm <dfn class="kavram-ipucu" tabindex="0" data-anlam="Şeytanın veya nefsin kalbe attığı şüphe, kuruntu ve asılsız korkular.">vesveselerinden</dfn> arındırmaktır.</p>
+        
+        <blockquote class="verse-card">
+          “...De ki: ‘Allah bize yeter, O ne güzel vekildir!’”
+          <cite>(3/Âl-i İmrân, 173)</cite>
+          <div class="ayet-araclari">
+            <button class="ayet-btn copy-btn" data-text="...De ki: ‘Allah bize yeter, O ne güzel vekildir!’ (3/Âl-i İmrân, 173) - https://tevhid.tr" aria-label="Al-i İmran Suresi 173. Ayeti Kopyala">📋 Kopyala</button>
+          </div>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="el-alim">
+        <h2 id="el-alim" style="margin-top: 25px;">El-Alîm ve Es-Semî (Hakkıyla Bilen ve İşiten)</h2>
+        <p>Şirkin en sinsi hali "riya"dır; yani insanların beğenisini kazanmak için iyilik veya ibadet yapmaktır. El-Alîm (her şeyi bilen) ve Es-Semî (her şeyi işiten) isimleri kalbe yerleştiğinde, insan gösterişten kurtulur. "Kimse görmese de Rabbim görüyor, kimse bilmese de O niyetimi biliyor" bilinci, kulu sadece Allah'ın rızasını aramaya (<dfn class="kavram-ipucu" tabindex="0" data-anlam="İbadeti ve iyiliği yalnızca Allah'ın rızasını kazanmak amacıyla, gösterişten uzak yapmak.">İhlas'a</dfn>) götürür. İnsanın gizlisiyle açığının bir olması, Tevhidin ta kendisidir.</p>
+        
+        <blockquote class="verse-card">
+          “O, göklerdeki ve yerdeki her şeyi bilir. Gizlediklerinizi de açığa vurduklarınızı da bilir...”
+          <cite>(64/Teğâbün, 4)</cite>
+          <div class="ayet-araclari">
+            <button class="ayet-btn copy-btn" data-text="O, göklerdeki ve yerdeki her şeyi bilir. Gizlediklerinizi de açığa vurduklarınızı da bilir... (64/Teğâbün, 4) - https://tevhid.tr" aria-label="Teğabun Suresi 4. Ayeti Kopyala">📋 Kopyala</button>
+          </div>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="el-vedud">
+        <h2 id="el-vedud" style="margin-top: 25px;">El-Vedûd (Çok Seven ve Sevilen)</h2>
+        <p>Tevhid sadece bir korku veya katı kurallar bütünü değildir; o aynı zamanda muazzam bir sevgi bağıdır. İnsanın kalbinde makam, para, şöhret veya başka insanların sevgisi Allah sevgisinin önüne geçtiğinde orada gizli bir şirk başlar. El-Vedûd olan Allah'ı tanımak, O'nu her şeyden çok sevmeyi ve O'nun rızasını her türlü sevginin üstünde tutmayı gerektirir.</p>
+      </section>
+    </article>
+
+    <aside style="margin: 60px auto; text-align: center; background: rgba(106, 123, 100, 0.05); border: 1px solid rgba(106, 123, 100, 0.3); border-radius: 16px; padding: 50px 30px; box-shadow: 0 10px 30px var(--shadow); position: relative; overflow: hidden;" role="complementary" aria-labelledby="esma-mektebi-davet">
+      
+      <div aria-hidden="true" style="position: absolute; top: -30px; left: -20px; font-size: 180px; opacity: 0.03; font-family: 'Lora', serif; pointer-events: none;">اللّٰه</div>
+
+      <h2 id="esma-mektebi-davet" style="margin-top: 0; font-size: 2rem; color: var(--accent-color); border: none; font-family: 'Lora', serif; position: relative; z-index: 1;">İsimleri Kalbine Nakşet</h2>
+      
+      <p style="max-width: 650px; margin: 20px auto 30px auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-color); position: relative; z-index: 1;">
+        Okumak başlangıçtır, idrak etmek ise varıştır. Senin için hazırladığımız <b>"Esma Mektebi"</b> adlı interaktif talim alanına girerek, Allah'ın 99 ismini manalarıyla eşleştirebilir, tefekkür edebilir ve kişisel hafızana kaydedebilirsin.
+      </p>
+      
+      <div style="position: relative; z-index: 1;">
+        <a href="/esma-mektebi.html" class="davet-btn" style="background-color: var(--accent-color); padding: 16px 40px; font-size: 1.05rem;" aria-label="Esma Mektebi interaktif öğrenme uygulamasına git">Esma Mektebi'ne Gir</a>
+      </div>
+    </aside>
+
+    <nav class="journey-v2" style="margin-top: 60px;" aria-label="İkincil Navigasyon">
+      <h2 style="margin-top: 0; font-size: 1.8rem; border: none;">Yolculuğa Devam Et...</h2>
+      
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Kökler (İnanç)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/tevhid-nedir.html" class="j-card" aria-label="Tevhid nedir makalesini oku">Tevhid Nedir?</a>
+        <a href="/allahin-birligi.html" class="j-card" aria-label="Allah'ın birliği konusunu incele">Allah’ın Birliği</a>
+        <a href="/sirk-nedir.html" class="j-card" aria-label="Şirk ve tehlikeleri hakkında bilgi al">Şirk Nedir?</a>
+        <a href="/kavramlar-sozlugu.html" class="j-card" aria-label="Kur'ani kavramlar sözlüğünü görüntüle">Kavramlar Sözlüğü</a>
+      </div>
+
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Gövde (Pratik)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/tezkiye.html" class="j-card" aria-label="Kalbin arınması ve tezkiye konusunu oku">Kalbin Arınması</a>
+        <a href="/gundelik-hayatta-tevhid.html" class="j-card" aria-label="Gündelik hayatta tevhid pratiğini öğren">Gündelik Hayatta</a>
+        <a href="/dua-ve-tevhid.html" class="j-card" aria-label="Dua ve tevhid ilişkisini keşfet">Dua ve Tevhid</a>
+        <a href="/kuran-kissalari.html" class="j-card" aria-label="Kur'an'dan tevhid kıssalarını oku">Tevhid Kıssaları</a>
+      </div>
+
+      <span class="menu-kategori-baslik" style="margin-top: 40px;">Menzil (Duruş)</span>
+      <div class="journey-grid" style="margin-top: 15px;">
+        <a href="/istikamet.html" class="j-card" aria-label="İstikamet ve sabır üzerine yazıları oku">İstikamet</a>
+        <a href="/ahlak-ve-tevhid.html" class="j-card" aria-label="İslam ahlakı ve tevhid bağlantısını incele">Ahlak ve Tevhid</a>
+        <a href="/ahiret-bilinci.html" class="j-card" aria-label="Ahiret inancı ve bilinci hakkında bilgi al">Ahiret Bilinci</a>
+      </div>
+    </nav>
+  </main>
+
+  <aside class="ozgur-ayet-alani" aria-label="Kapanış Ayeti">
+    <blockquote class="footer-verse" style="border: none; margin: 0; padding: 0;">
+      “Allah bana yeter, O’ndan başka ilah yoktur, ben yalnız O’na güvenirim; O, büyük arşın Rabb’idir.”<br>
+      <cite style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-style: normal;">(9/Tevbe, 129)</cite>
+    </blockquote>
+  </aside>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around; width: 100%; gap: 30px; text-align: left; max-width: 900px;">
+        
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">I. Kökler</h4>
+          <a href="/tevhid-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Nedir?</a>
+          <a href="/allahin-birligi.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Allah'ın Birliği</a>
+          <a href="/sirk-nedir.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Şirk Nedir?</a>
+          <a href="/kavramlar-sozlugu.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kavramlar Sözlüğü</a>
+          <a href="/esmaul-husna.html" style="display: block; margin-bottom: 8px; text-decoration: none; font-weight: 600; color: var(--accent-color);">Esma-ül Hüsna</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">II. Gövde</h4>
+          <a href="/tezkiye.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Kalbin Arınması</a>
+          <a href="/gundelik-hayatta-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Gündelik Hayat</a>
+          <a href="/dua-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Dua ve Tevhid</a>
+          <a href="/kuran-kissalari.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Tevhid Kıssaları</a>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px;">III. Menzil</h4>
+          <a href="/istikamet.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">İstikamet</a>
+          <a href="/ahlak-ve-tevhid.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahlak ve Tevhid</a>
+          <a href="/ahiret-bilinci.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Ahiret Bilinci</a>
+          <a href="/hakkimizda.html" style="display: block; margin-bottom: 8px; text-decoration: none; opacity: 0.8;">Biz Kimiz?</a>
+          <a href="#" class="guvenli-mail" data-kullanici="iletisim" data-uzanti="tevhid.tr" style="display: block; margin-top: 15px; opacity: 0.8;">İletişim</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <button id="tefekkurKapat" class="tefekkur-kapat-btn" aria-label="Tefekkür Modunu Kapat">
+    ✕ Odaktan Çık
+  </button>
+
+  <script src="script.js?v=9.10"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>	
+<div class="alt-sis"></div>	
+</body>
+</html>
