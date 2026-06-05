@@ -6,7 +6,7 @@
   
   <title>Kur'ani Kavramlar Sözlüğü | Tevhid.tr</title>
   <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#121212" />	
+  <meta name="theme-color" content="#121212" /> 
   <meta name="description" content="Tevhidin temelini oluşturan İlah, Rab, Tağut, İbadet, Şefaat, İhlas ve Şirk kavramlarının Kur'an'daki asıl ve tahrif edilmemiş anlamları." />
   <link rel="canonical" href="https://tevhid.tr/kavramlar-sozlugu.html" />
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -65,6 +65,14 @@
             "@type": "Answer",
             "text": "Allah'a ait olan bir yetkiyi, sıfatı veya ibadeti (dua, tevekkül, hüküm koyma, mutlak itaat) Allah'tan başka bir varlığa vermektir."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Bid'at (البدعة) nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dinin aslında (Kur'an ve Sünnette) olmadığı halde, sonradan uydurulup dinin bir parçasıymış gibi sevap umarak yapılan her türlü inanç, söz ve eylemdir."
+          }
         }
       ]
     },
@@ -80,7 +88,7 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Kavramlar Sözlüğü",
-		"item": "https://tevhid.tr/kavramlar-sozlugu.html"
+    "item": "https://tevhid.tr/kavramlar-sozlugu.html"
       }]
     }
   ]
@@ -95,17 +103,10 @@
   </script>
 
   <style>
-    /* SADECE BU SAYFAYA ÖZEL 3 BOYUTLU KAVRAM KARTLARI TASARIMI */
-    .kavram-asama {
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 1px dashed var(--border-color);
-    }
-    .kavram-asama:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+    /* KAVRAM KARTLARI TASARIMI */
+    .kavram-asama { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed var(--border-color); }
+    .kavram-asama:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    
     .kavram-baslik {
       font-family: 'Inter', sans-serif;
       font-size: 0.85rem;
@@ -116,12 +117,22 @@
       margin-bottom: 8px;
       display: block;
     }
+    
     .yuzlesme-vurgu {
-      background-color: rgba(60, 90, 60, 0.05);
+      background-color: rgba(106, 123, 100, 0.05); /* Site tonlarına uyumlu sükunet yeşili */
       padding: 15px;
       border-left: 3px solid var(--accent-color);
       border-radius: 0 8px 8px 0;
       font-style: italic;
+    }
+
+    .kavram-asama cite {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent-color);
+      opacity: 0.9;
+      display: block;
+      margin-top: 10px;
     }
 
     /* KATEGORİ BAŞLIKLARI (MENÜLER İÇİN) */
@@ -137,12 +148,39 @@
       font-weight: 700;
     }
 
-    /* GEO için küçük stil düzeltmesi */
-    .kavram-asama cite {
-      font-style: normal;
-      font-weight: 600;
-      color: var(--accent-color);
-      opacity: 0.9;
+    /* CANLI ARAMA ÇUBUĞU TASARIMI */
+    .arama-kutusu {
+      position: relative;
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+    }
+    
+    #kavramArama {
+      width: 100%;
+      padding: 18px 25px 18px 50px;
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background-color: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+    
+    #kavramArama:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 8px 25px var(--shadow);
+    }
+
+    .arama-ikon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      opacity: 0.5;
     }
   </style>
 </head>
@@ -220,10 +258,10 @@
         <span aria-current="page">Kur'ani Kavramlar</span>
       </nav>
 
-      <h1 id="sozluk-baslik" style="font-size: 2.4rem; color: var(--heading-color); margin-bottom: 15px;">Kur'ani Kavramlar</h1>
+      <h1 id="sozluk-baslik" style="font-size: 2.4rem; color: var(--heading-color); margin-bottom: 15px;">Kur'ani Kavramlar Ansiklopedisi</h1>
       
       <div class="yazi-metasi">
-        <span>⏳ 4 Dk Okuma Süresi</span>
+        <span>⏳ 6 Dk Okuma Süresi</span>
         <span>•</span>
         <button class="share-btn" data-title="Kur'ani Kavramlar Sözlüğü | Tevhid.tr" aria-label="Bu sözlüğü paylaş">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -239,12 +277,17 @@
 
       <p class="lead" style="font-size: 1.1rem; opacity: 0.8; max-width: 650px; margin: 20px auto 0 auto;">Kelimelerin içi boşaltıldığında hakikat de kaybolur. Tevhidi anlamak, bu kilit kavramları Kur'an'ın anlattığı gibi tahrif edilmemiş haliyle anlamakla başlar.</p>
       <div class="intro-divider" style="width:60px; height:2px; background:var(--border-color); margin:30px auto;"></div>
-      <p style="font-size: 0.95rem; font-style: italic; opacity: 0.7;">Anlamını derinleştirmek istediğin kavramın üzerine dokun.</p>
+      
+      <div class="arama-kutusu">
+        <span class="arama-ikon" aria-hidden="true">🔍</span>
+        <input type="text" id="kavramArama" placeholder="Bir kavram ara (Örn: Tağut, İhlas, Şirk...)" aria-label="Kavramlarda Ara" onkeyup="kavramFiltrele()">
+      </div>
+      
     </header>
 
     <section class="content-block faq-section" style="margin-top: 10px;" aria-labelledby="sozluk-baslik">
       
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="ilah" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">İlah (الإله)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -262,7 +305,7 @@
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="rab" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Rab (الرب)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -271,7 +314,7 @@
           </div>
           <div class="kavram-asama">
             <span class="kavram-baslik">2. Kur'an'daki Yeri</span>
-            <p>“Andolsun ki onlara: ‘Gökleri ve yeri yaratan, güneşi ve ayı emre amade kılan kimdir?’ diye soracak olsan, mutlaka: ‘Allah’tır’ diyecekler. O hâlde nasıl (haktan) çevriliyorlar?” <cite>(29/Ankebût, 61)</cite></p>
+            <p>“Dikkat edin! Yaratmak da emretmek de (yalnızca) O’na aittir. Âlemlerin Rabbi olan Allah, ne yücedir.” <cite>(7/A'râf, 54)</cite></p>
           </div>
           <div class="kavram-asama yuzlesme-vurgu">
             <span class="kavram-baslik">3. Bugüne Yansıması</span>
@@ -280,7 +323,7 @@
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="tagut" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Tağut (الطاغوت)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -298,7 +341,7 @@
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="sirk" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Şirk (الشرك)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -316,7 +359,7 @@
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="ibadet" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">İbadet (العبادة)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -334,7 +377,7 @@
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="din" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Din (الدين)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -352,7 +395,7 @@
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="ihlas" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">İhlas (الإخلاص)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -365,12 +408,12 @@
           </div>
           <div class="kavram-asama yuzlesme-vurgu">
             <span class="kavram-baslik">3. Bugüne Yansıması</span>
-            <p>Her anımızın fotoğraflanıp başkalarına sergilendiği bir çağda yaşıyoruz. "Başkaları görsün, beğensin, takdir etsin" diye yapılan bir iyilik, içine "gösteriş" (riya) karıştığı için ihlasını kaybeder ve Allah katında değerini yitirir. İhlas, amelin üzerine "Bunu sadece Allah bilsin, bana O'nun rızası yeter" mührünü vurabilme cesaretidir.</p>
+            <p>Her anımızın fotoğraflanıp başkalarına sergilendiği bir dijital çağda yaşıyoruz. "Başkaları görsün, beğensin, takdir etsin" diye yapılan bir iyilik, içine "gösteriş" karıştığı için ihlasını kaybeder ve Allah katında değerini yitirir. İhlas, amelin üzerine "Bunu sadece Allah bilsin, bana O'nun rızası yeter" mührünü vurabilme cesaretidir.</p>
           </div>
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="tevekkul" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Tevekkül (التوكل)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -383,12 +426,12 @@
           </div>
           <div class="kavram-asama yuzlesme-vurgu">
             <span class="kavram-baslik">3. Bugüne Yansıması</span>
-            <p>Günümüz insanı "gelecek kaygısı, sınav stresi, işten atılma korkusu" gibi evhamlar yüzünden antidepresanlara mahkum olmuştur. Hayatı tek başına kontrol etmeye çalışmak insanı ezer. Tevekkül, "Ben elimden geleni yaptım, rızkımı ve kaderimi verecek olan patronum veya diplomam değil, yalnızca Allah'tır" diyerek o ağır yükü omuzlardan atıp özgürleşmektir.</p>
+            <p>Günümüz insanı "gelecek kaygısı, sınav stresi, işten atılma korkusu" gibi evhamlar yüzünden ruhsal çöküntülere mahkum olmuştur. Hayatı tek başına kontrol etmeye çalışmak insanı ezer. Tevekkül, "Ben elimden geleni yaptım, rızkımı ve kaderimi verecek olan patronum veya diplomam değil, yalnızca Allah'tır" diyerek o ağır yükü omuzlardan atıp özgürleşmektir.</p>
           </div>
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="hanif" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Hanîf (الحنيف)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -397,16 +440,16 @@
           </div>
           <div class="kavram-asama">
             <span class="kavram-baslik">2. Kur'an'daki Yeri</span>
-            <p>“Şüphesiz ki ben, bir hanîf (Allah’ı birleyen) olarak yüzümü gökleri ve yeri yaratana çevirdim. Ve ben <dfn class="kavram-ipucu" tabindex="0" data-anlam="Allah'a inanmakla beraber, başka varlıkları da (put, insan, sistem) O'na ortak koşan kişi.">müşriklerden</dfn> değilim.” <cite>(6/En'âm, 79)</cite></p>
+            <p>“Şüphesiz ki ben, bir hanîf (Allah’ı birleyen) olarak yüzümü gökleri ve yeri yaratana çevirdim. Ve ben müşriklerden değilim.” <cite>(6/En'âm, 79)</cite></p>
           </div>
           <div class="kavram-asama yuzlesme-vurgu">
             <span class="kavram-baslik">3. Bugüne Yansıması</span>
-            <p>Kur'an, Hz. İbrahim'i bu özellikle överek bize bir rol model olarak sunar. Hanif olmak; toplumun çoğunluğu şirke, modaya veya batıla saplanmış olsa bile, "herkes böyle yapıyor" tuzağına düşmeden tek başına hakikatin sancağını taşıyabilmektir.</p>
+            <p>Kur'an, Hz. İbrahim'i bu özellikle överek bize bir rol model olarak sunar. Hanif olmak; toplumun çoğunluğu şirke, modaya veya batıla saplanmış olsa bile, "herkes böyle yapıyor" tuzağına düşmeden tek başına hakikatin sancağını dik tutabilmektir.</p>
           </div>
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="sefaat" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Şefaat (الشفاعة)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -419,12 +462,84 @@
           </div>
           <div class="kavram-asama yuzlesme-vurgu">
             <span class="kavram-baslik">3. Bugüne Yansıması</span>
-            <p>Günümüz dünyasında şefaat kelimesi, tıpkı dünyevi mahkemelerdeki gibi bir "torpil", bir "araya adam koyma" veya Allah'ın gazabından kurtaracak bir "kurtarıcı" bulma inancına dönüşmüştür. Birilerinden şefaat umarak onlara kutsallık atfetmek, Tevhid inancını zedeleyen en tehlikeli hurafelerden biridir.</p>
+            <p>Günümüz dünyasında şefaat kelimesi, tıpkı dünyevi mahkemelerdeki gibi bir "torpil", bir "araya adam koyma" veya Allah'ın gazabından kurtaracak bir "kurtarıcı" bulma inancına dönüşmüştür. Birilerinden şefaat umarak onlara kutsallık atfetmek ve ölülerden yardım istemek, Tevhid inancını zedeleyen en tehlikeli hurafelerden biridir.</p>
           </div>
         </div>
       </details>
 
-      <details class="faq-item" role="region">
+      <details class="faq-item kavram-maddesi" id="sunnet" role="region">
+        <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Sünnet (السنة)</summary>
+        <div class="faq-content">
+          <div class="kavram-asama">
+            <span class="kavram-baslik">1. Lügat ve Istılah</span>
+            <p>Sözlükte "yol, âdet, gidişat" demektir. İslami ıstılahta ise; Hz. Muhammed'in ﷺ dinin yaşanması adına ortaya koyduğu tüm sözleri, fiilleri ve onayladığı (takrir) tutumları kapsayan, Kur'an'ın pratik hayata dökülmüş halidir.</p>
+          </div>
+          <div class="kavram-asama">
+            <span class="kavram-baslik">2. Kur'an'daki Yeri</span>
+            <p>“Kim Resûl’e itaat ederse, muhakkak ki Allah’a itaat etmiş olur...” <cite>(4/Nisâ, 80)</cite></p>
+          </div>
+          <div class="kavram-asama yuzlesme-vurgu">
+            <span class="kavram-baslik">3. Bugüne Yansıması</span>
+            <p>Sünnet, sadece kılık kıyafet veya yemek yeme şekline indirgenemez. O'nun merhameti, adaleti, şirke karşı verdiği tavizsiz tevhid mücadelesi ve ahlakı en büyük sünnetidir. Sünneti devreden çıkaran bir din anlayışı, köklerinden koparılmış ve her türlü tahrifata açık hale gelmiş bir dindir.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item kavram-maddesi" id="bidat" role="region">
+        <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Bid'at (البدعة)</summary>
+        <div class="faq-content">
+          <div class="kavram-asama">
+            <span class="kavram-baslik">1. Lügat ve Istılah</span>
+            <p>Dinin aslında (Kur'an ve Sünnette) olmadığı halde, sonradan uydurulup dinin bir parçasıymış gibi "sevap umarak" yapılan her türlü inanç, ritüel, söz ve eylemdir.</p>
+          </div>
+          <div class="kavram-asama">
+            <span class="kavram-baslik">2. Hadisteki Yeri</span>
+            <p>“...İşlerin en kötüsü sonradan uydurulanlardır. Her sonradan uydurulan şey bid’attır, her bid’at sapıklıktır ve her sapıklık ateştedir.” <cite>(Nesâî, Cuma 24)</cite></p>
+          </div>
+          <div class="kavram-asama yuzlesme-vurgu">
+            <span class="kavram-baslik">3. Bugüne Yansıması</span>
+            <p>Dine ekleme yapmak (bid'at), Allah'ın koyduğu dini eksik görüp "Ben daha iyisini biliyorum" diyerek Allah'a din öğretmeye kalkmaktır. Mezarlara çaput bağlamak, ölülere mevlit/Yasin okutarak sevap beklemek gibi dinde aslı olmayan uygulamalar, tevhidi bulandıran en yaygın bid'atlardır.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item kavram-maddesi" id="takva" role="region">
+        <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Takva (التقوى)</summary>
+        <div class="faq-content">
+          <div class="kavram-asama">
+            <span class="kavram-baslik">1. Lügat ve Istılah</span>
+            <p>Sözlükte "korunmak, sakınmak" demektir. Istılahta ise; Allah'ın emirlerini yerine getirip yasaklarından kaçınarak, O'nun azabından ve sevgisini kaybetmekten korunmaktır. Kalpteki bir bilinç ve duyarlılık halidir.</p>
+          </div>
+          <div class="kavram-asama">
+            <span class="kavram-baslik">2. Kur'an'daki Yeri</span>
+            <p>“...Şüphesiz ki Allah katında en değerli olanınız, en çok takva sahibi olanınızdır...” <cite>(49/Hucurât, 13)</cite></p>
+          </div>
+          <div class="kavram-asama yuzlesme-vurgu">
+            <span class="kavram-baslik">3. Bugüne Yansıması</span>
+            <p>İnsanlar birbirlerine makamlarına, servetlerine veya ırklarına göre değer verir. Oysa Allah'ın terazisinde tek ölçü "takva"dır. Takva, kimsenin görmediği bir yerde bile "Rabbim beni görüyor" bilinciyle harama el uzatmamak, O'nun hudutlarını korumaktır.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item kavram-maddesi" id="heva" role="region">
+        <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Heva (الهوى)</summary>
+        <div class="faq-content">
+          <div class="kavram-asama">
+            <span class="kavram-baslik">1. Lügat ve Istılah</span>
+            <p>İnsanın bencilce tutkuları, sınır tanımaz istekleri ve nefsinin, hakka ve akla aykırı olan körü körüne arzularıdır.</p>
+          </div>
+          <div class="kavram-asama">
+            <span class="kavram-baslik">2. Kur'an'daki Yeri</span>
+            <p>“Kendi hevasını (arzu ve isteklerini) ilah edineni gördün mü? Artık ona sen mi vekil olacaksın?” <cite>(25/Furkan, 43)</cite></p>
+          </div>
+          <div class="kavram-asama yuzlesme-vurgu">
+            <span class="kavram-baslik">3. Bugüne Yansıması</span>
+            <p>Modern çağın en büyük dini "benmerkezcilik"tir. İnsanın "Canım böyle istiyor, benim hayatım, benim kurallarım" diyerek Allah'ın kesin yasaklarını çiğnemesi, kendi bencil arzularını (hevasını) Allah'a ortak koşması ve kendini ilahlaştırmasıdır.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item kavram-maddesi" id="tedebbur" role="region">
         <summary style="font-size: 1.4rem; font-family: 'Lora', serif;">Tedebbür (التدبر)</summary>
         <div class="faq-content">
           <div class="kavram-asama">
@@ -539,13 +654,49 @@
   </button>
 
   <script src="script.js?v=9.10"></script>
+  
   <script>
+    // ARAMA ÇUBUĞU FONKSİYONU
+    function kavramFiltrele() {
+      let aranan = document.getElementById("kavramArama").value.toLowerCase();
+      let kavramKartlari = document.querySelectorAll(".kavram-maddesi");
+      
+      kavramKartlari.forEach(function(kart) {
+        let kavramMetni = kart.textContent.toLowerCase();
+        
+        if (kavramMetni.includes(aranan)) {
+          kart.style.display = "";
+          // Arama yapılırken eşleşenleri otomatik aç, kutu boşsa kapat
+          if (aranan.length > 1) { kart.setAttribute("open", "true"); } 
+          else { kart.removeAttribute("open"); }
+        } else {
+          kart.style.display = "none";
+        }
+      });
+    }
+
+    // DEEP LINKING (URL'den gelen ID'yi otomatik açma)
+    window.addEventListener('load', function() {
+      if(window.location.hash) {
+        let hedefKavram = document.querySelector(window.location.hash);
+        if(hedefKavram && hedefKavram.tagName === 'DETAILS') {
+          hedefKavram.setAttribute("open", "true");
+          // Tarayıcının DOM'u tam yüklemesi için ufak bir gecikme
+          setTimeout(() => {
+            hedefKavram.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            hedefKavram.style.boxShadow = "0 0 15px var(--accent-color)";
+            setTimeout(() => { hedefKavram.style.boxShadow = ""; }, 2000);
+          }, 300);
+        }
+      }
+    });
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js');
       });
     }
-  </script>	
-<div class="alt-sis"></div>	
+  </script> 
+<div class="alt-sis"></div> 
 </body>
 </html>
