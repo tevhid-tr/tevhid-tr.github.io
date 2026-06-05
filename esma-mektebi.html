@@ -171,7 +171,7 @@
           <span style="color: inherit;">tevhid</span><span class="sirli-nokta">.</span><span style="color: inherit;">tr</span>
         </span>
       </div>
-<div class="kontrol-butonlari">
+      <div class="kontrol-butonlari">
         <button id="ses-toggle" class="ikon-btn" aria-label="Sesi Aç Kapat" onclick="sesToggle()">🔊</button>
         <button id="theme-toggle" class="ikon-btn" aria-label="Temayı Değiştir">
           <span class="icon-sun">☀️</span>
@@ -284,7 +284,6 @@
 
   <script src="script.js?v=9.10"></script>
   <script>
-    // 99 Esma Array'i aynı kalıyor (Bildiğin listeyi buraya aynen koyuyoruz, kod uzamasın diye ilk 10 tanesini yazdım, sen bendeki listeyle birleştirirsin)
     const tumEsmalar = [
       { id: 1, arapca: "اللّٰه", ad: "Allah", anlam: "İbadete lâyık tek İlah, tüm kemal sıfatlarını kendinde toplayan.", tefekkur: "Korkularını ve sevgilerini tek bir merkeze topla: O'ndan başka sığınacak kapı yoktur." },
       { id: 2, arapca: "الرَّحْمٰن", ad: "Er-Rahmân", anlam: "Dünyada bütün mahlukata (mümin-kafir ayırt etmeden) merhamet eden.", tefekkur: "Nefes aldığın her an, O'nun kesintisiz rahmetinin bir tecellisidir." },
@@ -296,7 +295,94 @@
       { id: 8, arapca: "الْمُهَيْمِن", ad: "El-Müheymin", anlam: "Her şeyi görüp gözeten, koruyan, kontrol altında tutan.", tefekkur: "Kapalı kapılar ardında kimse görmese de O görüyor. Haksızlığa uğradığında O şahittir." },
       { id: 9, arapca: "الْعَزِيز", ad: "El-Azîz", anlam: "İzzet sahibi, her şeye galip olan, mağlup edilemeyen.", tefekkur: "O'na boyun eğen aziz olur. O'na kafa tutan dünyaları alsa da zelil olur." },
       { id: 10, arapca: "الْجَبَّار", ad: "El-Cebbâr", anlam: "Dilediğini zorla yaptıran, kırıkları onaran.", tefekkur: "Kırık kalpleri onaracak ve zalimlerin belini kıracak yegâne güç O'dur." },
-      // ... (Geri kalan 89 Esmayı buraya yapıştırırsın usta)
+      { id: 11, arapca: "الْمُتَكَبِّر", ad: "El-Mütekebbir", anlam: "Büyüklükte eşi olmayan, mutlak büyük.", tefekkur: "Kibir insana yakışmaz, asıl büyüklük O'na aittir. Kibrini kır, O'nun büyüklüğüne teslim ol." },
+      { id: 12, arapca: "الْخَالِق", ad: "El-Hâlık", anlam: "Yoktan var eden, yaratan.", tefekkur: "Hayatındaki çözümsüzlüklere, seni ve tüm evreni yoktan var edenin kudretiyle bak." },
+      { id: 13, arapca: "الْبَارِئ", ad: "El-Bâri", anlam: "Her şeyi bir uyum içinde ve kusursuzca yaratan.", tefekkur: "Evrendeki ve kendi varlığındaki kusursuz uyumu fark et; O'nun yarattığına güven." },
+      { id: 14, arapca: "الْمُصَوِّر", ad: "El-Musavvir", anlam: "Varlıklara şekil veren ve onları tasvir eden.", tefekkur: "Seni en güzel surette şekillendirdi. Dış görünüşünün geçiciliğine değil, kalbinin şekline odaklan." },
+      { id: 15, arapca: "الْغَفَّار", ad: "El-Gaffâr", anlam: "Günahları tekrar tekrar, çokça bağışlayan.", tefekkur: "Günahların ne kadar büyük olursa olsun, O'nun sonsuz mağfiret kapısından ümidini kesme." },
+      { id: 16, arapca: "الْقَهَّار", ad: "El-Kahhâr", anlam: "Her şeye galip gelen, mutlak boyun eğdiren.", tefekkur: "Zalimlerin zulmü yanına kâr kalmaz; Kahhâr olan Allah, hükmünü mutlaka icra edecektir." },
+      { id: 17, arapca: "الْوَهَّاب", ad: "El-Vehhâb", anlam: "Karşılıksız, bolca ve sürekli veren.", tefekkur: "Sahip olduğun her nimet, O'nun karşılıksız hibesidir. Sen de cömert olarak şükrünü göster." },
+      { id: 18, arapca: "الرَّزَّاق", ad: "Er-Rezzâk", anlam: "Tüm rızıkları veren ve ihtiyaçları karşılayan.", tefekkur: "Rızık endişesiyle harama sapma; senin rızkını garanti eden Rezzâk'tır." },
+      { id: 19, arapca: "الْفَتَّاح", ad: "El-Fettâh", anlam: "Her türlü zorluğu aşan, kapıları açan.", tefekkur: "Bütün kapılar yüzüne kapandığında, en hayırlı kapıyı açacak olan Fettâh'a yönel." },
+      { id: 20, arapca: "الْعَلِيم", ad: "El-Alîm", anlam: "Gizli ve açık her şeyi eksiksiz bilen.", tefekkur: "İnsanlardan gizlediğin niyetlerini O biliyor. İhlaslı ol, çünkü Alîm olan O'dur." },
+      { id: 21, arapca: "الْقَابِض", ad: "El-Kâbıd", anlam: "Sıkan, daraltan, rızkı belli ölçüde tutan.", tefekkur: "Kalbini daraltan O'dur ki, ferahlığın kıymetini bilesin ve acziyetle O'na yalvarasın." },
+      { id: 22, arapca: "الْبَاسِط", ad: "El-Bâsıt", anlam: "Genişleten, rızkı ve gönlü açan.", tefekkur: "Sıkıntılarının ardından göğsüne inşirah (ferahlık) veren O'dur. Genişlikte O'nu unutma." },
+      { id: 23, arapca: "الْخَافِض", ad: "El-Hâfıd", anlam: "Dereceleri alçaltan, kibirlileri zillete düşüren.", tefekkur: "Kibirli zorbaları alçaltan O'dur. Mütevazı ol ki alçaltılanlardan olma." },
+      { id: 24, arapca: "الرَّافِع", ad: "Er-Râfi", anlam: "Dereceleri yükselten, izzet veren.", tefekkur: "İzzet ve şeref ancak O'nun yükseltmesiyle elde edilir. O'na kul olarak yücel." },
+      { id: 25, arapca: "الْمُعِزّ", ad: "El-Muiz", anlam: "İzzet, şeref ve güç veren.", tefekkur: "Gerçek şeref insanların alkışında değil, yalnızca O'na itaat etmektedir." },
+      { id: 26, arapca: "الْمُذِلّ", ad: "El-Müzil", anlam: "Zelil kılan, onur ve haysiyeti alan.", tefekkur: "O'na isyan eden er ya da geç zelil olur. Zillete düşmemek için Tevhid'e sarıl." },
+      { id: 27, arapca: "السَّمِيع", ad: "Es-Semî", anlam: "Gizli açık her şeyi hakkıyla işiten.", tefekkur: "Sessizce döktüğün gözyaşlarını ve kalbindeki fısıltıları işiten bir Rabbin var." },
+      { id: 28, arapca: "الْبَصِير", ad: "El-Basîr", anlam: "Her şeyi, en ince detayına kadar gören.", tefekkur: "Yalnız kaldığını sandığında bile O seni görüyor. Bakışlarının hakkını ver." },
+      { id: 29, arapca: "الْحَكَم", ad: "El-Hakem", anlam: "Mutlak hüküm sahibi, hakkı batıldan ayıran.", tefekkur: "Hayatının kurallarını koyacak tek merci O'dur. Kendi hevanı hakem kılma." },
+      { id: 30, arapca: "الْعَدْل", ad: "El-Adl", anlam: "Mutlak adalet sahibi, haksızlık yapmayan.", tefekkur: "Hiçbir haksızlık karşılıksız kalmaz. Adl olan Allah, mizanı şaşmaz bir şekilde kuracaktır." },
+      { id: 31, arapca: "اللَّطِيف", ad: "El-Latîf", anlam: "Lütfeden, incelikleri ve sırları en iyi bilen.", tefekkur: "O'nun yardımı sana en umulmadık, en ince yollarla ulaşır. Lütfuna güven." },
+      { id: 32, arapca: "الْخَبِير", ad: "El-Habîr", anlam: "Her şeyden, bütün detaylarıyla haberdar olan.", tefekkur: "İşlediğin hiçbir amel zayi olmaz; Habîr olan Allah, kalbindeki en ufak niyetten bile haberdardır." },
+      { id: 33, arapca: "الْحَلِيم", ad: "El-Halîm", anlam: "Cezada acele etmeyen, yumuşak muamele eden.", tefekkur: "Hatalarına rağmen sana mühlet vermesi O'nun Halîm oluşundandır, tövbede acele et." },
+      { id: 34, arapca: "الْعَظِيم", ad: "El-Azîm", anlam: "Büyüklüğü akıllara sığmayan, yüce.", tefekkur: "Karşılaştığın dertler ne kadar büyük olursa olsun, Rabbin onlardan çok daha Azîm'dir." },
+      { id: 35, arapca: "الْغَفُور", ad: "El-Gafûr", anlam: "Çok affeden, günahları örten.", tefekkur: "Kendi kusurlarını O'nun Gafûr ismiyle ört ve sen de insanları affetmeyi öğren." },
+      { id: 36, arapca: "الشَّكُور", ad: "Eş-Şekûr", anlam: "Az amele çok sevap veren, şükrün karşılığını veren.", tefekkur: "Samimiyetle yaptığın küçücük bir iyilik bile O'nun katında dağlar gibi büyür." },
+      { id: 37, arapca: "الْعَلِيّ", ad: "El-Aliyy", anlam: "Yücelik ve makamda sınır tanımayan.", tefekkur: "Yücelik sadece O'na aittir. Dünya makamlarına aldanıp da kendi acziyetini unutma." },
+      { id: 38, arapca: "الْكَبِير", ad: "El-Kebîr", anlam: "Zatının ve sıfatlarının büyüklüğüne sınır olmayan.", tefekkur: "'Allahu Ekber' derken kalbindeki tüm dünyevi otoriteleri küçült ve tek Büyük'ü tasdik et." },
+      { id: 39, arapca: "الْحَفِيظ", ad: "El-Hafîz", anlam: "Her şeyi koruyan, muhafaza eden.", tefekkur: "Gelecek korkusunu bırak; seni, aileni ve imanını koruyacak olan yegâne güç Hafîz'dir." },
+      { id: 40, arapca: "الْمُقِيت", ad: "El-Mukît", anlam: "Rızıkları ve gıdaları yaratan, gücü yeten.", tefekkur: "Bedeninin gıdasını verdiği gibi, ruhunun gıdası olan tevhidi de sana nasip edendir." },
+      { id: 41, arapca: "الْحَسِيب", ad: "El-Hasîb", anlam: "Kullarına yeten, hesaba çeken.", tefekkur: "Her nefesinin hesabı sorulacak. Yüce divanda hesaba çekilmeden önce kendi nefsini hesaba çek." },
+      { id: 42, arapca: "الْجَلِيل", ad: "El-Celîl", anlam: "Celalet, ululuk ve büyüklük sahibi.", tefekkur: "O'nun celali karşısında kalpten boyun eğ ki, sahte otoritelerin önünde eğilmeyesin." },
+      { id: 43, arapca: "الْكَرِيم", ad: "El-Kerîm", anlam: "Lütfu ve cömertliği sonsuz olan.", tefekkur: "Sana verdikleri senin hak ettiğinden değil, O'nun Kerîm oluşundandır." },
+      { id: 44, arapca: "الرَّقِيب", ad: "Er-Rakîb", anlam: "Her varlığı her an gözetim altında tutan.", tefekkur: "Üzerinde daimi bir gözetleyici varken, yalnız kaldığında da günah işlemekten haya et." },
+      { id: 45, arapca: "الْمُجِيب", ad: "El-Mücîb", anlam: "Dualara ve isteklere icabet eden.", tefekkur: "'Dua ettim kabul olmadı' deme; O her duayı işitir ve senin için en hayırlı şekilde icabet eder." },
+      { id: 46, arapca: "الْوَاسِع", ad: "El-Vâsi", anlam: "İlmi, rahmeti ve kudreti her şeyi kuşatan.", tefekkur: "Dünyan daraldığında, rahmeti her şeyi kuşatan Vâsi'ye iltica et." },
+      { id: 47, arapca: "الْحَكِيم", ad: "El-Hakîm", anlam: "Her işi hikmetli olan, abes iş yapmayan.", tefekkur: "Başına gelenlerde anlamadığın sırlar olabilir; sabret, O'nun her işinde bir hikmet vardır." },
+      { id: 48, arapca: "الْوَدُود", ad: "El-Vedûd", anlam: "Kullarını çok seven ve çok sevilen.", tefekkur: "Kalbini sahte sevgilerden arındır ki, Vedûd olanın mutlak sevgisi oraya yerleşsin." },
+      { id: 49, arapca: "الْمَجِيد", ad: "El-Mecîd", anlam: "Şanı çok yüce, ikramı bol olan.", tefekkur: "Şerefi O'nun dininde ara; başka yerlerde ararsan ancak zillete düşersin." },
+      { id: 50, arapca: "الْبَاعِث", ad: "El-Bâis", anlam: "Ölüleri dirilten, peygamberler gönderen.", tefekkur: "Ölüm bir son değil; Bâis olan Allah seni yeniden diriltecek ve amellerinle yüzleştirecektir." },
+      { id: 51, arapca: "الشَّهِيد", ad: "Eş-Şehîd", anlam: "Her şeye şahit olan, hiçbir şeyden habersiz olmayan.", tefekkur: "İftiraya veya haksızlığa uğradığında üzülme; Eş-Şehîd olan Allah senin haklılığına şahittir." },
+      { id: 52, arapca: "الْحَقّ", ad: "El-Hakk", anlam: "Varlığı hiç değişmeyen, mutlak gerçek.", tefekkur: "Dünyadaki her şey fani ve bir yanılsamadır; peşinden gidilecek tek mutlak gerçek O'dur." },
+      { id: 53, arapca: "الْوَكِيل", ad: "El-Vekîl", anlam: "Kendisine tevekkül edenlerin işlerini en iyi şekilde çözen.", tefekkur: "Elinden geleni yaptıktan sonra sonucu O'na bırak. O'na yaslanan asla yolda kalmaz." },
+      { id: 54, arapca: "الْقَوِيّ", ad: "El-Kaviyy", anlam: "Kudreti ve gücü sonsuz olan.", tefekkur: "Zalimlerin gücü seni korkutmasın; en büyük ordular bile El-Kaviyy olanın karşısında acizdir." },
+      { id: 55, arapca: "الْمَتِين", ad: "El-Metîn", anlam: "Kuvveti sarsılmaz, hiçbir zaman yorulmayan.", tefekkur: "İnsanlar yorulur ve seni yarı yolda bırakır; sarsılmaz bir dayanak arıyorsan O'na tutun." },
+      { id: 56, arapca: "الْوَلِيّ", ad: "El-Veliyy", anlam: "İnananların dostu ve yardımcısı.", tefekkur: "Sen Tevhid üzerinde dosdoğru oldukça, yerlerin ve göklerin Rabbi senin en yakın dostundur." },
+      { id: 57, arapca: "الْحَمِيد", ad: "El-Hamîd", anlam: "Her türlü övgüye ve hamde layık olan.", tefekkur: "Aldığın her nefes için 'Elhamdülillah' de. Övgü sadece O'na aittir." },
+      { id: 58, arapca: "الْمُحْصِي", ad: "El-Muhsî", anlam: "Her şeyin sayısını ve miktarını eksiksiz bilen.", tefekkur: "Yaptığın zerre kadar iyilik veya kötülük kaybolmaz; hepsi eksiksiz sayılmaktadır." },
+      { id: 59, arapca: "الْمُبْدِئ", ad: "El-Mübdi", anlam: "Mahlukatı maddesiz ve örneksiz olarak ilk baştan yaratan.", tefekkur: "Seni bir hiçken var eden O'dur. Varlığın O'na aittir, yönelişin de sadece O'na olmalıdır." },
+      { id: 60, arapca: "الْمُعِيد", ad: "El-Muîd", anlam: "Yaratılmışları öldükten sonra tekrar dirilten.", tefekkur: "Toprak olduğunda her şey bitecek sanma; ilk yaratan, elbette ikinci kez yaratmaya da kadirdir." },
+      { id: 61, arapca: "الْمُحْيِي", ad: "El-Muhyî", anlam: "Can bağışlayan, hayat veren.", tefekkur: "Sadece bedenine değil, Tevhid nuruyla ölü kalbine de hayat verecek olan O'dur." },
+      { id: 62, arapca: "الْمُمِيت", ad: "El-Mümît", anlam: "Canlıların ölümünü yaratan.", tefekkur: "Ölümü yaratan O'dur. Ölümden değil, O'nun huzuruna tevhidsiz çıkmaktan kork." },
+      { id: 63, arapca: "الْحَيّ", ad: "El-Hayy", anlam: "Diri olan, hayatı ebedi olan.", tefekkur: "Herkes ölecek ve her şey yok olacak. Sadece Hayy olan Rabbinin yüzü baki kalacaktır." },
+      { id: 64, arapca: "الْقَيُّوم", ad: "El-Kayyûm", anlam: "Gökleri, yeri ve her şeyi ayakta tutan.", tefekkur: "Evren kendi kendine dönmüyor; O bir an bıraksa her şey helak olur. İpler O'nun elindedir." },
+      { id: 65, arapca: "الْوَاجِد", ad: "El-Vâcid", anlam: "İstediğini, istediği an bulan, hiçbir şeye muhtaç olmayan.", tefekkur: "O'nun hiçbir şeye ihtiyacı yoktur, ibadetine muhtaç olan sensin." },
+      { id: 66, arapca: "الْمَاجِد", ad: "El-Mâcid", anlam: "Kadri ve şanı büyük, kerem ve cömertliği bol olan.", tefekkur: "O'nun kapısına giden boş çevrilmez; O'nun ikramı mahlukatın hayal edemeyeceği kadar büyüktür." },
+      { id: 67, arapca: "الْوَاحِد", ad: "El-Vâhid", anlam: "Zatında, sıfatlarında ve işlerinde eşi ve ortağı olmayan.", tefekkur: "Tevhidin kalbi. O tektir, öyleyse senin sevgin, korkun ve itaatin de sadece O'na olmalıdır." },
+      { id: 68, arapca: "الصَّمَد", ad: "Es-Samed", anlam: "Her şey O'na muhtaç olan, O ise hiçbir şeye muhtaç olmayan.", tefekkur: "İhtiyaçlarını fani insanlara değil, Samed olan Allah'a arz et." },
+      { id: 69, arapca: "الْقَادِر", ad: "El-Kâdir", anlam: "Dilediğini yapmaya gücü yeten.", tefekkur: "Sıkıntıların seni çaresiz bıraktığında, her şeye gücü yeten Kâdir'in kapısını çal." },
+      { id: 70, arapca: "الْمُقْتَدِر", ad: "El-Muktedir", anlam: "Kuvvet ve kudret sahipleri üzerinde mutlak tasarruf sahibi olan.", tefekkur: "Kendinde güç vehmeden zalimler, Muktedir olan Allah'ın elinde sadece birer acizdir." },
+      { id: 71, arapca: "الْمُقَدِّم", ad: "El-Mukaddim", anlam: "Dilediğini öne alan, yükselten.", tefekkur: "O seni öne almadıkça hiçbir çaba seni yüceltemez. Yükselişi O'ndan iste." },
+      { id: 72, arapca: "الْمُؤَخِّر", ad: "El-Muahhir", anlam: "Dilediğini arkaya bırakan, erteleyen.", tefekkur: "Eğer duaların hemen gerçekleşmiyorsa isyan etme; Muahhir olanın ertelemesinde bir hayır vardır." },
+      { id: 73, arapca: "الْأَوَّل", ad: "El-Evvel", anlam: "Başlangıcı olmayan, ilk.", tefekkur: "Her şeyin bir evveli vardır, O ise her şeyden öncedir. Varlığının kaynağı O'dur." },
+      { id: 74, arapca: "الْآخِر", ad: "El-Âhir", anlam: "Bitişi olmayan, son.", tefekkur: "Herkes terk edip gittiğinde, kabirde ve ahirette baki kalacak olan O'dur." },
+      { id: 75, arapca: "الظَّاهِر", ad: "Ez-Zâhir", anlam: "Varlığı sayısız delillerle açık olan.", tefekkur: "Gökyüzüne, yeryüzüne ve kendi bedenine bak; O'nun varlığının delilleri her yeri kuşatmıştır." },
+      { id: 76, arapca: "الْبَاطِن", ad: "El-Bâtın", anlam: "Zatı gözlerden gizli olan.", tefekkur: "Gözlerinle O'nu göremezsin ama O senin kalbinin en derinliklerindekini bile görür." },
+      { id: 77, arapca: "الْوَالِي", ad: "El-Vâlî", anlam: "Kâinatı ve olayları tek başına yöneten.", tefekkur: "Dünya sahipsiz değildir; olayların arkasındaki asıl yöneticiyi tanı ve ferahla." },
+      { id: 78, arapca: "الْمُتَعَالِي", ad: "El-Müteâlî", anlam: "Aklın alabileceği her şeyden çok yüce olan.", tefekkur: "O'nu yaratılmışlara benzetme; O, insanların noksan sıfatlarından münezzehtir." },
+      { id: 79, arapca: "الْبَرّ", ad: "El-Berr", anlam: "Kullarına iyiliği ve lütfu çok olan.", tefekkur: "İyiliğin asıl kaynağı O'dur. İnsanların vefasızlığına üzülme, Berr olanın lütfuna sığın." },
+      { id: 80, arapca: "التَّوَّاب", ad: "Et-Tevvâb", anlam: "Tövbeleri kabul eden, günahları bağışlayan.", tefekkur: "Günahın seni umutsuzluğa sürüklemesin; Tevvâb olan Allah, samimi gözyaşını geri çevirmez." },
+      { id: 81, arapca: "الْمُنْتَقِم", ad: "El-Müntakim", anlam: "Zalimlere hak ettikleri cezayı veren.", tefekkur: "Mazlumun ahı yerde kalmaz; intikam alanların en hayırlısı olan Allah, mizanı kuracaktır." },
+      { id: 82, arapca: "الْعَفُوّ", ad: "El-Afüvv", anlam: "Affı çok olan, günahları silip yok eden.", tefekkur: "O sadece ceza vermez, günahın izini bile siler. Sen de kendi kalbini kinden affederek temizle." },
+      { id: 83, arapca: "الرَّؤُوف", ad: "Er-Raûf", anlam: "Çok şefkatli, merhameti sonsuz olan.", tefekkur: "O'nun sana olan şefkati, bir annenin yavrusuna olan şefkatinden çok daha büyüktür." },
+      { id: 84, arapca: "مَالِكُ الْمُلْكِ", ad: "Mâlik-ül Mülk", anlam: "Mülkün ebedi ve gerçek sahibi.", tefekkur: "Sahip olduğun her şey emanettir; elindekilerle övünme, asıl Mâlik'e şükret." },
+      { id: 85, arapca: "ذُوالْجَلَالِ وَالْإِكْرَامِ", ad: "Zül-Celâli vel İkrâm", anlam: "Hem azamet (büyüklük) hem de eşsiz ikram sahibi.", tefekkur: "O'nun hem celalinden korkup sakın, hem de ikramına umutla bağlan." },
+      { id: 86, arapca: "الْمُقْسِط", ad: "El-Muksit", anlam: "Bütün işlerini denk, birbirine uygun ve adaletli yapan.", tefekkur: "Sana haksızlık yapıldığını sandığın anlarda bile bil ki; Muksit olanın hükmünde zerre şaşma yoktur." },
+      { id: 87, arapca: "الْجَامِع", ad: "El-Câmi", anlam: "Birbirine zıt şeyleri bir araya getiren, kıyamette insanları toplayan.", tefekkur: "Bedenini topraktan toplayıp seni Mahşer meydanına getirecek olana hazırlık yap." },
+      { id: 88, arapca: "الْغَنِيّ", ad: "El-Ganiyy", anlam: "Çok zengin, hiçbir şeye muhtaç olmayan.", tefekkur: "Sen muhtaçsın, O ise Gani'dir. Gururu bırak, acziyetini kabul et." },
+      { id: 89, arapca: "الْمُغْنِي", ad: "El-Muğnî", anlam: "Dilediğini zengin kılan, ihtiyaç gideren.", tefekkur: "Gerçek zenginlik mal çokluğu değil, Muğni olanın kalbine vereceği kanaat ve doymuşluktur." },
+      { id: 90, arapca: "الْمَانِع", ad: "El-Mâni", anlam: "Kötü şeylere engel olan.", tefekkur: "Bazen çok istediğin bir şey olmaz, üzülürsün. Oysa Mâni olan Allah, seni bilmediğin bir şerden korumuştur." },
+      { id: 91, arapca: "الضَّارّ", ad: "Ed-Dârr", anlam: "Elem ve zarar veren şeyleri yaratan.", tefekkur: "Hastalık ve musibeti yaratan da O'dur. Bunlar senin günahlarına kefaret ve dereceni yükseltmek içindir." },
+      { id: 92, arapca: "النَّافِع", ad: "En-Nâfi", anlam: "Fayda ve menfaat veren şeyleri yaratan.", tefekkur: "Sana ulaşan her fayda sadece O'ndandır; insanları ancak vesile bil." },
+      { id: 93, arapca: "النُّور", ad: "En-Nûr", anlam: "Âlemleri aydınlatan, akıllara ve kalplere nur veren.", tefekkur: "Karanlıkta kaldığında rehber arama; kalbini Kur'an'ın ve Nûr olanın ışığına aç." },
+      { id: 94, arapca: "الْهَادِي", ad: "El-Hâdî", anlam: "Hidayet veren, doğru yola ulaştıran.", tefekkur: "Kendi aklınla hidayet bulamazsın. 'Bizi dosdoğru yola ilet' diyerek her namazda Hâdî olandan yardım iste." },
+      { id: 95, arapca: "الْبَدِيع", ad: "El-Bedî", anlam: "Örneksiz, misalsiz, eşsiz yaratan.", tefekkur: "Kâinattaki eşsiz sanat O'nundur. Hayatının her anında O'nun yaratma sanatını tefekkür et." },
+      { id: 96, arapca: "الْبَاقِي", ad: "El-Bâkî", anlam: "Varlığının sonu olmayan, ebedi olan.", tefekkur: "Her şey yok olmaya mahkumdur. Yalnızca Bâkî olan Allah için yaptığın ameller kalıcıdır." },
+      { id: 97, arapca: "الْوَارِث", ad: "El-Vâris", anlam: "Bütün mülk ve servetlerin gerçek ve son sahibi.", tefekkur: "Ölüm geldiğinde evlerin, arabaların ve banka hesapların asıl sahibine kalacak. Öyleyse neyin kavgası bu?" },
+      { id: 98, arapca: "الرَّشِيد", ad: "Er-Reşîd", anlam: "Bütün işleri isabetli olan, kullarını doğruya ulaştıran.", tefekkur: "Kararlarında çıkmaza girdiğinde, seni en doğru sonuca ulaştıracak olan Reşîd'e danış (İstihare)." },
       { id: 99, arapca: "الصَّبُور", ad: "Es-Sabûr", anlam: "Günahkarlara ceza vermekte acele etmeyen, çok sabırlı.", tefekkur: "O'nun isyanına karşı bu kadar sabretmesi, sana tövbe etmen için açılmış bir kapıdır." }
     ];
 
@@ -305,7 +391,7 @@
     const BATCH_SIZE = 5; 
     let aktifBatch = [];
     let seciliEsmaBtn = null, seciliAnlamBtn = null, eslesenCiftSayisi = 0;
-    let mevcutMod = '', gozlemModu = false, mevcutHatalar = {}; // O seanstaki hataları sayar
+    let mevcutMod = '', gozlemModu = false, mevcutHatalar = {}; 
 
     /* === SES YÖNETİMİ === */
     let sesAcik = true;
@@ -316,7 +402,7 @@
       const btn = document.getElementById('ses-toggle');
       if(sesAcik) {
         btn.innerText = '🔊'; btn.classList.remove('ses-kapali');
-        if(mevcutMod !== '') baslatLozanovSesi(); // Sadece talimde açsın
+        if(mevcutMod !== '') baslatLozanovSesi(); 
       } else {
         btn.innerText = '🔇'; btn.classList.add('ses-kapali');
         durdurLozanovSesi();
@@ -350,7 +436,7 @@
       }
     }
 
-    /* === ÖZGÜR YEDEKLEME (JSON İNDİR/YÜKLE) === */
+    /* === ÖZGÜR YEDEKLEME === */
     function hafizaYedekle() {
       if(ogrenilenData.length === 0) { alert("Yedeklenecek idrak edilmiş bir Esma yok."); return; }
       const dataStr = JSON.stringify(ogrenilenData);
@@ -428,7 +514,6 @@
         document.getElementById('talimBaslik').innerText = "Zeki Hafıza Tazeleme";
         if(ogrenilenData.length < BATCH_SIZE) { alert("Önce en az 5 isim öğrenmelisin."); karargahaDon(); return; }
         
-        // ZEKİ SEÇİM (Zorluğu en yüksek veya en eski çalışılanlar)
         let srsSiralama = [...ogrenilenData].sort((a, b) => {
           if (b.zorluk !== a.zorluk) return b.zorluk - a.zorluk; 
           return a.sonTekrar - b.sonTekrar; 
@@ -476,12 +561,10 @@
       if(seciliEsmaBtn && seciliAnlamBtn) {
         const id = parseInt(seciliEsmaBtn.dataset.id);
         if(seciliEsmaBtn.dataset.id === seciliAnlamBtn.dataset.id) {
-          // DOĞRU EŞLEŞME
           seciliEsmaBtn.classList.remove('secili'); seciliAnlamBtn.classList.remove('secili');
           seciliEsmaBtn.classList.add('eslesti'); seciliAnlamBtn.classList.add('eslesti');
           seciliEsmaBtn = null; seciliAnlamBtn = null; eslesenCiftSayisi++;
           
-          // SRS GÜNCELLEMESİ
           let esmaKayit = ogrenilenData.find(d => d.id === id);
           const hataYaptiMi = mevcutHatalar[id] > 0;
           
@@ -498,7 +581,6 @@
           setTimeout(() => { tefekkurMolasiniGoster(tEsma, false); }, 800);
           
         } else {
-          // YANLIŞ EŞLEŞME
           mevcutHatalar[id] = (mevcutHatalar[id] || 0) + 1;
           seciliEsmaBtn.classList.add('hata'); seciliAnlamBtn.classList.add('hata');
           seslen("Bu kavram henüz eşleşmedi. Zihnini rahatlat ve tekrar dene.");
@@ -540,7 +622,7 @@
       
       siraliData.forEach(d => {
         const e = tumEsmalar.find(x => x.id === d.id);
-        let kart = document.createElement('article'); // ERİŞİLEBİLİRLİK: div yerine article yapıldı
+        let kart = document.createElement('article'); 
         kart.className = 'liste-kart';
         kart.onclick = () => tefekkurMolasiniGoster(e, true);
         
@@ -557,6 +639,6 @@
 
     window.addEventListener('DOMContentLoaded', initDashboard);
   </script>
-<div class="alt-sis"></div>	
+<div class="alt-sis"></div> 
 </body>
 </html>
