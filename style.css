@@ -52,6 +52,11 @@ body::before {
   
   opacity: 0.04; 
   animation: grain 8s steps(10) infinite;
+
+  /* GPU Hızlandırması ve Performans Optimizasyonu */
+  will-change: transform, opacity; 
+  transform: translateZ(0); 
+  pointer-events: none;
 }
 
 body.dark-mode::before {

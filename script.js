@@ -312,3 +312,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Tarayıcı sekme rengini (theme-color) aktif temaya göre güncelleme
+const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+const themeToggleButton = document.getElementById('theme-toggle');
+
+if (themeToggleButton && metaThemeColor) {
+  themeToggleButton.addEventListener('click', () => {
+    // Sınıfın değişmesi için milisaniyelik bir pay bırakıyoruz
+    setTimeout(() => {
+      if (document.body.classList.contains('dark-mode')) {
+        metaThemeColor.setAttribute('content', '#121212'); // Karanlık mod rengi
+      } else {
+        metaThemeColor.setAttribute('content', '#f8f9fa'); // Aydınlık mod rengi
+      }
+    }, 50);
+  });
+}
