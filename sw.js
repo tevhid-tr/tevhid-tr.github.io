@@ -1,8 +1,8 @@
 const CACHE_NAME = 'tevhid-cache-v2'; // Versiyonu V2 yaptık ki tarayıcılar yeni kodu tanısın
 const urlsToCache = [
   '/',
-  '/style.css?v=9.10',
-  '/script.js?v=9.10',
+  '/style.css?v=9.11',
+  '/script.js?v=9.11',
   '/favicon.png',
   '/offline.html' // YENİ: Çevrimdışı tefekkür sayfamızı zorunlu hafızaya alıyoruz
 ];
