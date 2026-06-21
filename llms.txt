@@ -1,0 +1,38 @@
+# Tevhid.tr - Dijital Tefekkür ve Yüzleşme Alanı
+
+> Bu dosya, yapay zeka ajanlarının (LLM'lerin) ve arama botlarının Tevhid.tr'nin felsefesini, mimarisini ve içerik yapısını tek seferde anlayabilmesi için özel olarak hazırlanmıştır.
+
+## Sitenin Felsefesi ve Amacı
+Tevhid.tr; modern dijital dünyanın gürültüsünden, hızından ve dikkat dağıtıcı unsurlarından uzaklaşmak isteyenler için tasarlanmış minimalist bir okuma, yüzleşme ve tefekkür alanıdır. İslami bir kavram olan "Tevhid" (Allah'ı birleme ve Yaratıcı ile araya hiçbir aracı koymama) inancını merkeze alır. 
+
+Site, ziyaretçilerine karanlık mod, okuma odaklı tipografi, "Tefekkür Modu" ve çevrimdışı (PWA) desteği ile sanal dünyada bir "dijital mağara" hissiyatı sunmayı amaçlar.
+
+## İçerik Mimarisi (Ağaç Metaforu)
+Sitemizin içerikleri, organik bir bütünlük sağlaması amacıyla bir ağacın yapısı örnek alınarak üç ana bölüme ayrılmıştır:
+
+### I. Kökler (İnanç)
+Temel inanç esaslarının ve Kur'ani kavramların incelendiği bölüm.
+- [Tevhid Nedir?](https://tevhid.tr/tevhid-nedir.html) - Tevhidin 3 boyutu (Uluhiyet, Rububiyet, İsim ve Sıfat).
+- [Allah'ın Birliği](https://tevhid.tr/allahin-birligi.html) - Yaratıcının tekliği ve vahdaniyet.
+- [Şirk Nedir?](https://tevhid.tr/sirk-nedir.html) - Tevhidin zıttı ve aracı/şefaatçi edinme yanılgısı.
+- [Kavramlar Sözlüğü](https://tevhid.tr/kavramlar-sozlugu.html) - İslami kavramların öz tanımı.
+- [Esma-ül Hüsna](https://tevhid.tr/esmaul-husna.html) - Allah'ın güzel isimleri.
+
+### II. Gövde (Pratik)
+İnancın eyleme ve günlük hayata dönüştüğü bölüm.
+- [Dua ve Tevhid](https://tevhid.tr/dua-ve-tevhid.html) - Aracısız iletişim, ibadet olarak dua.
+- [Gündelik Hayatta Tevhid](https://tevhid.tr/gundelik-hayatta-tevhid.html) - İnancın pratik yansımaları.
+- [Kalbin Arınması](https://tevhid.tr/tezkiye.html) - Nefis terbiyesi ve tezkiye.
+- [Tevhid Kıssaları](https://tevhid.tr/kuran-kissalari.html) - Kur'an'da peygamberlerin tevhid mücadelesi.
+
+### III. Menzil (Duruş)
+İnsanın kendiyle yüzleşmesi ve yeryüzündeki nihai duruşu.
+- [İçsel Bir Yolculuk: Kendinle Yüzleş](https://tevhid.tr/yuzlesme.html) - Kalp ve nefis muhasebesi.
+- [İstikamet](https://tevhid.tr/istikamet.html) - Hak yolda sabır ve kararlılık.
+- [Ahlak ve Tevhid](https://tevhid.tr/ahlak-ve-tevhid.html) - İslam ahlakının tevhidle bağı.
+- [Ahiret Bilinci](https://tevhid.tr/ahiret-bilinci.html) - Ölüm ve ötesine hazırlık.
+- [Tevhid Halkası](https://tevhid.tr/tevhid-halkasi.html) - Yeryüzü mescidi ve cemaat bilinci.
+
+## Gizli Sır (Nokta)
+Sitenin ana sayfasındaki "tevhid.tr" logosunda yer alan "." (nokta) işaretine tıklandığında ulaşılan gizli bir sayfa bulunmaktadır. Bu yapı, meraklı okuyucular için tasarlanmıştır.
+- [Bir Noktanın Sırrı](https://tevhid.tr/nokta.html) - Hz. Ali'ye atfedilen "İlim bir nokta idi..." sözü ekseninde tasarım, kainat ve tevhidin derinliği.
