@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <title>Esma Mektebi | Tevhid.tr</title>
-  <meta name="description" content="Allah'ın 99 ismini adım adım, tefekkür ederek ve kalbe nakşederek öğrenin." />
+  <title>Esma Mektebi | Allah'ın İsimleri ve Tefekkürü | Tevhid.tr</title>
+  <meta name="description" content="Allah'ın 99 ismini (Esma-ül Hüsna) adım adım öğrenin. Modern insanın rızık, gelecek ve sevilme kaygılarına karşı ilahi reçeteler ve derin bir tefekkür yolculuğu." />
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tevhid.tr/esma-mektebi.html" />
   <meta name="theme-color" content="#121212" id="temaRengi" />
@@ -16,6 +16,10 @@
   <!-- Sosyal Medya Önizlemeleri İçin Resim Boyutları (Hızlı Yüklenme) -->
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image" content="https://tevhid.tr/og-image.png" />
+  <meta name="twitter:image" content="https://tevhid.tr/og-image.png" />
+  <meta property="og:title" content="Esma Mektebi | Allah'ın İsimleri ve Tefekkürü" />
+  <meta property="og:description" content="Allah'ın 99 ismini (Esma-ül Hüsna) aralıklı tekrar yöntemiyle öğrenin. Modern dertlere şifa olacak tefekkür yolculuğu." />
   
   <script type="application/ld+json">
   [
@@ -31,6 +35,28 @@
         "@type": "Organization",
         "name": "Tevhid.tr"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Esmaül Hüsna (Allah'ın isimleri) öğrenmek modern insanın psikolojisine nasıl etki eder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Allah'ın isimlerini öğrenmek sadece bir ezber faaliyeti değil, kalbi sahte ilahlardan arındırma sürecidir. Örneğin; rızık endişesi ve kariyer kaygısı çeken modern insan, 'Er-Rezzak' ismini tefekkür ettiğinde rızkın patrondan veya sistemden değil Allah'tan geldiğini idrak ederek psikolojik bir özgürleşme yaşar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El-Cebbâr ismi ne anlama gelir ve insana nasıl şifa olur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El-Cebbâr ismi sadece 'zor kullanan' değil, aynı zamanda 'kırıkları onaran, dertlere derman olan' demektir. Psikolojik çöküntü yaşayan veya haksızlığa uğrayan bir insan, El-Cebbâr ismine sığınarak kalbindeki manevi kırıklıkların Allah tarafından onarılacağına kesin bir imanla bağlanır."
+          }
+        }
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -98,12 +124,6 @@
     
     .zorluk-gostergesi { position: absolute; top: 10px; right: 15px; font-size: 0.75rem; color: #888; background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 12px; }
 
-    @media (max-width: 768px) {
-      .liste-kart { flex-direction: column; text-align: center; gap: 15px; }
-      .liste-isim-kutu { flex: auto; border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-right: 0; padding-bottom: 15px; width: 100%; }
-      .liste-detay-kutu { text-align: center; }
-    }
-
     /* === OYUN BAŞLIĞI === */
     .oyun-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px dashed var(--border-color); }
     .oyun-header h2 { margin: 0; border: none; font-size: 1.6rem; color: var(--heading-color); }
@@ -130,6 +150,35 @@
     
     .arapca-buyuk { font-size: 1.8rem; font-family: 'Lora', serif; margin-bottom: 5px; color: var(--heading-color); font-weight: 600; line-height: 1.2; }
 
+    /* === TEFEKKÜR KÖŞESİ (AIO SEO BÖLÜMÜ) === */
+    .esma-tefekkur-icerik {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      text-align: left;
+    }
+    
+    .esma-tefekkur-icerik h2 {
+      font-size: 1.8rem;
+      color: var(--heading-color);
+      border: none;
+      margin-bottom: 25px;
+    }
+    
+    .esma-tefekkur-icerik p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+    
+    .esma-tefekkur-icerik h3 {
+      font-size: 1.3rem;
+      color: var(--accent-color);
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
     @media (max-width: 768px) {
       .container { width: 96%; }
       .app-header { padding: 10px 0; margin-bottom: 15px; }
@@ -141,6 +190,9 @@
       .talim-btn { padding: 5px; font-size: 0.7rem; min-height: 65px; border-radius: 8px; line-height: 1.2; border-width: 1px; }
       .arapca-buyuk { font-size: 1.25rem; margin-bottom: 0; }
       .talim-btn.esma-item span:last-child { font-size: 0.75rem; }
+      .liste-kart { flex-direction: column; text-align: center; gap: 15px; }
+      .liste-isim-kutu { flex: auto; border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-right: 0; padding-bottom: 15px; width: 100%; }
+      .liste-detay-kutu { text-align: center; }
     }
 
     /* === TEFEKKÜR MOLASI === */
@@ -168,7 +220,7 @@
     <header class="app-header" role="banner">
       <div class="logo">
         <span class="site-logo">
-          <span style="color: inherit;">tevhid</span><span class="sirli-nokta">.</span><span style="color: inherit;">tr</span>
+          <a href="/" style="color: inherit; text-decoration: none;">tevhid</a><a href="/nokta.html" aria-label="Sır: Tevhidin derinliklerine açılan gizli sayfa" style="text-decoration: none; padding: 10px 4px; margin: -10px -4px; outline: none;"><span class="sirli-nokta">.</span></a><a href="/" style="color: inherit; text-decoration: none;">tr</a>
         </span>
       </div>
       <div class="kontrol-butonlari">
@@ -206,7 +258,7 @@
           </button>
         </div>
 
-        <p style="color: #888; margin-top:0; font-size: 1.05rem;">Dudaklardan kalbe inen bir <dfn class="kavram-ipucu" tabindex="0" data-anlam="Derinlemesine düşünme, varlıklardan Yaratıcı'nın sıfatlarına ulaşma çabası.">tefekkür</dfn> yolculuğu.</p>
+        <p style="color: var(--text-color); margin-top:0; font-size: 1.05rem; opacity: 0.9;">Allah'ın güzel isimleri (Esma-ül Hüsna) sadece ezberlenecek kelimeler değil; modern insanın rızık endişesi, gelecek kaygısı ve psikolojik buhranlarına şifa olacak ilahi reçetelerdir. Bu dijital mektep, ezberin ötesine geçip ilahi sıfatları kalbinize nakşetmek için tasarlandı.</p>
       </div>
 
       <div class="ilerleme-kutusu" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 30px; box-shadow: 0 10px 30px var(--shadow);">
@@ -241,6 +293,21 @@
           <p>Kilitlerini açtığın isimleri ve tefekkürlerini yeniden gözden geçir.</p>
         </button>
       </nav>
+
+      <section class="esma-tefekkur-icerik">
+        <h2>Modern Çağın Dertlerine Esma Reçeteleri</h2>
+        <p>Bütün peygamberlerin ortak çağrısı olan Tevhid, sadece Allah'ın varlığına inanmak değil, O'nu isimleri ve sıfatlarıyla tanıyıp hayatı bu bilinçle yaşamaktır. Allah'ı hakkıyla tanımayan bir kalp, çareyi fani olanda arar ve hüsrana uğrar. İşte Esma-ül Hüsna'nın modern dertlerimize sunduğu ilahi bakış açıları:</p>
+        
+        <h3>Er-Rezzak: Kariyer ve Gelecek Kaygısı</h3>
+        <p>Modern çağın en büyük putu olan bitmek bilmeyen "kariyer hırsı" ve "rızık endişesi", kalpteki Er-Rezzak (Rızkı Veren) inancının sarsılmasından doğar. Bir patronun veya ekonomik krizin rızkını keseceğinden korkan insan, farkında olmadan makamlara boyun eğerek <a href="/tevekkul.html" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">Tevekkül</a> sırrını kaybeder. Rızkın mutlak sahibinin Allah olduğunu bilmek, insanı kula kulluktan kurtarır.</p>
+        
+        <h3>El-Cebbâr: Psikolojik Buhranlar ve Kırgınlıklar</h3>
+        <p>El-Cebbâr ismi, genellikle sadece "zor kullanan" olarak yanlış bilinir. Oysa asıl anlamı "kırıkları saran, onaran, dertlere derman olan" demektir. Kalbiniz kırıldığında, haksızlığa uğradığınızda veya psikolojik bir çıkmaza girdiğinizde, en iyi psikologdan ziyade kırıkları en iyi onaran Cebbâr ismine <a href="/yuzlesme.html" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">İçsel Bir Yüzleşme</a> ile sığınmak gerçek şifadır.</p>
+
+        <h3>El-Fettah: Çaresizlik ve Kapanan Kapılar</h3>
+        <p>Girdiğiniz sınavlar kötü geçtiğinde, mülakatlardan elendiğinizde veya hayatın tüm kapıları yüzünüze kapandığında çaresizlik hissi sarar. El-Fettah (Zorlukları Aşan, Kapıları Açan) ismini tefekkür etmek; kapanan her dünyevi kapının ardından Allah'ın sizin için çok daha hayırlı ve görünmez bir rahmet kapısı açtığını idrak etmektir.</p>
+      </section>
+
     </section>
 
     <section id="ogrenilenlerEkrani" aria-labelledby="ogrenilenler-baslik" role="region">
@@ -349,7 +416,7 @@
       { id: 62, arapca: "الْمُمِيت", ad: "El-Mümît", anlam: "Canlıların ölümünü yaratan.", tefekkur: "Ölümü yaratan O'dur. Ölümden değil, O'nun huzuruna tevhidsiz çıkmaktan kork." },
       { id: 63, arapca: "الْحَيّ", ad: "El-Hayy", anlam: "Diri olan, hayatı ebedi olan.", tefekkur: "Herkes ölecek ve her şey yok olacak. Sadece Hayy olan Rabbinin yüzü baki kalacaktır." },
       { id: 64, arapca: "الْقَيُّوم", ad: "El-Kayyûm", anlam: "Gökleri, yeri ve her şeyi ayakta tutan.", tefekkur: "Evren kendi kendine dönmüyor; O bir an bıraksa her şey helak olur. İpler O'nun elindedir." },
-      { id: 65, arapca: "الْوَاجِد", ad: "El-Vâcid", anlam: "İstediğini, istediği an bulan, hiçbir şeye muhtaç olmayan.", tefekkur: "O'nun hiçbir şeye ihtiyacı yoktur, ibadetine muhtaç olan sensin." },
+      { id: 65, arapca: "الْوَاجِد", ad: "El-Vâ局د", anlam: "İstediğini, istediği an bulan, hiçbir şeye muhtaç olmayan.", tefekkur: "O'nun hiçbir şeye ihtiyacı yoktur, ibadetine muhtaç olan sensin." },
       { id: 66, arapca: "الْمَاجِد", ad: "El-Mâcid", anlam: "Kadri ve şanı büyük, kerem ve cömertliği bol olan.", tefekkur: "O'nun kapısına giden boş çevrilmez; O'nun ikramı mahlukatın hayal edemeyeceği kadar büyüktür." },
       { id: 67, arapca: "الْوَاحِد", ad: "El-Vâhid", anlam: "Zatında, sıfatlarında ve işlerinde eşi ve ortağı olmayan.", tefekkur: "Tevhidin kalbi. O tektir, öyleyse senin sevgin, korkun ve itaatin de sadece O'na olmalıdır." },
       { id: 68, arapca: "الصَّمَد", ad: "Es-Samed", anlam: "Her şey O'na muhtaç olan, O ise hiçbir şeye muhtaç olmayan.", tefekkur: "İhtiyaçlarını fani insanlara değil, Samed olan Allah'a arz et." },
